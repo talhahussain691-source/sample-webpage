@@ -1,23 +1,398 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Welcome</title>
-  <style>
-    html, body { height: 100%; margin: 0; }
-    body {
-      background: #ffffff;
-      color: #1d1d27;
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    h1 { font-size: clamp(2rem, 8vw, 4rem); margin: 0; }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BERI — Premium Disposables</title>
+<meta name="description" content="BERI Crush, Cliq and Cirql. Mesh coils, big batteries and Type-C charging. For adults 21+ only.">
+<link rel="icon" type="image/png" href="assets/img/beri-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
+<style>
+@font-face{font-family:"GraffitiBomb Outline";src:url("assets/fonts/GraffitiBombV2-Outline.ttf") format("truetype");font-display:swap}
+:root{--bg:#F6F3EE;--bg-2:#EDE8DF;--bg-3:#FFFFFF;--line:#DDD6CA;--fg:#111113;--mute:#5E5A53;--gold:#D9C38A;--gold-ink:#7A5F14;--dark:#111113;--display:'Anton',Impact,sans-serif;--display-outline:'GraffitiBomb Outline','Anton',Impact,sans-serif;--body:'Inter',system-ui,sans-serif;--ease:cubic-bezier(.2,.7,.2,1)}
+.beri-dark{--bg:#111113;--bg-2:#17171A;--bg-3:#1E1E22;--line:#2C2C31;--fg:#F3F0E9;--mute:#B0ACA5;--gold-ink:#D9C38A;background-color:#111113;color:#F3F0E9}
+.beri-pattern{position:relative;isolation:isolate;overflow:clip}
+.beri-pattern::before{content:"";position:absolute;inset:-50%;z-index:-1;background-image:url("assets/img/beri-logo-tile.png"),url("assets/img/beri-logo-tile.png");background-size:220px 140px,220px 140px;background-position:0 0,110px 70px;background-repeat:repeat;transform:rotate(-24deg);opacity:.07;pointer-events:none}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#F6F3EE;color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.6}
+a{color:#111113}a:hover{color:#7A5F14}
+img{max-width:100%}
+.rv-ready [data-reveal]{opacity:0;transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.rv-ready [data-reveal="up"]{transform:translateY(56px)}
+.rv-ready [data-reveal="left"]{transform:translateX(-64px)}
+.rv-ready [data-reveal="right"]{transform:translateX(64px)}
+.rv-ready [data-reveal="scale"]{transform:scale(.92)}
+.rv-ready [data-reveal][data-in]{opacity:1;transform:none}
+@keyframes beriMarquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.beri-marquee{animation:beriMarquee 32s linear infinite}
+.beri-link{position:relative}
+.beri-link::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;background:#D9C38A;transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
+.beri-link:hover::after{transform:scaleX(1)}
+.site-header{transition:background .4s ease,border-color .4s ease,backdrop-filter .4s ease;background:rgba(246,243,238,0);border-bottom:1px solid rgba(17,17,19,0)}
+.site-header.is-scrolled{background:rgba(246,243,238,.72);backdrop-filter:blur(18px) saturate(160%);-webkit-backdrop-filter:blur(18px) saturate(160%);border-bottom-color:rgba(17,17,19,.08);box-shadow:0 8px 30px rgba(17,17,19,.06)}
+.strip-btn{flex:0 0 auto;min-height:56px;padding:0 34px;border:none;border-radius:999px;font:inherit;font-size:17px;font-weight:700;white-space:nowrap;cursor:pointer;transition:background .3s ease,color .3s ease;background:transparent;color:#FFFFFF}
+.strip-btn[aria-pressed="true"]{background:#FFFFFF;color:var(--c)}
+.product-card{transition-property:opacity,transform,box-shadow}
+.product-card.is-active{box-shadow:0 0 0 4px #F6F3EE,0 0 0 7px var(--c)}
+@media (max-width:899px){
+  .hero-sub{display:none}
+  .hero-logo{max-width:240px !important}
+  .hero-tag{font-size:30px !important}
+  .nav-links{gap:18px !important;font-size:11px !important;letter-spacing:.16em !important}
+  .big-head{font-size:72px !important}
+  .wholesale-card{padding:40px 24px !important}
+  .tech-big{flex-basis:100% !important}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.rv-ready [data-reveal]{opacity:1;transform:none;transition:none}.beri-marquee{animation:none}}
+</style>
 </head>
 <body>
-  <h1>Welcome</h1>
+
+<div style="position: sticky; top: 0; z-index: 50">
+<div style="background: #FFFFFF; color: #000000; text-align: center; font-weight: 700; font-size: 15px; padding: 8px 16px; line-height: 1.35; border-bottom: 1px solid #DDD6CA">WARNING: This product contains nicotine. Nicotine is an addictive chemical.</div>
+<header class="site-header">
+<nav style="max-width: 1320px; margin: 0 auto; padding: 0 32px; min-height: 80px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<a href="#top" aria-label="BERI home" style="display: flex; align-items: center; text-decoration: none">
+<img src="assets/img/beri-logo.png" alt="BERI" style="display: block; height: 46px; width: auto">
+</a>
+<div class="nav-links" style="display: flex; flex-wrap: wrap; align-items: center; gap: 40px; font-size: 13px; font-weight: 600; letter-spacing: 0.22em">
+<a class="beri-link" href="#products" style="color: var(--fg); text-decoration: none">PRODUCTS</a>
+<a class="beri-link" href="#technology" style="color: var(--fg); text-decoration: none">TECHNOLOGY</a>
+<a class="beri-link" href="#features" style="color: var(--fg); text-decoration: none">FEATURES</a>
+<a class="beri-link" href="#wholesale" style="color: var(--fg); text-decoration: none">WHOLESALE</a>
+</div>
+</nav>
+</header>
+</div>
+
+<main id="top">
+<section id="hero-scroll" aria-label="BERI lineup" style="position: relative; margin-top: -80px">
+<div id="hero-stage" style="position: relative; height: 900px; min-height: 720px; overflow: hidden">
+<div id="hero-glow" aria-hidden="true"></div>
+<div id="hero-word" aria-hidden="true">THE LINEUP</div>
+
+<div id="hero-copy">
+<span style="font-size: 13px; font-weight: 600; letter-spacing: 0.32em; color: var(--gold-ink)">PREMIUM DISPOSABLES · ADULTS 21+</span>
+<h1 style="margin: 0">
+<img class="hero-logo" src="assets/img/beri-logo.png" alt="BERI" style="display: block; width: 100%; max-width: 420px; height: auto">
+</h1>
+<p class="hero-tag" style="margin: 0; font-family: var(--display); font-size: 44px; line-height: 1.05; text-transform: uppercase">Built for 50,000 puffs.<br>Engineered to last.</p>
+<p class="hero-sub" style="margin: 0; font-size: 18px; color: var(--mute)">Crush, Cliq and Cirql. Mesh coils, big batteries and Type-C charging in a lineup designed to go the distance.</p>
+<a href="#products" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 12px; min-height: 56px; padding: 0 32px; border-radius: 999px; background: var(--fg); color: var(--bg); font-weight: 700; letter-spacing: 0.08em; text-decoration: none">EXPLORE THE LINEUP
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"></path><path d="M6 13l6 6 6-6"></path></svg>
+</a>
+</div>
+
+<div style="position: absolute; inset: 0; z-index: 2; pointer-events: none">
+<figure class="hero-device" data-name="CRUSH">
+<img src="assets/img/beri-crush.webp" alt="BERI Crush device in green with HD screen">
+<figcaption><span style="background: #C81E64"></span>BERI CRUSH</figcaption>
+</figure>
+<figure class="hero-device" data-name="CLIQ">
+<img src="assets/img/beri-cliq.webp" alt="BERI Cliq device in Blue Rancher">
+<figcaption><span style="background: #0F7A42"></span>BERI CLIQ</figcaption>
+</figure>
+<figure class="hero-device" data-name="CIRQL">
+<img src="assets/img/beri-cirql.webp" alt="BERI Cirql device in red with gold pattern and Boost and Regular modes">
+<figcaption><span style="background: #7A1626"></span>BERI CIRQL</figcaption>
+</figure>
+</div>
+
+<div id="hero-hint" aria-hidden="true">
+<span>SCROLL</span>
+<span style="display: block; width: 2px; height: 40px; background: var(--fg); opacity: 0.4"></span>
+</div>
+</div>
+</section>
+
+<div class="beri-dark" aria-hidden="true" style="overflow: hidden; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--bg-2); padding: 22px 0">
+<div class="beri-marquee" style="display: flex; width: max-content; gap: 56px; font-family: var(--display-outline); font-size: 34px; letter-spacing: -0.126em; text-transform: uppercase; white-space: nowrap; color: var(--fg)">
+<span>Up to 50,000 puffs</span><span style="color: var(--gold-ink)">✦</span><span>40W Crush Mode</span><span style="color: var(--gold-ink)">✦</span><span>Quad-mesh coil</span><span style="color: var(--gold-ink)">✦</span><span>360° crystal tank</span><span style="color: var(--gold-ink)">✦</span><span>Type-C fast charging</span><span style="color: var(--gold-ink)">✦</span>
+<span>Up to 50,000 puffs</span><span style="color: var(--gold-ink)">✦</span><span>40W Crush Mode</span><span style="color: var(--gold-ink)">✦</span><span>Quad-mesh coil</span><span style="color: var(--gold-ink)">✦</span><span>360° crystal tank</span><span style="color: var(--gold-ink)">✦</span><span>Type-C fast charging</span><span style="color: var(--gold-ink)">✦</span>
+</div>
+</div>
+
+<section id="products" style="scroll-margin-top: 120px; max-width: 1320px; margin: 0 auto; padding: 140px 32px; display: flex; flex-direction: column; gap: 56px; min-height: 941px">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px">
+<h2 class="big-head" data-reveal="up" style="margin: 0; font-family: var(--display); font-weight: 400; font-size: 120px; line-height: 0.9; text-transform: uppercase">The<br>lineup</h2>
+<p data-reveal="up" style="margin: 0; max-width: 420px; font-size: 18px; color: var(--mute); transition-delay: 120ms">Three devices, one standard. Pick the format that fits how you vape.</p>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 24px">
+
+<article id="product-crush" class="product-card is-active" data-reveal="up" style="--c: #C81E64; flex: 1 1 360px; min-width: 0; min-height: 640px; scroll-margin-top: 140px; border-radius: 32px; background: #C81E64; color: #FFFFFF; padding: 32px; display: flex; flex-direction: column; justify-content: space-between; gap: 24px; overflow: hidden">
+<div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 16px">
+<span style="font-size: 12px; font-weight: 700; letter-spacing: 0.28em">BERI</span>
+<span style="font-size: 12px; font-weight: 700; letter-spacing: 0.18em; padding: 6px 12px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.5)">32 FLAVORS</span>
+</div>
+<img src="assets/img/beri-crush.webp" alt="BERI Crush device in green with HD screen" loading="lazy" style="display: block; width: 100%; height: 300px; object-fit: contain; filter: drop-shadow(0 24px 36px rgba(0,0,0,0.35))">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<h3 style="margin: 0; font-family: var(--display); font-weight: 400; font-size: 88px; line-height: 0.9">CRUSH</h3>
+<p style="margin: 0; font-size: 16px; color: rgba(255,255,255,0.92)">Up to 50,000 puffs, 40W Crush Mode and a 1.77 inch HD display.</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.3)">
+<div style="display: flex; flex-direction: column"><span style="font-family: var(--display); font-size: 28px; line-height: 1.1">50K</span><span style="font-size: 13px; color: rgba(255,255,255,0.85)">Puffs (up to)</span></div>
+<div style="display: flex; flex-direction: column"><span style="font-family: var(--display); font-size: 28px; line-height: 1.1">20 mL</span><span style="font-size: 13px; color: rgba(255,255,255,0.85)">E-liquid</span></div>
+<div style="display: flex; flex-direction: column"><span style="font-family: var(--display); font-size: 28px; line-height: 1.1">1,000</span><span style="font-size: 13px; color: rgba(255,255,255,0.85)">mAh battery</span></div>
+</div>
+</article>
+
+<article id="product-cliq" class="product-card" data-reveal="up" style="--c: #0F7A42; flex: 1 1 360px; min-width: 0; min-height: 640px; scroll-margin-top: 140px; border-radius: 32px; background: #0F7A42; color: #FFFFFF; padding: 32px; display: flex; flex-direction: column; justify-content: space-between; gap: 24px; overflow: hidden; transition-delay: 120ms">
+<div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 16px">
+<span style="font-size: 12px; font-weight: 700; letter-spacing: 0.28em">BERI</span>
+<span style="font-size: 12px; font-weight: 700; letter-spacing: 0.18em; padding: 6px 12px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.5)">REFILLABLE POD</span>
+</div>
+<img src="assets/img/beri-cliq.webp" alt="BERI Cliq device in Blue Rancher" loading="lazy" style="display: block; width: 100%; height: 300px; object-fit: contain; filter: drop-shadow(0 24px 36px rgba(0,0,0,0.35))">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<h3 style="margin: 0; font-family: var(--display); font-weight: 400; font-size: 88px; line-height: 0.9">CLIQ</h3>
+<p style="margin: 0; font-size: 16px; color: rgba(255,255,255,0.92)">360° crystal tank, dual mesh coils and a refillable pod system.</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.3)">
+<div style="display: flex; flex-direction: column"><span style="font-family: var(--display); font-size: 28px; line-height: 1.1">50K</span><span style="font-size: 13px; color: rgba(255,255,255,0.85)">Puffs, Normal Mode</span></div>
+<div style="display: flex; flex-direction: column"><span style="font-family: var(--display); font-size: 28px; line-height: 1.1">18 mL</span><span style="font-size: 13px; color: rgba(255,255,255,0.85)">E-liquid</span></div>
+<div style="display: flex; flex-direction: column"><span style="font-family: var(--display); font-size: 28px; line-height: 1.1">900</span><span style="font-size: 13px; color: rgba(255,255,255,0.85)">mAh battery</span></div>
+</div>
+</article>
+
+<article id="product-cirql" class="product-card" data-reveal="up" style="--c: #7A1626; flex: 1 1 360px; min-width: 0; min-height: 640px; scroll-margin-top: 140px; border-radius: 32px; background: #7A1626; color: #FFFFFF; padding: 32px; display: flex; flex-direction: column; justify-content: space-between; gap: 24px; overflow: hidden; transition-delay: 240ms">
+<div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 16px">
+<span style="font-size: 12px; font-weight: 700; letter-spacing: 0.28em">BERI</span>
+<span style="font-size: 12px; font-weight: 700; letter-spacing: 0.18em; padding: 6px 12px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.5)">NEW</span>
+</div>
+<img src="assets/img/beri-cirql.webp" alt="BERI Cirql device in red with gold pattern and Boost and Regular modes" loading="lazy" style="display: block; width: 100%; height: 300px; object-fit: contain; filter: drop-shadow(0 24px 36px rgba(0,0,0,0.35))">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<h3 style="margin: 0; font-family: var(--display); font-weight: 400; font-size: 88px; line-height: 0.9">CIRQL</h3>
+<p style="margin: 0; font-size: 16px; color: rgba(255,255,255,0.92)">[Cirql ki one-line tagline]</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.3)">
+<div style="display: flex; flex-direction: column"><span style="font-family: var(--display); font-size: 28px; line-height: 1.1">[PUFFS]</span><span style="font-size: 13px; color: rgba(255,255,255,0.85)">Puffs (up to)</span></div>
+<div style="display: flex; flex-direction: column"><span style="font-family: var(--display); font-size: 28px; line-height: 1.1">[mL]</span><span style="font-size: 13px; color: rgba(255,255,255,0.85)">E-liquid</span></div>
+<div style="display: flex; flex-direction: column"><span style="font-family: var(--display); font-size: 28px; line-height: 1.1">[mAh]</span><span style="font-size: 13px; color: rgba(255,255,255,0.85)">mAh battery</span></div>
+</div>
+</article>
+
+</div>
+</section>
+
+<section id="technology" class="beri-dark beri-pattern" style="scroll-margin-top: 120px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background-color: #000000">
+<div style="max-width: 1320px; margin: 0 auto; padding: 140px 32px; display: flex; flex-wrap: wrap; gap: 64px; align-items: flex-start">
+<div style="flex: 1 1 420px; min-width: 0; position: sticky; top: 180px; display: flex; flex-direction: column; gap: 20px">
+<span data-reveal="left" style="font-size: 13px; font-weight: 600; letter-spacing: 0.32em; color: var(--gold-ink)">TECHNOLOGY</span>
+<h2 class="big-head" data-reveal="left" style="margin: 0; font-family: var(--display); font-weight: 400; font-size: 104px; line-height: 0.9; text-transform: uppercase; transition-delay: 80ms">Engineered<br>to outlast.</h2>
+<p data-reveal="left" style="margin: 0; max-width: 440px; font-size: 18px; color: var(--mute); transition-delay: 160ms">Every BERI is built around mesh heating, high-capacity batteries and fast Type-C charging.</p>
+<img data-reveal="left" src="assets/img/crush-40w.jpg" alt="BERI Crush: up to 40W power" loading="lazy" style="display: block; width: 100%; max-width: 520px; height: auto; border-radius: 24px; margin-top: 12px; transition-delay: 240ms">
+</div>
+<div style="flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column">
+<div data-reveal="right" style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 32px; padding: 32px 0; border-bottom: 1px solid var(--line)">
+<span class="tech-big" style="flex: 0 0 220px; font-family: var(--display); font-size: 56px; line-height: 1; color: var(--fg)">50K</span>
+<div style="flex: 1 1 240px; min-width: 0; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 18px; font-weight: 700">Up to 50,000 puffs</span><span style="font-size: 16px; color: var(--mute)">Crush and Cliq both run up to 50,000 puffs. Cliq Mode gives up to 25,000 at higher output.</span></div>
+</div>
+<div data-reveal="right" style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 32px; padding: 32px 0; border-bottom: 1px solid var(--line)">
+<span class="tech-big" style="flex: 0 0 220px; font-family: var(--display); font-size: 56px; line-height: 1; color: var(--fg)">40W</span>
+<div style="flex: 1 1 240px; min-width: 0; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 18px; font-weight: 700">Crush Mode</span><span style="font-size: 16px; color: var(--mute)">One switch on Crush kicks power up to 40W for a more intense hit.</span></div>
+</div>
+<div data-reveal="right" style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 32px; padding: 32px 0; border-bottom: 1px solid var(--line)">
+<span class="tech-big" style="flex: 0 0 220px; font-family: var(--display); font-size: 56px; line-height: 1; color: var(--fg)">1.77"</span>
+<div style="flex: 1 1 240px; min-width: 0; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 18px; font-weight: 700">HD display</span><span style="font-size: 16px; color: var(--mute)">Crush shows battery and e-liquid levels on a 1.77 inch HD screen.</span></div>
+</div>
+<div data-reveal="right" style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 32px; padding: 32px 0; border-bottom: 1px solid var(--line)">
+<span class="tech-big" style="flex: 0 0 220px; font-family: var(--display); font-size: 56px; line-height: 1; color: var(--fg)">360°</span>
+<div style="flex: 1 1 240px; min-width: 0; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 18px; font-weight: 700">Crystal tank</span><span style="font-size: 16px; color: var(--mute)">Cliq’s transparent tank and refillable pod system let you see every drop.</span></div>
+</div>
+<div data-reveal="right" style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 32px; padding: 32px 0; border-bottom: 1px solid var(--line)">
+<span class="tech-big" style="flex: 0 0 220px; font-family: var(--display); font-size: 56px; line-height: 1; color: var(--fg)">MESH</span>
+<div style="flex: 1 1 240px; min-width: 0; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 18px; font-weight: 700">Quad and dual mesh coils</span><span style="font-size: 16px; color: var(--mute)">Quad-coil mesh on Crush, dual mesh on Cliq, for even heating and full flavor.</span></div>
+</div>
+<div data-reveal="right" style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 32px; padding: 32px 0; border-bottom: 1px solid var(--line)">
+<span class="tech-big" style="flex: 0 0 220px; font-family: var(--display); font-size: 56px; line-height: 1; color: var(--fg)">USB-C</span>
+<div style="flex: 1 1 240px; min-width: 0; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 18px; font-weight: 700">Fast Type-C charging</span><span style="font-size: 16px; color: var(--mute)">1,000 mAh on Crush and 900 mAh on Cliq, both topped up over Type-C.</span></div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="features" aria-label="Features" style="scroll-margin-top: 120px; max-width: 1320px; margin: 0 auto; padding: 140px 32px 0; display: flex; flex-direction: column; gap: 24px">
+<img data-reveal="scale" src="assets/img/banner-40w.webp" alt="BERI Crush: up to 40W power" loading="lazy" style="display: block; width: 100%; height: auto; aspect-ratio: 4 / 1; object-fit: cover; border-radius: 28px">
+<img data-reveal="scale" src="assets/img/banner-quad-coil.webp" alt="Quad coil technology" loading="lazy" style="display: block; width: 100%; height: auto; aspect-ratio: 4 / 1; object-fit: cover; border-radius: 28px">
+<img data-reveal="scale" src="assets/img/banner-hd-screen.webp" alt="Interactive HD screen" loading="lazy" style="display: block; width: 100%; height: auto; aspect-ratio: 4 / 1; object-fit: cover; border-radius: 28px">
+<div style="display: flex; flex-wrap: wrap; gap: 16px; padding-top: 24px">
+<img data-reveal="up" src="assets/img/feature-40w.png" alt="40 watt super power" loading="lazy" style="display: block; flex: 1 1 300px; min-width: 0; height: auto; aspect-ratio: 5 / 2; object-fit: contain">
+<img data-reveal="up" src="assets/img/feature-auto-adaptive.png" alt="World 1st auto-adaptive power" loading="lazy" style="display: block; flex: 1 1 300px; min-width: 0; height: auto; aspect-ratio: 5 / 2; object-fit: contain; transition-delay: 100ms">
+<img data-reveal="up" src="assets/img/feature-airflow.png" alt="Adjustable airflow" loading="lazy" style="display: block; flex: 1 1 300px; min-width: 0; height: auto; aspect-ratio: 5 / 2; object-fit: contain; transition-delay: 200ms">
+<img data-reveal="up" src="assets/img/feature-charging.png" alt="2.5x charging speed" loading="lazy" style="display: block; flex: 1 1 300px; min-width: 0; height: auto; aspect-ratio: 5 / 2; object-fit: contain">
+<img data-reveal="up" src="assets/img/feature-quad-coil.png" alt="Quad coil technology" loading="lazy" style="display: block; flex: 1 1 300px; min-width: 0; height: auto; aspect-ratio: 5 / 2; object-fit: contain; transition-delay: 100ms">
+<img data-reveal="up" src="assets/img/feature-hd-screen.png" alt="Interactive HD screen" loading="lazy" style="display: block; flex: 1 1 300px; min-width: 0; height: auto; aspect-ratio: 5 / 2; object-fit: contain; transition-delay: 200ms">
+</div>
+</section>
+
+<section id="wholesale" style="scroll-margin-top: 120px; padding: 140px 32px">
+<div class="wholesale-card" data-reveal="scale" style="position: relative; overflow: hidden; max-width: 1320px; margin: 0 auto; border-radius: 40px; background: #3B1478; color: #FFFFFF; padding: 72px 64px; display: flex; flex-wrap: wrap; align-items: stretch; justify-content: space-between; gap: 48px">
+<img src="assets/img/beri-logo.png" alt="" aria-hidden="true" style="position: absolute; right: -60px; bottom: -90px; width: 560px; max-width: none; height: auto; opacity: 0.08; pointer-events: none">
+<div style="position: relative; flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 20px">
+<span style="align-self: flex-start; font-size: 12px; font-weight: 700; letter-spacing: 0.32em; color: #3B1478; background: #D8C8FF; padding: 8px 14px; border-radius: 999px">WHOLESALE</span>
+<h2 class="big-head" style="margin: 0; font-family: var(--display); font-weight: 400; font-size: 120px; line-height: 0.88; text-transform: uppercase">Stock<br><span style="color: #D8C8FF">BERI.</span></h2>
+<p style="margin: 0; max-width: 480px; font-size: 18px; color: #E6DDFB">Retailers and distributors: get wholesale pricing, availability and authentic BERI supply across the full lineup.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px 28px; font-size: 15px; font-weight: 600; color: #FFFFFF">
+<span style="display: inline-flex; align-items: center; gap: 8px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#D8C8FF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg>Wholesale pricing</span>
+<span style="display: inline-flex; align-items: center; gap: 8px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#D8C8FF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg>All three product lines</span>
+<span style="display: inline-flex; align-items: center; gap: 8px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#D8C8FF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg>Authenticity verification</span>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 12px; padding-top: 12px">
+<a href="mailto:wholesale@beridisposable.com" style="display: inline-flex; align-items: center; gap: 10px; min-height: 60px; padding: 0 30px; border-radius: 999px; background: #FFFFFF; color: #3B1478; font-weight: 700; text-decoration: none">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7l9 6 9-6"></path></svg>
+wholesale@beridisposable.com</a>
+<a href="https://beridisposable.com/authenticate" style="display: inline-flex; align-items: center; min-height: 60px; padding: 0 28px; border-radius: 999px; border: 1.5px solid rgba(255,255,255,0.55); color: #FFFFFF; font-weight: 600; text-decoration: none">Verify a device →</a>
+</div>
+</div>
+<div style="position: relative; flex: 1 1 380px; min-width: 0; display: flex; flex-direction: column; justify-content: center; gap: 12px">
+<span style="font-size: 12px; font-weight: 700; letter-spacing: 0.28em; color: #D8C8FF">THE LINEUP</span>
+<div style="display: flex; align-items: center; gap: 16px; padding: 20px 22px; border-radius: 22px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.16)">
+<span aria-hidden="true" style="flex: 0 0 auto; width: 14px; height: 44px; border-radius: 999px; background: #FF7DB0"></span>
+<div style="display: flex; flex-direction: column; line-height: 1.3"><span style="font-family: var(--display); font-size: 28px; letter-spacing: 0.02em">BERI CRUSH</span><span style="font-size: 14px; color: #E6DDFB">Up to 50,000 puffs · 20 mL · 40W Crush Mode</span></div>
+</div>
+<div style="display: flex; align-items: center; gap: 16px; padding: 20px 22px; border-radius: 22px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.16)">
+<span aria-hidden="true" style="flex: 0 0 auto; width: 14px; height: 44px; border-radius: 999px; background: #5BE39A"></span>
+<div style="display: flex; flex-direction: column; line-height: 1.3"><span style="font-family: var(--display); font-size: 28px; letter-spacing: 0.02em">BERI CLIQ</span><span style="font-size: 14px; color: #E6DDFB">Up to 50,000 puffs · 18 mL refillable pod</span></div>
+</div>
+<div style="display: flex; align-items: center; gap: 16px; padding: 20px 22px; border-radius: 22px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.16)">
+<span aria-hidden="true" style="flex: 0 0 auto; width: 14px; height: 44px; border-radius: 999px; background: #F2A1AC"></span>
+<div style="display: flex; flex-direction: column; line-height: 1.3"><span style="font-family: var(--display); font-size: 28px; letter-spacing: 0.02em">BERI CIRQL</span><span style="font-size: 14px; color: #E6DDFB">[Cirql key specs]</span></div>
+</div>
+</div>
+</div>
+</section>
+</main>
+
+<footer class="beri-dark" style="border-top: 1px solid var(--line)">
+<div style="max-width: 1320px; margin: 0 auto; padding: 56px 32px 140px; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px">
+<img src="assets/img/beri-logo.png" alt="BERI" style="display: block; height: 80px; width: auto">
+<div style="display: flex; flex-wrap: wrap; gap: 32px; font-size: 13px; font-weight: 600; letter-spacing: 0.22em">
+<a class="beri-link" href="#products" style="color: var(--fg); text-decoration: none">PRODUCTS</a>
+<a class="beri-link" href="#technology" style="color: var(--fg); text-decoration: none">TECHNOLOGY</a>
+<a class="beri-link" href="#features" style="color: var(--fg); text-decoration: none">FEATURES</a>
+<a class="beri-link" href="#wholesale" style="color: var(--fg); text-decoration: none">WHOLESALE</a>
+</div>
+</div>
+<p style="margin: 0; font-size: 14px; color: var(--mute)">Sale of these products is restricted to adults 21 and over. WARNING: This product contains nicotine. Nicotine is an addictive chemical.</p>
+<p style="margin: 0; font-size: 14px; color: var(--mute)">Copyright © 2025 BERIdisposable.com – All Rights Reserved.</p>
+</div>
+</footer>
+
+<nav aria-label="Products" style="position: fixed; z-index: 60; left: 50%; bottom: 24px; transform: translateX(-50%); max-width: calc(100% - 32px); overflow-x: auto; display: flex; gap: 6px; padding: 8px; border-radius: 999px; background: rgba(17,17,19,0.86); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); border: 1px solid rgba(255,255,255,0.14); box-shadow: 0 16px 48px rgba(17,17,19,0.35)">
+<button type="button" class="strip-btn" data-index="0" aria-pressed="true" style="--c: #C81E64">Beri Crush</button>
+<button type="button" class="strip-btn" data-index="1" aria-pressed="false" style="--c: #0F7A42">Beri Cliq</button>
+<button type="button" class="strip-btn" data-index="2" aria-pressed="false" style="--c: #7A1626">Beri Cirql</button>
+</nav>
+
+<script>
+(function () {
+  var reduce = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+  var motionOn = !reduce;
+
+  // Sticky header turns to frosted glass once the page scrolls.
+  var header = document.querySelector('.site-header');
+
+  // Hero scroll choreography: p runs 0 to 1 while the pinned hero stage is on screen.
+  var track = document.getElementById('hero-scroll');
+  var stage = document.getElementById('hero-stage');
+  var glow = document.getElementById('hero-glow');
+  var word = document.getElementById('hero-word');
+  var copy = document.getElementById('hero-copy');
+  var hint = document.getElementById('hero-hint');
+  var devices = Array.prototype.slice.call(document.querySelectorAll('.hero-device'));
+  var heroH = { CRUSH: 420, CLIQ: 400, CIRQL: 520 };
+
+  function clamp01(v) { return Math.min(1, Math.max(0, v)); }
+  function ease(v) { return v < 0.5 ? 4 * v * v * v : 1 - Math.pow(-2 * v + 2, 3) / 2; }
+  function lerp(a, b, t) { return a + (b - a) * t; }
+
+  function heroProgress(vh) {
+    if (!motionOn) return 0;
+    var r = track.getBoundingClientRect();
+    var total = r.height - vh;
+    return total > 0 ? clamp01(-r.top / total) : 0;
+  }
+
+  function renderHero() {
+    var vw = window.innerWidth || 1440;
+    var vh = window.innerHeight || 900;
+    var pinned = motionOn;
+    track.style.height = pinned ? '2600px' : 'auto';
+    stage.style.cssText = (pinned ? 'position: sticky; top: 0; height: 100vh; ' : 'position: relative; height: 900px; ') + 'min-height: 720px; overflow: hidden';
+
+    var p = heroProgress(vh);
+    var t = ease(clamp01((p - 0.06) / 0.6));
+    var copyOut = ease(clamp01(p / 0.3));
+    var labelsIn = ease(clamp01((p - 0.6) / 0.25));
+    var wordIn = ease(clamp01((p - 0.45) / 0.4));
+    var mobile = vw < 900;
+    var k = mobile ? Math.max(0.5, vw / 900) : Math.min(1.15, vw / 1440);
+    var sizeK = mobile ? 0.6 : Math.min(1, Math.max(0.6, ((pinned ? vh : 900) - 240) / 660));
+    var contentLeft = Math.max(32, (vw - 1320) / 2 + 32);
+    // [x, y, rotate, scale, z] at the start (clustered beside the copy) and at the end (a centred row).
+    var frames = mobile
+      ? { CRUSH: [[0, 230, -8, 1, 3], [0, 40, 0, 1, 3]], CLIQ: [[-95, 255, -16, 0.86, 2], [-0.3 * vw, 40, 0, 0.95, 2]], CIRQL: [[95, 220, 12, 0.88, 1], [0.3 * vw, 40, 0, 0.95, 1]] }
+      : { CRUSH: [[300, 30, -10, 1, 3], [0, -10, 0, 1, 3]], CLIQ: [[110, 70, -18, 0.82, 2], [-380, -10, 0, 0.98, 2]], CIRQL: [[480, 10, 12, 0.86, 1], [380, -10, 0, 0.98, 1]] };
+
+    glow.style.cssText = 'position: absolute; z-index: 0; left: 50%; top: 50%; width: 1000px; height: 1000px; border-radius: 999px; background: radial-gradient(closest-side, rgba(217,195,138,0.45), rgba(217,195,138,0)); transform: translate(-50%, -50%) translateX(' + lerp(mobile ? 0 : 300, 0, t) * k + 'px) scale(' + lerp(0.8, 1.2, t) + ')';
+    word.style.cssText = 'position: absolute; z-index: 1; left: 50%; top: ' + (mobile ? '58%' : '50%') + '; font-family: var(--display); font-size: ' + Math.round(vw * 0.19) + 'px; line-height: 1; white-space: nowrap; color: var(--fg); pointer-events: none; opacity: ' + (0.07 * wordIn) + '; transform: translate(-50%, -50%) scale(' + lerp(0.85, 1, wordIn) + ')';
+    copy.style.cssText = 'position: absolute; z-index: 3; display: flex; flex-direction: column; gap: 20px; ' + (mobile ? 'left: 20px; right: 20px; top: 130px; ' : 'left: ' + contentLeft + 'px; top: 50%; width: 520px; margin-top: -250px; ') + 'opacity: ' + (1 - copyOut) + '; transform: translateY(' + (-70 * copyOut) + 'px); pointer-events: ' + (copyOut > 0.5 ? 'none' : 'auto');
+    hint.style.cssText = 'position: absolute; z-index: 3; left: 50%; bottom: 110px; transform: translateX(-50%); display: ' + (pinned ? 'flex' : 'none') + '; flex-direction: column; align-items: center; gap: 10px; font-size: 11px; font-weight: 700; letter-spacing: 0.32em; color: var(--mute); opacity: ' + clamp01(1 - p * 5);
+
+    devices.forEach(function (el) {
+      var name = el.getAttribute('data-name');
+      var f = frames[name];
+      var x = lerp(f[0][0], f[1][0], t) * (mobile ? 1 : k);
+      var y = lerp(f[0][1], f[1][1], t);
+      var r = lerp(f[0][2], f[1][2], t);
+      var s = lerp(f[0][3], f[1][3], t);
+      el.style.cssText = 'position: absolute; z-index: ' + f[0][4] + '; left: 50%; top: 50%; margin: 0; display: flex; flex-direction: column; align-items: center; transform: translate(-50%, -50%) translate(' + x + 'px, ' + y + 'px) rotate(' + r + 'deg) scale(' + s + '); will-change: transform';
+      el.querySelector('img').style.cssText = 'display: block; height: ' + Math.round(heroH[name] * sizeK) + 'px; width: auto; max-width: none; filter: drop-shadow(0 34px 44px rgba(17,17,19,0.28))';
+      el.querySelector('figcaption').style.cssText = 'position: absolute; top: 100%; left: 50%; margin-top: 22px; display: flex; align-items: center; gap: 10px; white-space: nowrap; font-family: var(--display); font-size: ' + (mobile ? 18 : 28) + 'px; letter-spacing: 0.02em; color: var(--fg); opacity: ' + labelsIn + '; transform: translateX(-50%) translateY(' + (16 * (1 - labelsIn)) + 'px)';
+      el.querySelector('figcaption span').style.cssText = 'display: inline-block; width: 12px; height: 12px; border-radius: 999px; background: ' + el.querySelector('figcaption span').style.background;
+    });
+  }
+
+  var raf = null;
+  function update() {
+    raf = null;
+    header.classList.toggle('is-scrolled', (window.scrollY || 0) > 24);
+    renderHero();
+  }
+  function onScroll() { if (!raf) raf = requestAnimationFrame(update); }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  update();
+
+  // Elements marked data-reveal animate in as they enter the viewport.
+  if (motionOn && 'IntersectionObserver' in window) {
+    document.documentElement.classList.add('rv-ready');
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.setAttribute('data-in', '');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    document.querySelectorAll('[data-reveal]').forEach(function (el) { io.observe(el); });
+  }
+
+  // Bottom product strip: highlight a product and scroll to its card.
+  var buttons = Array.prototype.slice.call(document.querySelectorAll('.strip-btn'));
+  var cards = [document.getElementById('product-crush'), document.getElementById('product-cliq'), document.getElementById('product-cirql')];
+  buttons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var i = Number(btn.getAttribute('data-index'));
+      buttons.forEach(function (b, j) { b.setAttribute('aria-pressed', String(j === i)); });
+      cards.forEach(function (c, j) { c.classList.toggle('is-active', j === i); });
+      cards[i].scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+    });
+  });
+})();
+</script>
 </body>
 </html>
