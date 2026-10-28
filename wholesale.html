@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>BERI Wholesale page</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
+<style>
+:root{--bg:#F6F3EE;--bg-2:#EDE8DF;--bg-3:#FFFFFF;--line:#DDD6CA;--fg:#111113;--mute:#5E5A53;--gold:#D9C38A;--gold-ink:#7A5F14;--dark:#111113;--display:'Anton',Impact,sans-serif;--body:'Inter',system-ui,sans-serif;--ease:cubic-bezier(.2,.7,.2,1)}
+.beri-dark{--bg:#111113;--bg-2:#17171A;--bg-3:#1E1E22;--line:#2C2C31;--fg:#F3F0E9;--mute:#B0ACA5;--gold-ink:#D9C38A;background-color:#111113;color:#F3F0E9}
+html{scroll-behavior:smooth}
+body{margin:0;background:#F6F3EE}
+a{color:#111113}a:hover{color:#7A5F14}
+.rv-ready [data-reveal]{opacity:0;transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.rv-ready [data-reveal="up"]{transform:translateY(56px)}
+.rv-ready [data-reveal="left"]{transform:translateX(-64px)}
+.rv-ready [data-reveal="right"]{transform:translateX(64px)}
+.rv-ready [data-reveal="scale"]{transform:scale(.92)}
+.rv-ready [data-reveal][data-in]{opacity:1;transform:none}
+.beri-link{position:relative}
+.beri-link::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;background:#D9C38A;transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
+.beri-link:hover::after,.beri-link.is-current::after{transform:scaleX(1)}
+.nav-dd{position:relative}
+.nav-menu{position:absolute;top:100%;left:-24px;padding-top:18px;opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity .2s ease,transform .2s ease,visibility .2s}
+.nav-dd:hover .nav-menu,.nav-dd:focus-within .nav-menu{opacity:1;visibility:visible;transform:none}
+.nav-item{display:flex;align-items:center;gap:12px;min-height:44px;padding:0 14px;border-radius:12px;color:#111113;text-decoration:none}
+.nav-item:hover{background:#F6F3EE;color:#111113}
+.strip-link{transition:background .3s ease,color .3s ease}
+.strip-link:hover{background:rgba(255,255,255,.14)}
+.wf-field{height:56px;padding:0 18px;border-radius:14px;border:1.5px solid #DDD6CA;background:#F6F3EE;color:#111113;font:inherit;font-size:16px;width:100%;box-sizing:border-box}
+.wf-field:focus{outline:3px solid #D8C8FF;outline-offset:2px;border-color:#3B1478}
+textarea.wf-field{height:140px;padding:14px 18px;resize:vertical}
+@media (max-width:899px){.big-head{font-size:72px !important}.wf-grid{grid-template-columns:minmax(0,1fr) !important}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.rv-ready [data-reveal]{opacity:1;transform:none;transition:none}}
+</style>
+
+</head>
+<body>
+<div id="dc-root"></div>
+<template id="dc-template">
+
+<div style="background: var(--bg); color: var(--fg); font-family: var(--body); font-size: 16px; line-height: 1.6">
+
+<div style="position: sticky; top: 0; z-index: 50">
+<div style="background: #FFFFFF; color: #000000; text-align: center; font-weight: 700; font-size: 15px; padding: 8px 16px; line-height: 1.35; border-bottom: 1px solid #DDD6CA">WARNING: This product contains nicotine. Nicotine is an addictive chemical.</div>
+<header style="{{navStyle}}">
+<nav style="max-width: 1320px; margin: 0 auto; padding: 0 32px; min-height: 80px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<a href="Beri-Premium.dc.html" aria-label="BERI home" style="display: flex; align-items: center; text-decoration: none">
+<img src="assets/blob/bd8d6ee885cd447f39d73ea5ec4478b3.png" alt="BERI" style="display: block; height: 46px; width: auto">
+</a>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 40px; font-size: 13px; font-weight: 600; letter-spacing: 0.22em">
+<a class="beri-link" href="Beri-Premium.dc.html" style="color: var(--fg); text-decoration: none">HOME</a>
+<div class="nav-dd">
+<button type="button" class="beri-link" aria-haspopup="true" style="display: inline-flex; align-items: center; gap: 6px; padding: 0; border: none; background: none; font: inherit; letter-spacing: inherit; color: var(--fg); cursor: pointer">PRODUCTS<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg></button>
+<div class="nav-menu">
+<div style="min-width: 240px; padding: 10px; border-radius: 20px; background: #FFFFFF; border: 1px solid #DDD6CA; box-shadow: 0 20px 50px rgba(17,17,19,0.14); display: flex; flex-direction: column; gap: 2px; letter-spacing: 0.16em">
+<a class="nav-item" href="Cliq.dc.html"><span aria-hidden="true" style="width: 10px; height: 10px; border-radius: 999px; background: #0F7A42"></span>BERI CLIQ</a>
+<a class="nav-item" href="Crush.dc.html"><span aria-hidden="true" style="width: 10px; height: 10px; border-radius: 999px; background: #C81E64"></span>BERI CRUSH</a>
+<a class="nav-item" href="Cirql.dc.html"><span aria-hidden="true" style="width: 10px; height: 10px; border-radius: 999px; background: #7A1626"></span>BERI CIRQL</a>
+</div>
+</div>
+</div>
+<a class="beri-link" href="Authenticate.dc.html" style="color: var(--fg); text-decoration: none">AUTHENTICATE</a>
+<a class="beri-link is-current" href="Wholesale.dc.html" aria-current="page" style="color: var(--fg); text-decoration: none">WHOLESALE</a>
+</div>
+</nav>
+</header>
+</div>
+
+<main id="top">
+<section style="position: relative; overflow: hidden; margin-top: -80px; background: #3B1478; color: #FFFFFF">
+<img src="assets/blob/bd8d6ee885cd447f39d73ea5ec4478b3.png" alt="" aria-hidden="true" style="position: absolute; right: -80px; bottom: -120px; width: 760px; height: auto; opacity: 0.07; pointer-events: none">
+<div style="position: relative; max-width: 1320px; margin: 0 auto; padding: 180px 32px 110px; display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 48px">
+<div style="flex: 1 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 22px">
+<span data-reveal="up" style="align-self: flex-start; font-size: 12px; font-weight: 700; letter-spacing: 0.32em; color: #3B1478; background: #D8C8FF; padding: 8px 14px; border-radius: 999px">WHOLESALE</span>
+<h1 class="big-head" data-reveal="up" style="margin: 0; font-family: var(--display); font-weight: 400; font-size: 150px; line-height: 0.86; text-transform: uppercase; transition-delay: 80ms">Stock<br><span style="color: #D8C8FF">BERI.</span></h1>
+<p data-reveal="up" style="margin: 0; max-width: 520px; font-size: 19px; color: #E6DDFB; transition-delay: 160ms">Retailers and distributors: get wholesale pricing, availability and authentic BERI supply across the full lineup.</p>
+<div data-reveal="up" style="display: flex; flex-wrap: wrap; gap: 12px; padding-top: 6px; transition-delay: 220ms">
+<a href="#inquiry" style="display: inline-flex; align-items: center; min-height: 60px; padding: 0 30px; border-radius: 999px; background: #FFFFFF; color: #3B1478; font-weight: 700; text-decoration: none">Send an inquiry →</a>
+<a href="mailto:wholesale@beridisposable.com" style="display: inline-flex; align-items: center; min-height: 60px; padding: 0 28px; border-radius: 999px; border: 1.5px solid rgba(255,255,255,0.55); color: #FFFFFF; font-weight: 600; text-decoration: none">wholesale@beridisposable.com</a>
+</div>
+</div>
+<div data-reveal="scale" style="flex: 0 1 420px; min-width: 0; display: flex; align-items: flex-end; justify-content: center; gap: 8px; height: 380px; transition-delay: 160ms">
+<img src="assets/blob/38e90c83b18e5f9b193d4e2806393e55.webp" alt="BERI Cliq device in Blue Rancher" style="display: block; height: 260px; width: auto; transform: rotate(-10deg); filter: drop-shadow(0 30px 40px rgba(0,0,0,0.45))">
+<img src="assets/blob/0cd95d0e72d332cb0c13ffe953a14a5f.webp" alt="BERI Crush device in green with HD screen" style="display: block; height: 320px; width: auto; filter: drop-shadow(0 30px 40px rgba(0,0,0,0.45))">
+<img src="assets/blob/c43367147c58d259a2d0d61aa5fc2440.webp" alt="BERI Cirql device in red with gold pattern" style="display: block; height: 340px; width: auto; transform: rotate(8deg); filter: drop-shadow(0 30px 40px rgba(0,0,0,0.45))">
+</div>
+</div>
+</section>
+
+<section style="max-width: 1320px; margin: 0 auto; padding: 120px 32px; display: flex; flex-direction: column; gap: 40px">
+<h2 class="big-head" data-reveal="up" style="margin: 0; font-family: var(--display); font-weight: 400; font-size: 96px; line-height: 0.9; text-transform: uppercase">Why partner<br>with BERI</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px">
+<sc-for list="{{perks}}" as="k" hint-placeholder-count="4">
+<div data-reveal="up" style="{{k.style}}">
+<span style="display: inline-flex; align-items: center; justify-content: center; width: 52px; height: 52px; border-radius: 16px; background: #EFE9FF">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3B1478" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg>
+</span>
+<span style="font-size: 20px; font-weight: 700">{{k.title}}</span>
+<span style="font-size: 15px; color: var(--mute)">{{k.text}}</span>
+</div>
+</sc-for>
+</div>
+</section>
+
+<section class="beri-dark" style="background-color: #000000">
+<div style="max-width: 1320px; margin: 0 auto; padding: 110px 32px; display: flex; flex-direction: column; gap: 36px">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 20px">
+<h2 class="big-head" data-reveal="up" style="margin: 0; font-family: var(--display); font-weight: 400; font-size: 96px; line-height: 0.9; text-transform: uppercase">The lineup</h2>
+<p data-reveal="up" style="margin: 0; max-width: 420px; font-size: 17px; color: var(--mute)">Three formats for every kind of customer. Tap a product for full specs and flavors.</p>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 20px">
+<sc-for list="{{lineup}}" as="l" hint-placeholder-count="3">
+<a data-reveal="up" href="{{l.href}}" style="{{l.style}}">
+<img src="{{l.img}}" alt="{{l.imgAlt}}" style="display: block; height: 200px; width: auto; max-width: 100%; object-fit: contain; filter: drop-shadow(0 20px 30px rgba(0,0,0,0.4))">
+<span style="font-family: var(--display); font-size: 44px; line-height: 1">BERI {{l.name}}</span>
+<span style="font-size: 15px; color: rgba(255,255,255,0.88)">{{l.line}}</span>
+<span style="font-size: 14px; font-weight: 700; color: #FFFFFF">View product →</span>
+</a>
+</sc-for>
+</div>
+</div>
+</section>
+
+<section id="inquiry" style="scroll-margin-top: 120px; padding: 120px 32px 140px">
+<div style="max-width: 1320px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 56px; align-items: flex-start">
+<div style="flex: 1 1 360px; min-width: 0; display: flex; flex-direction: column; gap: 18px">
+<span data-reveal="left" style="font-size: 13px; font-weight: 600; letter-spacing: 0.32em; color: #3B1478">WHOLESALE INQUIRY</span>
+<h2 class="big-head" data-reveal="left" style="margin: 0; font-family: var(--display); font-weight: 400; font-size: 96px; line-height: 0.9; text-transform: uppercase">Let’s talk</h2>
+<p data-reveal="left" style="margin: 0; max-width: 400px; font-size: 17px; color: var(--mute)">Tell us about your business and our team will get back to you with pricing and availability.</p>
+<div data-reveal="left" style="display: flex; flex-direction: column; gap: 6px; padding-top: 10px">
+<span style="font-size: 13px; font-weight: 700; letter-spacing: 0.2em; color: var(--mute)">PREFER EMAIL?</span>
+<a href="mailto:wholesale@beridisposable.com" style="font-size: 20px; font-weight: 700; color: #3B1478">wholesale@beridisposable.com</a>
+</div>
+</div>
+
+<div data-reveal="scale" style="flex: 1 1 620px; min-width: 0; box-sizing: border-box; border-radius: 32px; background: #FFFFFF; border: 1px solid var(--line); padding: 40px">
+<sc-if value="{{notSent}}" hint-placeholder-val="{{true}}">
+<form class="wf-grid" onSubmit="{{submit}}" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<label for="wf-business" style="font-weight: 600; font-size: 15px">Business name</label>
+<input id="wf-business" class="wf-field" type="text" required="{{yes}}">
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<label for="wf-name" style="font-weight: 600; font-size: 15px">Contact name</label>
+<input id="wf-name" class="wf-field" type="text" required="{{yes}}">
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<label for="wf-email" style="font-weight: 600; font-size: 15px">Email</label>
+<input id="wf-email" class="wf-field" type="email" required="{{yes}}">
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<label for="wf-phone" style="font-weight: 600; font-size: 15px">Phone</label>
+<input id="wf-phone" class="wf-field" type="tel">
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<label for="wf-type" style="font-weight: 600; font-size: 15px">Business type</label>
+<select id="wf-type" class="wf-field">
+<option>Vape / smoke shop</option>
+<option>Convenience store</option>
+<option>Distributor</option>
+<option>Other</option>
+</select>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<label for="wf-region" style="font-weight: 600; font-size: 15px">State / region</label>
+<input id="wf-region" class="wf-field" type="text">
+</div>
+<fieldset style="grid-column: 1 / -1; margin: 0; padding: 0; border: none; display: flex; flex-direction: column; gap: 10px">
+<legend style="font-weight: 600; font-size: 15px; padding: 0; margin-bottom: 10px">Products you’re interested in</legend>
+<div style="display: flex; flex-wrap: wrap; gap: 10px">
+<label style="display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 18px; border-radius: 999px; border: 1.5px solid #DDD6CA; font-weight: 600; cursor: pointer"><input type="checkbox" style="width: 18px; height: 18px; accent-color: #0F7A42">BERI Cliq</label>
+<label style="display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 18px; border-radius: 999px; border: 1.5px solid #DDD6CA; font-weight: 600; cursor: pointer"><input type="checkbox" style="width: 18px; height: 18px; accent-color: #C81E64">BERI Crush</label>
+<label style="display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 18px; border-radius: 999px; border: 1.5px solid #DDD6CA; font-weight: 600; cursor: pointer"><input type="checkbox" style="width: 18px; height: 18px; accent-color: #7A1626">BERI Cirql</label>
+</div>
+</fieldset>
+<div style="grid-column: 1 / -1; display: flex; flex-direction: column; gap: 8px">
+<label for="wf-message" style="font-weight: 600; font-size: 15px">Message</label>
+<textarea id="wf-message" class="wf-field" placeholder="Monthly volume, locations, anything else we should know"></textarea>
+</div>
+<label style="grid-column: 1 / -1; display: flex; align-items: flex-start; gap: 12px; font-size: 14px; color: #5E5A53; cursor: pointer">
+<input type="checkbox" required="{{yes}}" style="flex: 0 0 auto; width: 18px; height: 18px; margin-top: 2px; accent-color: #3B1478">
+<span>I confirm my business is licensed to sell tobacco and nicotine products and sells only to adults 21 and over. [confirm wording]</span>
+</label>
+<button type="submit" style="grid-column: 1 / -1; height: 60px; border: none; border-radius: 999px; background: #3B1478; color: #FFFFFF; font: inherit; font-size: 16px; font-weight: 700; letter-spacing: 0.06em; cursor: pointer">SEND INQUIRY</button>
+</form>
+</sc-if>
+<sc-if value="{{sent}}" hint-placeholder-val="{{false}}">
+<div role="status" style="display: flex; flex-direction: column; align-items: flex-start; gap: 14px; padding: 24px 8px">
+<span style="display: inline-flex; align-items: center; justify-content: center; width: 64px; height: 64px; border-radius: 999px; background: #EFE9FF">
+<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#3B1478" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg>
+</span>
+<span style="font-family: var(--display); font-size: 48px; line-height: 1; text-transform: uppercase">Thanks, we got it</span>
+<span style="max-width: 460px; font-size: 17px; color: var(--mute)">Our wholesale team will reply to the email you gave us. [Connect this form to email or CRM.]</span>
+<button type="button" onClick="{{reset}}" style="min-height: 48px; padding: 0 22px; border-radius: 999px; border: 1.5px solid #111113; background: transparent; color: #111113; font: inherit; font-weight: 600; cursor: pointer">Send another inquiry</button>
+</div>
+</sc-if>
+</div>
+</div>
+</section>
+</main>
+
+<footer class="beri-dark" style="border-top: 1px solid var(--line)">
+<div style="max-width: 1320px; margin: 0 auto; padding: 56px 32px 140px; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px">
+<img src="assets/blob/bd8d6ee885cd447f39d73ea5ec4478b3.png" alt="BERI" style="display: block; height: 80px; width: auto">
+<div style="display: flex; flex-wrap: wrap; gap: 32px; font-size: 13px; font-weight: 600; letter-spacing: 0.22em">
+<a class="beri-link" href="Beri-Premium.dc.html" style="color: var(--fg); text-decoration: none">HOME</a>
+<a class="beri-link" href="Cliq.dc.html" style="color: var(--fg); text-decoration: none">BERI CLIQ</a>
+<a class="beri-link" href="Crush.dc.html" style="color: var(--fg); text-decoration: none">BERI CRUSH</a>
+<a class="beri-link" href="Cirql.dc.html" style="color: var(--fg); text-decoration: none">BERI CIRQL</a>
+<a class="beri-link" href="Authenticate.dc.html" style="color: var(--fg); text-decoration: none">AUTHENTICATE</a>
+<a class="beri-link" href="Wholesale.dc.html" style="color: var(--fg); text-decoration: none">WHOLESALE</a>
+</div>
+</div>
+<a href="mailto:wholesale@beridisposable.com" style="align-self: flex-start; color: var(--fg); font-weight: 600">wholesale@beridisposable.com</a>
+<p style="margin: 0; font-size: 14px; color: var(--mute)">Sale of these products is restricted to adults 21 and over. WARNING: This product contains nicotine. Nicotine is an addictive chemical.</p>
+<p style="margin: 0; font-size: 14px; color: var(--mute)">Copyright © 2025 BERIdisposable.com – All Rights Reserved.</p>
+</div>
+</footer>
+
+<nav aria-label="Products" style="position: fixed; z-index: 60; left: 50%; bottom: 24px; transform: translateX(-50%); max-width: calc(100% - 32px); box-sizing: border-box; overflow-x: auto; display: flex; gap: 6px; padding: 8px; border-radius: 999px; background: rgba(17,17,19,0.86); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); border: 1px solid rgba(255,255,255,0.14); box-shadow: 0 16px 48px rgba(17,17,19,0.35)">
+<a class="strip-link" href="Cliq.dc.html" style="flex: 0 0 auto; display: inline-flex; align-items: center; min-height: 56px; padding: 0 34px; border-radius: 999px; font-size: 17px; font-weight: 700; white-space: nowrap; text-decoration: none; color: #FFFFFF">Beri Cliq</a>
+<a class="strip-link" href="Crush.dc.html" style="flex: 0 0 auto; display: inline-flex; align-items: center; min-height: 56px; padding: 0 34px; border-radius: 999px; font-size: 17px; font-weight: 700; white-space: nowrap; text-decoration: none; color: #FFFFFF">Beri Crush</a>
+<a class="strip-link" href="Cirql.dc.html" style="flex: 0 0 auto; display: inline-flex; align-items: center; min-height: 56px; padding: 0 34px; border-radius: 999px; font-size: 17px; font-weight: 700; white-space: nowrap; text-decoration: none; color: #FFFFFF">Beri Cirql</a>
+</nav>
+</div>
+</template>
+<script type="text/x-dc" data-dc-script data-props='{"animations":{"editor":"boolean","default":true},"$preview":{"width":1440,"height":3300}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { scrolled: false, sent: false };
+  }
+  componentDidMount() {
+    this.reduce = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+    this.onScroll = () => {
+      const scrolled = (window.scrollY || 0) > 24;
+      if (scrolled !== this.state.scrolled) this.setState({ scrolled: scrolled });
+    };
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    this.onScroll();
+    this.setupReveal();
+  }
+  componentDidUpdate() {
+    if (!this.io && this.motionOn()) this.setupReveal();
+    if (this.io && !this.motionOn()) this.teardownReveal();
+    this.scanReveal();
+  }
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.onScroll);
+    this.teardownReveal();
+  }
+  motionOn() {
+    return (this.props.animations ?? true) && !this.reduce;
+  }
+  setupReveal() {
+    if (!this.motionOn() || !('IntersectionObserver' in window)) return;
+    document.documentElement.classList.add('rv-ready');
+    this.io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.setAttribute('data-in', '');
+          this.io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    this.scanReveal();
+  }
+  scanReveal() {
+    if (!this.io) return;
+    document.querySelectorAll('[data-reveal]:not([data-in]):not([data-rv])').forEach((el) => {
+      el.setAttribute('data-rv', '');
+      this.io.observe(el);
+    });
+  }
+  teardownReveal() {
+    if (this.io) this.io.disconnect();
+    this.io = null;
+    document.documentElement.classList.remove('rv-ready');
+    document.querySelectorAll('[data-rv]').forEach((el) => el.removeAttribute('data-rv'));
+  }
+  renderVals() {
+    const perks = [
+      { title: 'Wholesale pricing', text: 'Tiered pricing for retailers and distributors. [Confirm minimum order and tiers.]' },
+      { title: 'Full lineup', text: 'Stock BERI Crush, Cliq and Cirql, with every flavor from one supplier.' },
+      { title: 'Authentic supply', text: 'Every box carries a security label your customers can verify on our site.' },
+      { title: 'Dedicated support', text: 'A wholesale contact for orders, restocks and questions. [Confirm.]' }
+    ];
+    const lineup = [
+      { name: 'CLIQ', href: 'Cliq.dc.html', color: '#0F7A42', img: 'assets/blob/38e90c83b18e5f9b193d4e2806393e55.webp', imgAlt: 'BERI Cliq device in Blue Rancher', line: 'Up to 50,000 puffs · 18 mL refillable pod · 20 flavors' },
+      { name: 'CRUSH', href: 'Crush.dc.html', color: '#C81E64', img: 'assets/blob/0cd95d0e72d332cb0c13ffe953a14a5f.webp', imgAlt: 'BERI Crush device in green with HD screen', line: 'Up to 50,000 puffs · 20 mL · 40W Crush Mode · 32 flavors' },
+      { name: 'CIRQL', href: 'Cirql.dc.html', color: '#7A1626', img: 'assets/blob/c43367147c58d259a2d0d61aa5fc2440.webp', imgAlt: 'BERI Cirql device in red with gold pattern', line: '[Cirql key specs]' }
+    ];
+    return {
+      navStyle: 'transition: background 0.4s ease, border-color 0.4s ease, backdrop-filter 0.4s ease; ' + (this.state.scrolled
+        ? 'background: rgba(246,243,238,0.72); backdrop-filter: blur(18px) saturate(160%); -webkit-backdrop-filter: blur(18px) saturate(160%); border-bottom: 1px solid rgba(17,17,19,0.08); box-shadow: 0 8px 30px rgba(17,17,19,0.06)'
+        : 'background: rgba(246,243,238,0); border-bottom: 1px solid rgba(17,17,19,0)'),
+      yes: true,
+      sent: this.state.sent,
+      notSent: !this.state.sent,
+      submit: (e) => {
+        e.preventDefault();
+        this.setState({ sent: true });
+      },
+      reset: () => this.setState({ sent: false }),
+      perks: perks.map((k, i) => ({
+        title: k.title,
+        text: k.text,
+        style: 'box-sizing: border-box; display: flex; flex-direction: column; gap: 12px; padding: 30px; border-radius: 28px; background: #FFFFFF; border: 1px solid #DDD6CA; transition-delay: ' + (i * 100) + 'ms'
+      })),
+      lineup: lineup.map((l, i) => ({
+        name: l.name,
+        href: l.href,
+        img: l.img,
+        imgAlt: l.imgAlt,
+        line: l.line,
+        style: 'flex: 1 1 320px; min-width: 0; box-sizing: border-box; display: flex; flex-direction: column; align-items: flex-start; gap: 10px; padding: 32px; border-radius: 28px; background: ' + l.color + '; color: #FFFFFF; text-decoration: none; transition-delay: ' + (i * 120) + 'ms'
+      }))
+    };
+  }
+}
+</script>
+<script src="assets/js/beri-runtime.js"></script>
+</body>
+</html>
