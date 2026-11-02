@@ -123,7 +123,7 @@ a{color:#111113}a:hover{color:#7A5F14}
 <main id="top">
 <section id="hero-scroll" aria-label="BERI lineup" style="{{heroTrackStyle}}">
 <div style="{{heroStageStyle}}">
-<video id="hero-video" src="assets/blob/8e77a25fe3ccd63af00b12ac127fa884.mp4" poster="assets/blob/526eee121bd5f2785fff515f8b8ba969.webp" aria-hidden="true" style="position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%; object-fit: cover"></video>
+<video id="hero-video" src="assets/blob/7c3c125b1a599c7d3919907992e33969.mp4" poster="assets/blob/526eee121bd5f2785fff515f8b8ba969.webp" aria-hidden="true" style="{{heroVideoStyle}}"></video>
 <div aria-hidden="true" style="position: absolute; inset: 0; z-index: 1; background: linear-gradient(90deg, rgba(255,248,241,0.88) 0%, rgba(255,248,241,0.6) 32%, rgba(255,248,241,0) 58%); pointer-events: none"></div>
 <div aria-hidden="true" style="{{hintStyle}}">
 <span>SCROLL</span>
@@ -348,7 +348,7 @@ a{color:#111113}a:hover{color:#7A5F14}
 class Component extends DCLogic {
   constructor(props) {
     super(props);
-    this.state = { scrolled: false, flavorTab: 0, p: 0, vw: 1440, vh: 900 };
+    this.state = { scrolled: false, flavorTab: 0, p: 0, vw: 1440, vh: 900, hdr: 116 };
   }
   componentDidMount() {
     this.reduce = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
@@ -358,6 +358,8 @@ class Component extends DCLogic {
       const vw = window.innerWidth || 1440;
       const vh = window.innerHeight || 900;
       let p = 0;
+      const hdrEl = document.querySelector('header');
+      const hdr = hdrEl && hdrEl.parentElement ? Math.round(hdrEl.parentElement.getBoundingClientRect().height) : 0;
       const el = document.getElementById('hero-scroll');
       if (el && this.pinOn(vh)) {
         const r = el.getBoundingClientRect();
@@ -370,8 +372,8 @@ class Component extends DCLogic {
         if (Math.abs(hv.currentTime - ht) > 0.01) hv.currentTime = ht;
       }
       const s = this.state;
-      if (Math.abs(p - s.p) > 0.001 || scrolled !== s.scrolled || vw !== s.vw || vh !== s.vh) {
-        this.setState({ p: p, scrolled: scrolled, vw: vw, vh: vh });
+      if (Math.abs(p - s.p) > 0.001 || scrolled !== s.scrolled || vw !== s.vw || vh !== s.vh || hdr !== s.hdr) {
+        this.setState({ p: p, scrolled: scrolled, vw: vw, vh: vh, hdr: hdr });
       }
     };
     this.onScroll = () => {
@@ -607,7 +609,17 @@ class Component extends DCLogic {
       bubbles: bubbleSpec.concat([[38, 0, 18, '#FF9A1F', 700, 0], [30, 0, 12, '#8B5CF6', 520, 0]]).map((b, i) => ({
         style: 'left: ' + b[0] + '%; width: ' + b[2] + 'px; height: ' + b[2] + 'px; background: radial-gradient(circle at 32% 30%, rgba(255,255,255,0.95), ' + b[3] + ' 62%); box-shadow: 0 8px 18px rgba(17,17,19,0.12); filter: blur(' + b[5] + 'px); animation-duration: ' + (9 + (b[4] % 7)) + 's; animation-delay: ' + (-(i * 1.3) % 11).toFixed(1) + 's'
       })),
-      copyStyle: 'position: absolute; z-index: 3; box-sizing: border-box; display: flex; flex-direction: column; gap: 20px; ' + (mobile ? 'left: 20px; right: 20px; top: 130px; ' : 'left: ' + contentLeft + 'px; top: 50%; width: ' + Math.round(Math.min(520, vw * 0.42)) + 'px; margin-top: -250px; ') + 'opacity: ' + (1 - copyOut) + '; transform: translateY(' + (-70 * copyOut) + 'px); pointer-events: ' + (copyOut > 0.5 ? 'none' : 'auto'),
+      copyStyle: 'position: absolute; z-index: 3; box-sizing: border-box; display: flex; flex-direction: column; gap: 20px; ' + (mobile ? 'left: 20px; right: 20px; top: ' + ((this.state.hdr || 116) + 20) + 'px; ' : 'left: ' + contentLeft + 'px; top: 50%; width: ' + Math.round(Math.min(520, vw * 0.42)) + 'px; margin-top: -250px; ') + 'opacity: ' + (1 - copyOut) + '; transform: translateY(' + (-70 * copyOut) + 'px); pointer-events: ' + (copyOut > 0.5 ? 'none' : 'auto'),
+      // The clip starts below the sticky header. On wide screens it fits the height and sits right, fading in on its
+      // left edge, so the whole device stays in view; on narrow or tall screens it covers the area instead.
+      heroVideoStyle: (() => {
+        const hdr = this.state.hdr || 0;
+        const areaH = (pinned ? vh : 900) - hdr;
+        const wide = vw / Math.max(1, areaH) > 1.6;
+        return 'position: absolute; z-index: 0; top: ' + hdr + 'px; height: calc(100% - ' + hdr + 'px); ' + (wide
+          ? 'right: 0; width: auto; max-width: none; -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 22%); mask-image: linear-gradient(90deg, transparent 0%, #000 22%)'
+          : 'left: 0; width: 100%; object-fit: cover; object-position: 62% 50%');
+      })(),
       heroBarStyle: 'height: 100%; border-radius: 3px; background: linear-gradient(90deg, #2B7FFF, #FF9A1F, #C2414F); width: ' + (p * 100).toFixed(2) + '%; display: ' + (pinned ? 'block' : 'none'),
       hintStyle: 'position: absolute; z-index: 3; left: 50%; bottom: 110px; transform: translateX(-50%); display: ' + (pinned ? 'flex' : 'none') + '; flex-direction: column; align-items: center; gap: 10px; font-size: 11px; font-weight: 700; letter-spacing: 0.32em; color: var(--mute); opacity: ' + clamp01(1 - p * 5),
       heroDevices: products.map((d, i) => {
