@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>BERI premium website</title>
+<title>BERI home page</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -56,7 +56,35 @@ a{color:#111113}a:hover{color:#7A5F14}
 .flavor-slider:hover .flavor-track{animation-play-state:paused}
 .tb-card{transition:transform .4s var(--ease)}
 .tb-card:hover{transform:translateY(-4px)}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.rv-ready [data-reveal]{opacity:1;transform:none;transition:none}.beri-marquee{animation:none}.flavor-track{animation:none}.flavor-slider{overflow-x:auto !important}.lu-img,.lu-grid .lu-card.lu-card{transition:none}}
+@keyframes beriBreathe{0%{transform:scale(.88);opacity:.75}100%{transform:scale(1.12);opacity:1}}
+.hero-glow{display:block;width:100%;height:100%;border-radius:999px;animation:beriBreathe 5s ease-in-out infinite alternate}
+@keyframes beriSpin{to{transform:rotate(360deg)}}
+.hero-spin{animation:beriSpin 14s linear infinite}
+@keyframes beriHue{from{background-position:0 0,0% 50%}to{background-position:0 0,100% 50%}}
+.hero-pattern{animation:beriHue 16s ease-in-out infinite alternate}
+@keyframes heroBlob{0%{translate:0 0;scale:1}33%{translate:8% -10%;scale:1.18}66%{translate:-10% 6%;scale:.9}100%{translate:0 0;scale:1}}
+.hero-blob{position:absolute;border-radius:999px;filter:blur(70px);opacity:.55;animation:heroBlob 18s ease-in-out infinite}
+@keyframes heroRing{to{rotate:360deg}}
+.hero-ring{animation:heroRing 16s linear infinite}
+@keyframes heroPop{0%{opacity:0;translate:0 160px;scale:.4;rotate:-28deg}60%{opacity:1;translate:0 -18px;scale:1.06;rotate:4deg}80%{translate:0 6px;scale:.98;rotate:-1deg}100%{opacity:1;translate:0 0;scale:1;rotate:0deg}}
+.hero-pop{animation:heroPop 1.1s cubic-bezier(.2,.7,.2,1) both}
+@keyframes heroFloat{0%,100%{translate:0 0;rotate:0deg}50%{translate:0 -18px;rotate:2.5deg}}
+.hero-float{display:block;animation:heroFloat 6s ease-in-out infinite}
+.hero-dev a{transition:translate .4s var(--ease),scale .4s var(--ease)}
+.hero-dev:hover a{translate:0 -14px;scale:1.06}
+.hero-dev:hover figcaption{opacity:1 !important}
+@keyframes heroRise{0%{transform:translateY(0) scale(.6);opacity:0}12%{opacity:.9}85%{opacity:.85}100%{transform:translateY(-1050px) scale(1.15);opacity:0}}
+.hero-bubble{position:absolute;bottom:-60px;border-radius:999px;animation:heroRise 12s linear infinite}
+@keyframes heroPopIn{0%{opacity:0;scale:0}65%{opacity:1;scale:1.18}100%{opacity:1;scale:1}}
+.hero-popin{animation:heroPopIn .8s cubic-bezier(.2,.7,.2,1) both}
+@keyframes heroUp{from{opacity:0;translate:0 28px}to{opacity:1;translate:0 0}}
+.hero-copy>*{animation:heroUp .8s var(--ease) both}
+.hero-copy>*:nth-child(2){animation-delay:.12s}.hero-copy>*:nth-child(3){animation-delay:.24s}.hero-copy>*:nth-child(4){animation-delay:.36s}.hero-copy>*:nth-child(5){animation-delay:.48s}
+@keyframes heroSticker{to{background-position:300% 0}}
+.hero-sticker{display:inline-block;margin:6px 0 4px;padding:0 .2em;border:3px solid #111113;border-radius:12px;background:linear-gradient(90deg,#FF4F9A,#FF7A1F,#E0306A,#8B5CF6,#2B7FFF,#FF4F9A);background-size:300% 100%;animation:heroSticker 6s linear infinite;color:#FFFFFF;box-shadow:5px 5px 0 #111113;transform:rotate(-2.5deg)}
+.hero-cta{box-shadow:5px 5px 0 #FF4F9A;transition:transform .25s var(--ease),box-shadow .25s var(--ease)}
+.hero-cta:hover{color:var(--bg);transform:translate(-2px,-2px);box-shadow:8px 8px 0 #FF9A1F}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.rv-ready [data-reveal]{opacity:1;transform:none;transition:none}.beri-marquee{animation:none}.hero-glow,.hero-spin,.hero-pattern,.hero-blob,.hero-ring,.hero-pop,.hero-float,.hero-bubble,.hero-popin,.hero-copy>*,.hero-sticker{animation:none}.flavor-track{animation:none}.flavor-slider{overflow-x:auto !important}.lu-img,.lu-grid .lu-card.lu-card{transition:none}}
 </style>
 
 </head>
@@ -95,42 +123,18 @@ a{color:#111113}a:hover{color:#7A5F14}
 <main id="top">
 <section id="hero-scroll" aria-label="BERI lineup" style="{{heroTrackStyle}}">
 <div style="{{heroStageStyle}}">
-<div aria-hidden="true" style="{{patternStyle}}"></div>
-<div aria-hidden="true" style="{{glowStyle}}"></div>
-<div aria-hidden="true" style="{{bigWordStyle}}">THE LINEUP</div>
-
-<div style="{{copyStyle}}">
+<video id="hero-video" src="assets/blob/e14af767db2a71a1f0c240c56d71de23.mp4" poster="assets/blob/526eee121bd5f2785fff515f8b8ba969.webp" aria-hidden="true" style="position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%; object-fit: cover"></video>
+<div aria-hidden="true" style="position: absolute; inset: 0; z-index: 1; background: linear-gradient(90deg, rgba(255,248,241,0.88) 0%, rgba(255,248,241,0.6) 32%, rgba(255,248,241,0) 58%); pointer-events: none"></div>
+<div class="hero-copy" style="{{copyStyle}}">
 <span style="font-size: 13px; font-weight: 600; letter-spacing: 0.32em; color: var(--gold-ink)">PREMIUM DISPOSABLES · ADULTS 21+</span>
 <h1 style="margin: 0">
 <img class="hero-logo" src="assets/blob/bd8d6ee885cd447f39d73ea5ec4478b3.png" alt="BERI" style="display: block; width: 100%; max-width: 420px; height: auto">
 </h1>
-<p class="hero-tag" style="margin: 0; font-family: var(--display); font-size: 44px; line-height: 1.05; text-transform: uppercase">Built for 50,000 puffs.<br>Engineered to last.</p>
+<p class="hero-tag" style="margin: 0; font-family: var(--display); font-size: 44px; line-height: 1.15; text-transform: uppercase">Built for <span class="hero-sticker">50,000 puffs.</span><br>Engineered to last.</p>
 <p class="hero-sub" style="margin: 0; font-size: 18px; color: var(--mute)">Crush, Cliq and Cirql. Mesh coils, big batteries and Type-C charging in a lineup designed to go the distance.</p>
-<a href="#products" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 12px; min-height: 56px; padding: 0 32px; border-radius: 999px; background: var(--fg); color: var(--bg); font-weight: 700; letter-spacing: 0.08em; text-decoration: none">EXPLORE THE LINEUP
+<a class="hero-cta" href="#products" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 12px; min-height: 56px; padding: 0 32px; border-radius: 999px; background: var(--fg); color: var(--bg); font-weight: 700; letter-spacing: 0.08em; text-decoration: none">EXPLORE THE LINEUP
 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"></path><path d="M6 13l6 6 6-6"></path></svg>
 </a>
-</div>
-
-<div style="position: absolute; inset: 0; z-index: 2; pointer-events: none">
-<sc-for list="{{heroDevices}}" as="d" hint-placeholder-count="3">
-<figure style="{{d.style}}">
-<img src="{{d.img}}" alt="{{d.alt}}" style="{{d.imgStyle}}">
-<figcaption style="{{d.capStyle}}">
-<span style="{{d.dotStyle}}"></span>BERI {{d.name}}
-</figcaption>
-</figure>
-</sc-for>
-</div>
-
-<div aria-hidden="true" style="position: absolute; inset: 0; z-index: 2; pointer-events: none">
-<sc-for list="{{bubbles}}" as="bb" hint-placeholder-count="12">
-<span style="{{bb.style}}"></span>
-</sc-for>
-</div>
-
-<div aria-hidden="true" style="{{hintStyle}}">
-<span>SCROLL</span>
-<span style="display: block; width: 2px; height: 40px; background: var(--fg); opacity: 0.4"></span>
 </div>
 </div>
 </section>
@@ -370,6 +374,19 @@ class Component extends DCLogic {
     this.measure();
     this.setupReveal();
     this.setupTeaser();
+    this.setupHeroVideo();
+  }
+  // The lineup clip (Cliq, Crush, Cirql) loops muted behind the hero copy; with reduced motion it rests on its poster.
+  setupHeroVideo() {
+    const v = document.getElementById('hero-video');
+    if (!v) return;
+    v.muted = true;
+    v.loop = true;
+    v.playsInline = true;
+    v.setAttribute('playsinline', '');
+    if (!this.motionOn()) { v.pause(); return; }
+    const run = v.play();
+    if (run && run.catch) run.catch(() => {});
   }
   // The Cliq teaser loops muted only while it is on screen; with motion off it stays on its poster.
   setupTeaser() {
@@ -439,7 +456,7 @@ class Component extends DCLogic {
         name: 'CLIQ', color: '#0F7A42', surface: '#3FB876', h: 340, badge: 'REFILLABLE POD',
         img: 'assets/blob/38e90c83b18e5f9b193d4e2806393e55.webp', imgAlt: 'BERI Cliq device in Blue Rancher', heroH: 440,
         tagline: '360° crystal tank, dual mesh coils and a refillable pod system.',
-        stats: [{ v: '50K', k: 'Puffs, Normal Mode' }, { v: '18 mL', k: 'E-liquid' }, { v: '900', k: 'mAh battery' }],
+        stats: [{ v: '50K', k: 'Puffs, ECO Mode' }, { v: '18 mL', k: 'E-liquid' }, { v: '900', k: 'mAh battery' }],
         flavorLabel: '25 flavors',
         // Lineup card shows three flavors; the middle one sits in front.
         devices: [
@@ -509,10 +526,11 @@ class Component extends DCLogic {
       { name: 'CRUSH', color: '#F06BA0', img: 'assets/blob/0a2532abcfdd671f02c321ad6f8258e5.webp', alt: 'BERI Crush: up to 40W power' },
       { name: 'CIRQL', color: '#C2414F', img: 'assets/blob/0f9b20cdbf809de2a74caca0cba9a190.webp', alt: 'BERI Cirql: 150K puffs, shown in Mixed Berries and blue with their boxes' }
     ];
-    // Hero scroll choreography: p runs 0 to 1 while the pinned hero stage is on screen.
+    // The hero no longer pins: devices hold their opening cluster and all motion is ambient (CSS keyframes).
     const vw = this.state.vw;
     const vh = this.state.vh;
-    const pinned = this.pinOn(vh);
+    const inWindow = this.pinOn(vh);
+    const pinned = false;
     const p = pinned ? this.state.p : 0;
     const clamp01 = (v) => Math.min(1, Math.max(0, v));
     const ease = (v) => (v < 0.5 ? 4 * v * v * v : 1 - Math.pow(-2 * v + 2, 3) / 2);
@@ -523,7 +541,7 @@ class Component extends DCLogic {
     const wordIn = ease(clamp01((p - 0.4) / 0.4));
     const mobile = vw < 900;
     const k = mobile ? Math.max(0.5, vw / 900) : Math.min(1.15, vw / 1440);
-    const stageH = pinned ? Math.max(720, vh) : 900;
+    const stageH = inWindow ? Math.min(980, Math.max(720, vh)) : 900;
     const sizeK = mobile ? 0.6 : Math.min(1, Math.max(0.6, (stageH - 240) / 660));
     const contentLeft = Math.max(32, (vw - 1320) / 2 + 32);
     // [x, y, rotate, scale, z] at the start (clustered beside the copy) and at the end: a big row whose
@@ -537,38 +555,64 @@ class Component extends DCLogic {
     const lift = Math.sin(Math.PI * t) * (mobile ? 0.5 : 1);
     // Foreground bubbles move fastest, so they sit "closest" to the viewer: [left %, top %, size, color, speed, blur].
     const bubbleSpec = [
-      [62, 18, 22, '#D9C38A', 520, 0], [88, 30, 14, '#3FB876', 740, 0], [74, 72, 34, '#F06BA0', 900, 2],
-      [52, 86, 12, '#B23A48', 600, 0], [94, 64, 26, '#3FB876', 820, 1], [50, 10, 10, '#F06BA0', 450, 0],
-      [80, 8, 18, '#B23A48', 680, 0], [68, 48, 10, '#D9C38A', 380, 0], [96, 90, 40, '#D9C38A', 1000, 3],
-      [57, 60, 16, '#3FB876', 560, 0], [84, 52, 12, '#F06BA0', 640, 0], [46, 94, 24, '#3FB876', 860, 2]
+      [62, 18, 22, '#FFD23F', 520, 0], [88, 30, 14, '#2B7FFF', 740, 0], [74, 72, 34, '#FF4F9A', 900, 2],
+      [52, 86, 12, '#FF9A1F', 600, 0], [94, 64, 26, '#2B7FFF', 820, 1], [50, 10, 10, '#FF4F9A', 450, 0],
+      [80, 8, 18, '#FF9A1F', 680, 0], [68, 48, 10, '#FFD23F', 380, 0], [96, 90, 40, '#8B5CF6', 1000, 3],
+      [57, 60, 16, '#3FB876', 560, 0], [84, 52, 12, '#FF4F9A', 640, 0], [46, 94, 24, '#2B7FFF', 860, 2]
     ];
+    // Colour glow behind each device, in the device's own colours: [inner, outer].
+    const heroGlow = {
+      CLIQ: ['rgba(43,127,255,0.75)', 'rgba(90,200,255,0.32)'],
+      CRUSH: ['rgba(255,154,31,0.8)', 'rgba(255,210,63,0.36)'],
+      CIRQL: ['rgba(224,48,74,0.72)', 'rgba(255,79,154,0.32)']
+    };
+    const glowSize = Math.round((mobile ? 420 : 640) * sizeK);
+    // Stickers sit beside the starting device cluster and leave with the copy.
+    const stickerShow = 1 - copyOut;
+    const spinSize = mobile ? 92 : Math.round(150 * sizeK);
+    const spinAt = mobile ? [0.3 * vw, 70] : [170 * k, -190 * sizeK];
+    const newAt = [600 * k, -250 * sizeK];
 
     return {
       navStyle: 'transition: background 0.4s ease, border-color 0.4s ease, backdrop-filter 0.4s ease; ' + (this.state.scrolled
         ? 'background: rgba(246,243,238,0.72); backdrop-filter: blur(18px) saturate(160%); -webkit-backdrop-filter: blur(18px) saturate(160%); border-bottom: 1px solid rgba(17,17,19,0.08); box-shadow: 0 8px 30px rgba(17,17,19,0.06)'
         : 'background: rgba(246,243,238,0); border-bottom: 1px solid rgba(17,17,19,0)'),
       heroTrackStyle: 'position: relative; margin-top: -80px; height: ' + (pinned ? '3000px' : 'auto'),
-      heroStageStyle: (pinned ? 'position: sticky; top: 0; height: 100vh; ' : 'position: relative; height: 900px; ') + 'min-height: 720px; overflow: hidden',
-      patternStyle: 'position: absolute; z-index: 0; left: 0; right: 0; top: -10%; height: 160%; background-image: url("assets/blob/2cffc67c998d9d4fcfa45c0105a151bb.png"); background-size: 220px 140px; background-repeat: repeat; opacity: 0.05; pointer-events: none; transform: translateY(' + (-180 * p) + 'px)',
-      glowStyle: 'position: absolute; z-index: 0; left: 50%; top: 50%; width: 1100px; height: 1100px; border-radius: 999px; background: radial-gradient(closest-side, rgba(217,195,138,0.5), rgba(217,195,138,0)); transform: translate(-50%, -50%) translate(' + lerp(mobile ? 0 : 300, 0, t) * k + 'px, ' + lerp(0, stageH * 0.3, t) + 'px) scale(' + lerp(0.8, 1.3, t) + ')',
-      bigWordStyle: 'position: absolute; z-index: 1; left: 50%; top: ' + (mobile ? '30%' : '32%') + '; font-family: var(--display); font-size: ' + Math.round(vw * (mobile ? 0.17 : 0.15)) + 'px; line-height: 1; white-space: nowrap; color: var(--fg); pointer-events: none; opacity: ' + wordIn + '; transform: translate(-50%, -50%) translateY(' + (120 * (1 - wordIn)) + 'px) scale(' + lerp(0.9, 1, wordIn) + ')',
-      bubbles: bubbleSpec.map((b) => ({
-        style: 'position: absolute; left: ' + b[0] + '%; top: ' + b[1] + '%; width: ' + b[2] + 'px; height: ' + b[2] + 'px; border-radius: 999px; background: radial-gradient(circle at 32% 30%, rgba(255,255,255,0.95), ' + b[3] + ' 62%); box-shadow: 0 8px 18px rgba(17,17,19,0.12); opacity: 0.8; filter: blur(' + b[5] + 'px); transform: translateY(' + (-b[4] * p) + 'px)'
+      heroStageStyle: (inWindow ? 'position: relative; height: 100vh; max-height: 980px; ' : 'position: relative; height: 900px; ') + 'min-height: 720px; overflow: hidden; isolation: isolate; background: #FFF8F1',
+      // The logo tile is multiplied over a moving rainbow (white fill takes the colour, the outline stays dark),
+      // then masked by the same tile so only the logos show.
+      patternStyle: 'position: absolute; z-index: 0; left: 0; right: 0; top: -10%; height: 160%; background-image: url("assets/blob/2cffc67c998d9d4fcfa45c0105a151bb.png"), linear-gradient(120deg, #2B7FFF, #FF4F9A, #FF9A1F, #3FB876, #8B5CF6, #2B7FFF); background-size: 220px 140px, 300% 300%; background-repeat: repeat, no-repeat; background-blend-mode: multiply; -webkit-mask-image: url("assets/blob/2cffc67c998d9d4fcfa45c0105a151bb.png"); mask-image: url("assets/blob/2cffc67c998d9d4fcfa45c0105a151bb.png"); -webkit-mask-size: 220px 140px; mask-size: 220px 140px; -webkit-mask-repeat: repeat; mask-repeat: repeat; opacity: 0.07; pointer-events: none',
+      // Colour mesh: big soft blobs drifting on their own clocks.
+      heroBlobs: [['#FF4F9A', 8, 10, 46], ['#FF9A1F', 62, -6, 40], ['#2B7FFF', 70, 52, 44], ['#8B5CF6', 22, 60, 38], ['#3FB876', 44, 28, 30]].map((b, i) => ({
+        style: 'left: ' + b[1] + '%; top: ' + b[2] + '%; width: ' + b[3] + 'vw; height: ' + b[3] + 'vw; background: ' + b[0] + '; animation-duration: ' + (16 + i * 3) + 's; animation-delay: ' + (-i * 4) + 's'
+      })),
+      ringStyle: 'position: absolute; z-index: 1; left: 50%; top: 50%; width: ' + Math.round((mobile ? 360 : 620) * sizeK) + 'px; height: ' + Math.round((mobile ? 360 : 620) * sizeK) + 'px; pointer-events: none; transform: translate(-50%, -50%) translate(' + (mobile ? 0 : Math.round(330 * k)) + 'px, ' + (mobile ? 240 : 30) + 'px)',
+      spinStyle: 'position: absolute; z-index: 3; left: 50%; top: 50%; width: ' + spinSize + 'px; height: ' + spinSize + 'px; pointer-events: none; filter: drop-shadow(5px 6px 0 rgba(17,17,19,0.9)); opacity: ' + stickerShow + '; transform: translate(-50%, -50%) translate(' + spinAt[0] + 'px, ' + (spinAt[1] - 60 * copyOut) + 'px) scale(' + lerp(1, 0.6, copyOut) + ')',
+      newStyle: 'position: absolute; z-index: 3; left: 50%; top: 50%; display: ' + (mobile ? 'none' : 'block') + '; padding: 6px 18px; border: 3px solid #111113; border-radius: 999px; background: #FF4F9A; color: #FFFFFF; font-family: var(--display); font-size: ' + Math.round(30 * sizeK) + 'px; line-height: 1.1; letter-spacing: 0.04em; box-shadow: 4px 4px 0 #111113; pointer-events: none; opacity: ' + stickerShow + '; transform: translate(-50%, -50%) translate(' + newAt[0] + 'px, ' + (newAt[1] - 60 * copyOut) + 'px) rotate(12deg)',
+      bigWordStyle: 'position: absolute; z-index: 1; left: 50%; top: ' + (mobile ? '30%' : '32%') + '; font-family: var(--display); font-size: ' + Math.round(vw * (mobile ? 0.17 : 0.15)) + 'px; line-height: 1; white-space: nowrap; background: linear-gradient(90deg, #2B7FFF 0%, #8B5CF6 30%, #FF4F9A 62%, #FF9A1F 100%); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; pointer-events: none; opacity: ' + wordIn + '; transform: translate(-50%, -50%) translateY(' + (120 * (1 - wordIn)) + 'px) scale(' + lerp(0.9, 1, wordIn) + ')',
+      bubbles: bubbleSpec.concat([[38, 0, 18, '#FF9A1F', 700, 0], [30, 0, 12, '#8B5CF6', 520, 0]]).map((b, i) => ({
+        style: 'left: ' + b[0] + '%; width: ' + b[2] + 'px; height: ' + b[2] + 'px; background: radial-gradient(circle at 32% 30%, rgba(255,255,255,0.95), ' + b[3] + ' 62%); box-shadow: 0 8px 18px rgba(17,17,19,0.12); filter: blur(' + b[5] + 'px); animation-duration: ' + (9 + (b[4] % 7)) + 's; animation-delay: ' + (-(i * 1.3) % 11).toFixed(1) + 's'
       })),
       copyStyle: 'position: absolute; z-index: 3; box-sizing: border-box; display: flex; flex-direction: column; gap: 20px; ' + (mobile ? 'left: 20px; right: 20px; top: 130px; ' : 'left: ' + contentLeft + 'px; top: 50%; width: ' + Math.round(Math.min(520, vw * 0.42)) + 'px; margin-top: -250px; ') + 'opacity: ' + (1 - copyOut) + '; transform: translateY(' + (-70 * copyOut) + 'px); pointer-events: ' + (copyOut > 0.5 ? 'none' : 'auto'),
       hintStyle: 'position: absolute; z-index: 3; left: 50%; bottom: 110px; transform: translateX(-50%); display: ' + (pinned ? 'flex' : 'none') + '; flex-direction: column; align-items: center; gap: 10px; font-size: 11px; font-weight: 700; letter-spacing: 0.32em; color: var(--mute); opacity: ' + clamp01(1 - p * 5),
-      heroDevices: products.map((d) => {
+      heroDevices: products.map((d, i) => {
         const f = heroFrames[d.name];
         const x = lerp(f[0][0], f[1][0], t) * (mobile ? 1 : k);
         const yy = lerp(f[0][1], f[1][1], t) + arc[d.name] * lift;
         const r = lerp(f[0][2], f[1][2], t);
         const s = lerp(f[0][3], f[1][3], t);
+        const g = heroGlow[d.name];
         return {
+          // Glows follow their device and swell at the end, blending into one band behind THE LINEUP.
+          glowStyle: 'position: absolute; left: 50%; top: 50%; width: ' + glowSize + 'px; height: ' + glowSize + 'px; transform: translate(-50%, -50%) translate(' + x + 'px, ' + yy + 'px) scale(' + lerp(1, 1.9, t) + ')',
+          glowInner: 'background: radial-gradient(closest-side, ' + g[0] + ', ' + g[1] + ' 55%, rgba(255,255,255,0) 100%); animation-delay: ' + (-1.7 * i) + 's',
           name: d.name,
           img: d.img,
+          href: d.name.charAt(0) + d.name.slice(1).toLowerCase() + '.dc.html',
+          floatStyle: 'animation-duration: ' + [6, 7, 5.5][i] + 's; animation-delay: ' + (1.2 + i * 0.25) + 's',
           alt: d.imgAlt,
           style: 'position: absolute; z-index: ' + f[0][4] + '; left: 50%; top: 50%; margin: 0; display: flex; flex-direction: column; align-items: center; transform: translate(-50%, -50%) translate(' + x + 'px, ' + yy + 'px) rotate(' + r + 'deg) scale(' + s + '); will-change: transform',
-          imgStyle: 'display: block; height: ' + Math.round(d.heroH * sizeK) + 'px; width: auto; filter: drop-shadow(0 34px 44px rgba(17,17,19,0.3))',
+          imgStyle: 'display: block; height: ' + Math.round(d.heroH * sizeK) + 'px; width: auto; filter: drop-shadow(0 34px 44px rgba(17,17,19,0.3)); animation-delay: ' + (0.15 + i * 0.22) + 's',
           // The name sits above each device top; sizes divide by the scale so the label stays the same size.
           capStyle: 'position: absolute; bottom: 100%; left: 50%; margin-bottom: ' + (16 / s).toFixed(1) + 'px; display: flex; align-items: center; gap: ' + (10 / s).toFixed(1) + 'px; white-space: nowrap; font-family: var(--display); font-size: ' + ((mobile ? 16 : 26) / s).toFixed(1) + 'px; letter-spacing: 0.02em; color: var(--fg); opacity: ' + labelsIn + '; transform: translateX(-50%) translateY(' + (12 * (1 - labelsIn)) + 'px)',
           dotStyle: 'display: inline-block; width: ' + (12 / s).toFixed(1) + 'px; height: ' + (12 / s).toFixed(1) + 'px; border-radius: 999px; background: ' + d.color
