@@ -35,10 +35,17 @@ a{color:#111113}a:hover{color:#7A5F14}
 .nav-dd:hover .nav-menu,.nav-dd:focus-within .nav-menu{opacity:1;visibility:visible;transform:none}
 .nav-item{display:flex;align-items:center;gap:12px;min-height:44px;padding:0 14px;border-radius:12px;color:#111113;text-decoration:none}
 .nav-item:hover{background:#F6F3EE;color:#111113}
+.feat-tile img{filter:drop-shadow(0 0 8px rgba(190,200,255,.7))}
+@media (max-width:699px){.feat-grid{grid-template-columns:minmax(0,1fr) !important}.feat-tile{grid-column:auto !important;min-height:0 !important;padding:18px 20px !important}.feat-tile img{height:56px !important}}
 .strip-link{transition:background .3s ease,color .3s ease;text-shadow:0 1px 3px rgba(0,0,0,.35)}
 .strip-link:hover{background:rgba(255,255,255,.2)}
 @media (max-width:899px){.p-logo{max-width:300px !important}.big-head{font-size:72px !important}.v-title{font-size:56px !important}}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.rv-ready [data-reveal]{opacity:1;transform:none;transition:none}.beri-marquee,.p-float,.flavor-track{animation:none}.flavor-slider{overflow-x:auto !important}}
+.cf-item{transition:transform .55s var(--ease),opacity .55s var(--ease),box-shadow .55s var(--ease),border-color .55s var(--ease)}
+.cf-item:focus-visible,.cf-arrow:focus-visible{outline:3px solid #D9C38A;outline-offset:4px}
+@media (max-width:699px){.cf-name{font-size:30px !important}}
+.cf-arrow{transition:background .2s ease,border-color .2s ease}
+.cf-arrow:hover{background:#111113 !important;border-color:#111113 !important;color:#FFFFFF !important}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.rv-ready [data-reveal]{opacity:1;transform:none;transition:none}.beri-marquee,.p-float,.flavor-track{animation:none}.flavor-slider{overflow-x:auto !important}.cf-item{transition:none}}
 </style>
 
 </head>
@@ -78,7 +85,7 @@ a{color:#111113}a:hover{color:#7A5F14}
 <sc-if value="{{p.hasVideo}}" hint-placeholder-val="{{false}}">
 <section id="video-hero" aria-label="BERI {{p.name}} reveal" style="{{vTrackStyle}}">
 <div style="{{vStageStyle}}">
-<video id="product-video" src="{{p.video}}" poster="{{p.poster}}" aria-label="BERI {{p.name}} product reveal" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; background: #000000"></video>
+<video id="product-video" data-mode="{{p.videoMode}}" src="{{p.video}}" poster="{{p.poster}}" aria-label="BERI {{p.name}} product reveal" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; background: #000000"></video>
 <div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(90deg, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.3) 42%, rgba(0,0,0,0) 68%)"></div>
 <sc-for list="{{chapters}}" as="ch" hint-placeholder-count="1">
 <div style="{{ch.style}}">
@@ -95,9 +102,11 @@ a{color:#111113}a:hover{color:#7A5F14}
 <span>SCROLL TO REVEAL</span>
 <span style="display: block; width: 2px; height: 40px; background: #FFFFFF; opacity: 0.5"></span>
 </div>
+<sc-if value="{{vShowBar}}" hint-placeholder-val="{{true}}">
 <div aria-hidden="true" style="position: absolute; z-index: 3; left: 32px; right: 32px; bottom: 116px; height: 3px; border-radius: 3px; background: rgba(255,255,255,0.18)">
 <div style="{{vBarStyle}}"></div>
 </div>
+</sc-if>
 </div>
 </section>
 </sc-if>
@@ -112,6 +121,9 @@ a{color:#111113}a:hover{color:#7A5F14}
 <h1 data-reveal="up" style="margin: 0; transition-delay: 80ms">
 <img class="p-logo" src="{{p.logo}}" alt="BERI {{p.name}}" style="{{logoStyle}}">
 </h1>
+<sc-if value="{{p.hasModes}}" hint-placeholder-val="{{false}}">
+<img data-reveal="up" src="{{p.modesImg}}" alt="{{p.modesAlt}}" style="display: block; width: 417px; max-width: 380px; height: auto; transition-delay: 110ms">
+</sc-if>
 <p data-reveal="up" style="margin: 0; max-width: 520px; font-size: 20px; color: var(--mute); transition-delay: 140ms">{{p.tagline}}</p>
 <div data-reveal="up" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; max-width: 620px; padding-top: 8px; transition-delay: 200ms">
 <sc-for list="{{p.highlights}}" as="h" hint-placeholder-count="4">
@@ -152,13 +164,17 @@ a{color:#111113}a:hover{color:#7A5F14}
 </div>
 </div>
 
-<section id="specs" style="scroll-margin-top: 120px; max-width: 1320px; margin: 0 auto; padding: 120px 32px; display: flex; flex-wrap: wrap; gap: 64px; align-items: flex-start">
-<div style="flex: 1 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 18px">
+<section id="specs" class="{{p.specClass}}" style="position: relative; overflow: hidden; scroll-margin-top: 120px">
+<sc-if value="{{p.hasSpecVideo}}" hint-placeholder-val="{{false}}">
+<video class="spec-video" data-mode="{{p.specVideoMode}}" data-rate="{{p.specRate}}" src="{{p.specVideo}}" poster="{{p.specPoster}}" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; background: #000000"></video>
+</sc-if>
+<div style="position: relative; max-width: 1320px; margin: 0 auto; padding: 120px 32px; display: flex; flex-wrap: wrap; gap: 40px 64px; justify-content: space-between; align-items: flex-start">
+<div style="{{p.specIntroStyle}}">
 <span data-reveal="left" style="font-size: 13px; font-weight: 600; letter-spacing: 0.32em; color: var(--gold-ink)">SPECIFICATIONS</span>
 <h2 class="big-head" data-reveal="left" style="margin: 0; font-family: var(--display); font-weight: 400; font-size: 96px; line-height: 0.9; text-transform: uppercase; transition-delay: 80ms">Inside<br>BERI {{p.name}}</h2>
-<p data-reveal="left" style="margin: 0; max-width: 420px; font-size: 18px; color: var(--mute); transition-delay: 160ms">{{p.summary}}</p>
+<p data-reveal="left" style="margin: 0; max-width: 420px; font-size: 18px; color: #ffffff; transition-delay: 160ms">{{p.summary}}</p>
 </div>
-<div data-reveal="right" style="flex: 1 1 560px; min-width: 0; border-radius: 28px; background: #FFFFFF; border: 1px solid var(--line); padding: 12px 32px">
+<div data-reveal="right" style="{{p.specCardStyle}}">
 <sc-for list="{{p.specs}}" as="s" hint-placeholder-count="8">
 <div style="{{s.rowStyle}}">
 <span style="color: var(--mute)">{{s.k}}</span>
@@ -166,7 +182,22 @@ a{color:#111113}a:hover{color:#7A5F14}
 </div>
 </sc-for>
 </div>
+</div>
 </section>
+
+<sc-if value="{{p.hasFeatures}}" hint-placeholder-val="{{false}}">
+<section aria-label="BERI {{p.name}} features" style="max-width: 1320px; margin: 0 auto; padding: 0 32px 120px; height: 336px">
+<img data-reveal="scale" src="{{p.specBanner}}" alt="{{p.specBannerAlt}}" style="display: block; width: 100%; height: auto; border-radius: 28px; box-shadow: 0 30px 70px rgba(17,17,19,0.18)">
+</section><section aria-label="BERI {{p.name}} highlights" style="max-width: 1320px; margin: 0 auto; padding: 0 32px 120px">
+<ul class="feat-grid" style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 14px">
+<sc-for list="{{p.features}}" as="ft" hint-placeholder-count="5">
+<li class="feat-tile" data-reveal="up" style="{{ft.style}}">
+<img src="{{ft.img}}" alt="{{ft.alt}}" style="{{ft.imgStyle}}">
+</li>
+</sc-for>
+</ul>
+</section>
+</sc-if>
 
 <sc-if value="{{p.hasBanners}}" hint-placeholder-val="{{true}}">
 <section aria-label="Features" style="max-width: 1320px; margin: 0 auto; padding: 0 32px 120px; display: flex; flex-direction: column; gap: 24px">
@@ -185,9 +216,7 @@ a{color:#111113}a:hover{color:#7A5F14}
 </sc-if>
 
 <sc-if value="{{p.hasSpecBanner}}" hint-placeholder-val="{{false}}">
-<section aria-label="BERI {{p.name}} features" style="max-width: 1320px; margin: 0 auto; padding: 0 32px 120px">
-<img data-reveal="scale" src="{{p.specBanner}}" alt="{{p.specBannerAlt}}" style="display: block; width: 100%; height: auto; border-radius: 28px; box-shadow: 0 30px 70px rgba(17,17,19,0.18)">
-</section>
+
 </sc-if>
 
 <section id="flavors" class="beri-dark" style="scroll-margin-top: 120px">
@@ -206,11 +235,11 @@ a{color:#111113}a:hover{color:#7A5F14}
 </sc-if>
 <sc-if value="{{p.hasSlider}}" hint-placeholder-val="{{false}}">
 <div class="flavor-slider" role="region" aria-label="BERI {{p.name}} flavors" style="position: relative; overflow: hidden; margin: 0 -32px; padding: 8px 0">
-<div class="flavor-track" style="display: flex; width: max-content; gap: 20px">
+<div class="flavor-track" style="display: flex; width: max-content; gap: 12px">
 <sc-for list="{{slides}}" as="sl" hint-placeholder-count="12">
 <figure style="{{sl.style}}">
-<img src="{{sl.img}}" alt="{{sl.alt}}" style="display: block; width: 100%; height: auto; aspect-ratio: 4 / 7; object-fit: cover; border-radius: 16px">
-<figcaption style="font-family: var(--display); font-size: 22px; line-height: 1.1; text-transform: uppercase; text-align: center; color: #111113">{{sl.name}}</figcaption>
+<img src="{{sl.img}}" alt="{{sl.alt}}" style="display: block; width: 100%; height: auto; aspect-ratio: 4 / 7; object-fit: cover; border-radius: 12px">
+<figcaption style="padding: 0 4px; font-family: var(--display); font-size: 15px; line-height: 1.1; text-transform: uppercase; text-align: center; color: #111113">{{sl.name}}</figcaption>
 </figure>
 </sc-for>
 </div>
@@ -224,6 +253,67 @@ a{color:#111113}a:hover{color:#7A5F14}
 </div>
 </section>
 
+<sc-if value="{{p.hasFormats}}" hint-placeholder-val="{{false}}">
+<section id="system" aria-labelledby="system-title" style="scroll-margin-top: 120px; max-width: 1320px; margin: 0 auto; padding: 120px 32px 0; display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px">
+<div style="display: flex; flex-direction: column; gap: 16px">
+<span data-reveal="up" style="font-size: 13px; font-weight: 600; letter-spacing: 0.32em; color: var(--gold-ink)">THE BERI {{p.name}} SYSTEM</span>
+<h2 id="system-title" class="big-head" data-reveal="up" style="margin: 0; font-family: var(--display); font-weight: 400; font-size: 120px; line-height: 0.9; text-transform: uppercase; transition-delay: 80ms">Pod. Kit. Device.</h2>
+</div>
+<p data-reveal="up" style="margin: 0; max-width: 420px; font-size: 18px; color: var(--mute); transition-delay: 160ms">Three ways to buy BERI {{p.name}}. Start with a Kit, then keep going with Pods, or pick up a spare Device.</p>
+</div>
+<div role="group" aria-label="Choose a format" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px">
+<sc-for list="{{fmtCards}}" as="fc" hint-placeholder-count="3">
+<button type="button" data-reveal="up" aria-pressed="{{fc.pressed}}" aria-controls="system-panel" onClick="{{fc.pick}}" style="{{fc.style}}">
+<span style="display: flex; align-items: center; justify-content: space-between; gap: 12px">
+<span style="font-family: var(--display); font-size: 34px; line-height: 1; text-transform: uppercase">{{fc.title}}</span>
+<span style="{{fc.pillStyle}}">{{fc.count}} {{fc.unit}}</span>
+</span>
+<span style="{{fc.subStyle}}">{{fc.sub}}</span>
+<span style="{{fc.boxStyle}}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: 0 0 auto"><path d="M21 8l-9-5-9 5v8l9 5 9-5z"></path><path d="M3 8l9 5 9-5"></path><path d="M12 13v8"></path></svg>{{fc.box}}</span>
+</button>
+</sc-for>
+</div>
+<div id="system-panel" role="region" aria-roledescription="carousel" aria-label="{{fmtSel.label}}" style="border-radius: 32px; background: #FFFFFF; border: 1px solid var(--line); padding: 32px 0 36px; display: flex; flex-direction: column; gap: 12px; overflow: hidden">
+<div style="padding: 0 32px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<div style="min-width: 0; display: flex; flex-direction: column; gap: 6px">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 14px">
+<h3 style="margin: 0; font-family: var(--display); font-weight: 400; font-size: 44px; line-height: 1; text-transform: uppercase">{{fmtSel.heading}}</h3>
+<span style="font-size: 16px; color: var(--mute)">{{fmtSel.countLabel}}</span>
+</div>
+<p style="margin: 0; max-width: 560px; font-size: 15px; color: var(--mute)">{{fmtSel.text}}</p>
+</div>
+<a href="Wholesale.dc.html" style="display: inline-flex; align-items: center; min-height: 52px; padding: 0 26px; border-radius: 999px; background: var(--fg); color: var(--bg); font-weight: 700; letter-spacing: 0.06em; text-decoration: none">{{fmtSel.cta}}</a>
+</div>
+<div onWheel="{{cfWheel}}" onPointerDown="{{cfDown}}" onPointerUp="{{cfUp}}" style="{{cfStageStyle}}">
+<div aria-hidden="true" style="{{cfGlowStyle}}"></div>
+<sc-for list="{{cfItems}}" as="ci" hint-placeholder-count="7">
+<button type="button" class="cf-item" aria-label="{{ci.label}}" aria-current="{{ci.current}}" aria-hidden="{{ci.hidden}}" tabindex="{{ci.tab}}" onClick="{{ci.pick}}" style="{{ci.style}}">
+<sc-if value="{{ci.hasImg}}" hint-placeholder-val="{{true}}">
+<img src="{{ci.img}}" alt="" draggable="false" style="display: block; width: 100%; height: auto; aspect-ratio: 4 / 6; object-fit: contain; pointer-events: none">
+</sc-if>
+<sc-if value="{{ci.noImg}}" hint-placeholder-val="{{false}}">
+<span style="display: flex; aspect-ratio: 4 / 6; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; letter-spacing: 0.12em; color: #5E5A53">{{ci.ph}}</span>
+</sc-if>
+</button>
+</sc-for>
+</div>
+<div style="padding: 0 32px; display: flex; align-items: center; justify-content: center; gap: 24px">
+<button type="button" class="cf-arrow" aria-label="Previous" onClick="{{cfPrev}}" style="flex: 0 0 auto; width: 56px; height: 56px; border-radius: 999px; border: 1.5px solid #DDD6CA; background: #FFFFFF; color: #111113; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"></path></svg></button>
+<div aria-live="polite" style="min-width: 0; flex: 0 1 420px; display: flex; flex-direction: column; align-items: center; gap: 4px; text-align: center">
+<span style="{{cfMetaStyle}}">{{cfMeta}}</span>
+<span class="cf-name" style="font-family: var(--display); font-size: 48px; line-height: 1; text-transform: uppercase; color: #111113">{{cfName}}</span>
+</div>
+<button type="button" class="cf-arrow" aria-label="Next" onClick="{{cfNext}}" style="flex: 0 0 auto; width: 56px; height: 56px; border-radius: 999px; border: 1.5px solid #DDD6CA; background: #FFFFFF; color: #111113; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></button>
+</div>
+<div aria-hidden="true" style="align-self: center; width: min(320px, 70%); height: 4px; border-radius: 4px; background: #EDE8DF; margin-top: 8px">
+<div style="{{cfBarStyle}}"></div>
+</div>
+<p style="margin: 0; padding: 0 32px; text-align: center; font-size: 13px; color: var(--mute)">Swipe, drag or use the arrows to browse. Tap a {{fmtSel.lower}} to bring it to the front.</p>
+</div>
+</section>
+</sc-if>
+
 <sc-if value="{{p.hasPackBanner}}" hint-placeholder-val="{{false}}">
 <section aria-label="BERI {{p.name}} retail displays" style="max-width: 1320px; margin: 0 auto; padding: 120px 32px 0; display: flex; flex-direction: column; gap: 24px">
 <img data-reveal="scale" src="{{p.packBanner}}" alt="{{p.packBannerAlt}}" style="display: block; width: 100%; height: auto; border-radius: 28px">
@@ -234,21 +324,25 @@ a{color:#111113}a:hover{color:#7A5F14}
 </section>
 </sc-if>
 
-<section style="max-width: 1320px; margin: 0 auto; padding: 120px 32px 140px; display: flex; flex-direction: column; gap: 40px">
-<h2 class="big-head" data-reveal="up" style="margin: 0; font-family: var(--display); font-weight: 400; font-size: 96px; line-height: 0.9; text-transform: uppercase">Explore the lineup</h2>
-<div style="display: flex; flex-wrap: wrap; gap: 24px">
+<section style="max-width: 1320px; margin: 0 auto; padding: 72px 32px 48px; display: flex; flex-direction: column; gap: 24px">
+<h2 data-reveal="up" style="margin: 0; font-family: var(--display); font-weight: 400; font-size: 48px; line-height: 0.95; text-transform: uppercase">Explore the lineup</h2>
+<div style="display: flex; flex-wrap: wrap; gap: 16px">
 <sc-for list="{{others}}" as="o" hint-placeholder-count="2">
 <a data-reveal="up" href="{{o.href}}" style="{{o.style}}">
-<div style="display: flex; flex-direction: column; gap: 8px">
-<span style="font-size: 12px; font-weight: 700; letter-spacing: 0.28em">BERI</span>
-<span style="font-family: var(--display); font-size: 72px; line-height: 0.9">{{o.name}}</span>
-<span style="max-width: 300px; font-size: 15px; color: rgba(255,255,255,0.9)">{{o.tagline}}</span>
-<span style="margin-top: 12px; align-self: flex-start; display: inline-flex; align-items: center; min-height: 48px; padding: 0 22px; border-radius: 999px; background: #FFFFFF; color: {{o.color}}; font-size: 15px; font-weight: 700">View BERI {{o.name}} →</span>
+<div style="min-width: 0; display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 11px; font-weight: 700; letter-spacing: 0.28em">BERI</span>
+<span style="font-family: var(--display); font-size: 44px; line-height: 0.9">{{o.name}}</span>
+<span style="max-width: 280px; font-size: 13px; line-height: 1.45; color: rgba(255,255,255,0.9); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden">{{o.tagline}}</span>
+<span style="margin-top: 8px; align-self: flex-start; display: inline-flex; white-space: nowrap; align-items: center; min-height: 44px; padding: 0 18px; border-radius: 999px; background: #FFFFFF; color: {{o.color}}; font-size: 14px; font-weight: 700">{{o.cta}}</span>
 </div>
-<img src="{{o.img}}" alt="{{o.imgAlt}}" style="display: block; height: 260px; width: auto; max-width: 45%; object-fit: contain; filter: drop-shadow(0 24px 36px rgba(0,0,0,0.35))">
+<img src="{{o.img}}" alt="{{o.imgAlt}}" style="display: block; height: 160px; width: auto; max-width: 45%; object-fit: contain; filter: drop-shadow(0 24px 36px rgba(0,0,0,0.35))">
 </a>
 </sc-for>
 </div>
+</section>
+
+<section aria-label="BERI E-Liquid" style="max-width: 1320px; margin: 0 auto; padding: 0 32px 140px">
+<img data-reveal="scale" src="assets/blob/65202543b257282a3f30a8638ca3e88a.webp" alt="BERI E-Liquid: Grape Drank and Apple Caramel Pop in 30 mL bottles, available in 25 mg and 50 mg, bottled in California" loading="lazy" style="display: block; width: 100%; height: auto; aspect-ratio: 2000 / 610; object-fit: cover; border-radius: 24px; box-shadow: 0 30px 70px rgba(17,17,19,0.18)">
 </section>
 </main>
 
@@ -278,11 +372,11 @@ a{color:#111113}a:hover{color:#7A5F14}
 </nav>
 </div>
 </template>
-<script type="text/x-dc" data-dc-script data-props='{"animations":{"editor":"boolean","default":true},"$preview":{"width":1440,"height":6400}}'>
+<script type="text/x-dc" data-dc-script data-props='{"animations":{"editor":"boolean","default":true},"$preview":{"width":1440,"height":7600}}'>
 class Component extends DCLogic {
   constructor(props) {
     super(props);
-    this.state = { scrolled: false, p: 0, rp: 0, vh: 900, vw: 1440 };
+    this.state = { scrolled: false, p: 0, rp: 0, vh: 900, vw: 1440, fmt: 0, sel: 0 };
   }
   componentDidMount() {
     this.reduce = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
@@ -300,10 +394,18 @@ class Component extends DCLogic {
       const p = progressOf(document.getElementById('video-hero'), vh);
       const rp = progressOf(document.getElementById('reveal-hero'), vh);
       const video = document.getElementById('product-video');
-      if (video && video.duration && this.pinOn()) {
+      if (video && video.duration && this.pinOn() && !this.videoPlay) {
         const t = p * (video.duration - 0.05);
         if (Math.abs(video.currentTime - t) > 0.01) video.currentTime = t;
       }
+      // Scrubbed section videos follow the section through the viewport: first frame as it enters, last as it leaves.
+      document.querySelectorAll('.spec-video[data-mode="scrub"]').forEach((sv) => {
+        if (!sv.duration || !this.motionOn()) return;
+        const r = sv.closest('section').getBoundingClientRect();
+        const f = Math.min(1, Math.max(0, (vh - r.top) / (vh + r.height)));
+        const st = f * (sv.duration - 0.05);
+        if (Math.abs(sv.currentTime - st) > 0.01) sv.currentTime = st;
+      });
       const s = this.state;
       if (scrolled !== s.scrolled || Math.abs(p - s.p) > 0.002 || Math.abs(rp - s.rp) > 0.002 || vh !== s.vh || vw !== s.vw) {
         this.setState({ scrolled: scrolled, p: p, rp: rp, vh: vh, vw: vw });
@@ -319,6 +421,7 @@ class Component extends DCLogic {
     window.addEventListener('scroll', this.onScroll, { passive: true });
     window.addEventListener('resize', this.onScroll);
     this.setupVideo();
+    this.setupSpecVideo();
     this.measure();
     this.forceUpdate();
     this.setupReveal();
@@ -327,11 +430,23 @@ class Component extends DCLogic {
   pinOn() {
     return this.motionOn() && (window.innerHeight || 0) < 1400;
   }
-  // The video never plays on its own: scroll sets its frame, otherwise it rests on the first frame.
+  // A 'play' video loops on its own (muted, poster only with reduced motion); otherwise scroll sets its frame and it rests on the first frame.
   setupVideo() {
     const v = document.getElementById('product-video');
     if (!v) return;
     this.video = v;
+    if (v.getAttribute('data-mode') === 'play') {
+      this.videoPlay = true;
+      v.muted = true;
+      v.loop = true;
+      v.playsInline = true;
+      v.setAttribute('playsinline', '');
+      if (this.reduce) { v.pause(); return; }
+      v.autoplay = true;
+      const p = v.play();
+      if (p && p.catch) p.catch(() => {});
+      return;
+    }
     v.muted = true;
     v.loop = false;
     v.autoplay = false;
@@ -341,6 +456,30 @@ class Component extends DCLogic {
     v.pause();
     v.addEventListener('loadedmetadata', this.measure);
     v.addEventListener('play', this.stopPlay = () => v.pause());
+  }
+  // Section background videos are muted: a 'scrub' one follows scroll, a 'play' one loops; with reduced motion they rest on their poster.
+  setupSpecVideo() {
+    document.querySelectorAll('.spec-video').forEach((v) => {
+      v.muted = true;
+      v.loop = true;
+      v.playsInline = true;
+      v.setAttribute('playsinline', '');
+      if (v.getAttribute('data-mode') === 'scrub') {
+        v.loop = false;
+        v.autoplay = false;
+        v.preload = 'auto';
+        v.pause();
+        v.addEventListener('loadedmetadata', this.measure);
+        v.addEventListener('play', () => v.pause());
+        return;
+      }
+      const rate = parseFloat(v.getAttribute('data-rate')) || 1;
+      v.defaultPlaybackRate = rate;
+      v.playbackRate = rate;
+      if (this.reduce) { v.pause(); return; }
+      const p = v.play();
+      if (p && p.catch) p.catch(() => {});
+    });
   }
   componentDidUpdate() {
     if (!this.io && this.motionOn()) this.setupReveal();
@@ -386,6 +525,13 @@ class Component extends DCLogic {
   renderVals() {
     // Which product this page shows. Cliq.dc.html and Cirql.dc.html share this template.
     const PRODUCT_KEY = 'CLIQ';
+    // Kit photos, one per kit flavor.
+    const kitImg = {
+      'White Gami': 'assets/blob/8c7d55cc10a18a9184d299e2b686a2eb.webp', 'White Strawberry': 'assets/blob/beb060346e8553dc5b7ff49339505d7f.webp',
+      'Blue Razz Ice': 'assets/blob/879d40751da72d1d1b49a38fdcd1c898.webp', 'Clear': 'assets/blob/41805ce261e021cc6dcb013f950dca49.webp', 'Grape Ice': 'assets/blob/1a3684ef67c68a4d514dfe65275af761.webp',
+      'Miami Mint': 'assets/blob/195b86a8ed4cad379d4900647105d762.webp', 'Peach Ice': 'assets/blob/efc7df7762aaa8baad02bf9319c4bd19.webp', 'Super Mint': 'assets/blob/41b271b1ec10f03d82d177cb43c6447b.webp',
+      'Tobacco': 'assets/blob/4f490a1ae2061ed3b1db8f566ab13764.webp', 'Watermelon Ice': 'assets/blob/2c01797abc928b80f546adc5f16a0a91.webp'
+    };
     const products = {
       CRUSH: {
         name: 'CRUSH', page: 'Crush.dc.html', color: '#C81E64', soft: '#FF7DB0', tint: '#FBE8F0', badge: '32 FLAVORS · 40W CRUSH MODE', heroH: 560,
@@ -408,7 +554,8 @@ class Component extends DCLogic {
         name: 'CLIQ', page: 'Cliq.dc.html', color: '#0F7A42', soft: '#5BE39A', tint: '#E4F2EA', badge: 'REFILLABLE POD SYSTEM', heroH: 520,
         img: 'assets/blob/38e90c83b18e5f9b193d4e2806393e55.webp', imgAlt: 'BERI Cliq device in Blue Rancher',
         logo: 'assets/blob/e64e8c7902539b056561386143d17f3e.webp', logoW: 560,
-        video: 'assets/blob/0743e73a96d6cf03aba74d46fcbb5fe6.mp4', poster: 'assets/blob/9ee3c2fce98692e829013b43e2311150.jpg',
+        // videoMode 'play': the hero video plays on its own in a loop; leave it out to scrub the video with scroll.
+        video: 'assets/blob/270ba552549053fd0565c7e76f6dbeaf.mp4', poster: 'assets/blob/6737ac19476cfc667432a34be003a22e.webp', videoMode: 'play',
         specBanner: 'assets/blob/a0379a66f1c66bf53840606c6603637e.webp',
         specBannerAlt: 'BERI Cliq: Find your Cliq. Cliq Mode 25K puffs, Normal Mode 50K puffs. 360° crystal tank, 2.5x charging speed, LED display, refillable pod, dual mesh coil',
         // Infinite flavor slider: one entry per flavor photo (all 25).
@@ -455,19 +602,50 @@ class Component extends DCLogic {
           { s: 0.31, e: 0.45, eyebrow: 'LED DISPLAY', title: 'Always in the know', text: 'An integrated LED screen keeps your device status in view.' },
           { s: 0.45, e: 0.6, eyebrow: '360° CRYSTAL TANK', title: 'See every drop', text: 'A transparent tank around the pre-filled, refillable 18 mL pod.' },
           { s: 0.6, e: 0.76, eyebrow: 'DUAL MESH COILS', title: 'Full flavor', text: 'Two mesh coils heat evenly, puff after puff.' },
-          { s: 0.78, e: 2, eyebrow: 'THE LINEUP', title: '20 flavors', text: 'From Miami Mint to Blue Rancher. Pick yours.' }
+          { s: 0.78, e: 2, eyebrow: 'THE LINEUP', title: '25 flavors', text: 'From Miami Mint to Blue Rancher. Pick yours.' }
         ],
         tagline: '360° crystal tank, dual mesh coils and a pre-filled, refillable 18 mL pod. Up to 50,000 puffs.',
-        summary: 'A kit-and-pod system with two modes: up to 50,000 puffs in Normal Mode or 25,000 in Cliq Mode, with a see-through tank and fast Type-C charging.',
-        highlights: [{ value: '50K', label: 'Normal Mode (up to)' }, { value: '25K', label: 'Cliq Mode (up to)' }, { value: '18 mL', label: 'E-liquid' }, { value: '900', label: 'mAh battery' }],
+        summary: 'A kit-and-pod system with two modes: up to 50,000 puffs in ECO Mode or 25,000 in CLIQ Mode, with a see-through tank and fast Type-C charging.',
+        highlights: [{ value: '18 mL', label: 'E-liquid' }, { value: '900', label: 'mAh battery' }, { value: '2.5×', label: 'Charging speed' }, { value: 'Dual', label: 'Mesh coil' }],
         specs: [
-          { k: 'Nicotine strength', v: '5% (50mg)' }, { k: 'Max puffs', v: 'Up to 50,000 (Normal) / 25,000 (Cliq Mode)' }, { k: 'E-liquid', v: '18 mL' },
-          { k: 'Battery', v: '900 mAh' }, { k: 'Coil', v: 'Dual Mesh' }, { k: 'Tank', v: '360° crystal transparent' },
-          { k: 'System', v: 'Refillable pod system (kit + pods)' }, { k: 'Display', v: 'Integrated LED screen' }, { k: 'Airflow', v: 'Fully adjustable' },
-          { k: 'Charging', v: 'Type-C (2.5× charging speed)' }
+          { k: 'Device model', v: 'CLIQ (on packaging)' }, { k: 'Battery capacity', v: '900 mAh' }, { k: 'Charging port', v: 'Type-C (2.5× charging speed)' },
+          { k: 'Tank', v: '360° Crystal Tank' }, { k: 'Display', v: 'LED Display' }, { k: 'Coil', v: 'Dual Mesh Coil' },
+          { k: 'Pod', v: 'Pre-filled, refillable pod' }, { k: 'Capacity', v: '18 mL' }, { k: 'Nicotine strength', v: '5%' },
+          { k: 'ECO Mode', v: 'Up to 50,000 puffs' }, { k: 'CLIQ Mode', v: 'Up to 25,000 puffs' }
         ],
         marquee: ['Up to 50,000 puffs', '360° crystal tank', 'Dual mesh coil', 'Refillable pod', 'Type-C fast charging'],
         hasBanners: false,
+        // Background video behind the specifications, muted; with specScrub, scroll moves it frame by frame (an every-frame-keyframe encode keeps that smooth).
+        specVideo: 'assets/blob/720b3fec6ed6e07f36f3dc7914adf919.mp4', specPoster: 'assets/blob/5ec1a170ab23e1abd924772d0f4a9cae.webp', specRate: 0.73,
+        // Puff-mode lockup shown under the logo in the hero; it replaces the two puff stats in the highlights.
+        modesImg: 'assets/blob/12235f4286cf79bbfe8193afaf3409cc.svg', modesAlt: 'Normal Mode: 50K puffs. Cliq Mode: 25K puffs',
+        // Feature tiles, using the CLIQ packaging icons (each SVG carries its own label): three small ones on top, two large below.
+        features: [
+          { size: 'sm', top: '2.5×', main: 'Charging Speed', img: 'assets/blob/d9ba51d854f58340b786dfdfefe04774.svg' },
+          { size: 'sm', top: 'LED', main: 'Display', img: 'assets/blob/feee2b9fbdc34355771b93e31b52c5f7.svg' },
+          { size: 'sm', top: 'Refillable', main: 'Pod', img: 'assets/blob/03f0576ffdf61ceaf7e9b42b304c1dd2.svg' },
+          { size: 'lg', top: 'Dual Mesh', main: 'Coil', img: 'assets/blob/97e18fec4ad29f7a35e08dcda4646dec.svg' },
+          { size: 'lg', top: '360°', main: 'Crystal Tank', img: 'assets/blob/01b0a01bd020f19905c4e90f5f607542.svg' }
+        ],
+        // Pod / Kit / Device section. Pods reuse the slider photos; kits and devices show a placeholder until their photos arrive (img: '/_blob/<id>').
+        formats: [
+          { title: 'Pod', heading: 'Pods', sub: 'Pre-filled · no battery', unit: 'flavors', box: '1 pre-filled pod',
+            text: 'A pre-filled, refillable 18 mL pod. It has no battery: pair it with a CLIQ Device.', useSlider: true },
+          { title: 'Kit', heading: 'Kits', sub: 'Pod + Device', unit: 'flavors', box: '1 CLIQ Device + 1 pre-filled pod',
+            text: 'Everything to start: a CLIQ Device with a pre-filled pod, ready to use out of the box.',
+            items: ['Super Mint', 'Watermelon Ice', 'Grape Ice', 'Peach Ice', 'Blue Razz Ice', 'Tobacco', 'Clear', 'White Strawberry', 'White Gami', 'Miami Mint'].map((n) => ({ name: n, img: kitImg[n] })) },
+          { title: 'Device', heading: 'Devices', sub: 'Battery only', unit: 'colors', box: '1 CLIQ Device',
+            text: 'The rechargeable 900 mAh CLIQ battery with LED display and 2.5× Type-C charging. Pods sold separately.',
+            cardBg: '#FFFFFF',
+            items: [
+              { name: 'Device', color: '#6B7280', img: 'assets/blob/1c41df7686363c124ec66fc8499b461a.webp' },
+              { name: 'White Strawberry', img: 'assets/blob/1d05de8c9ae0450255867e230d8612f5.webp' },
+              { name: 'Watermelon Ice', img: 'assets/blob/675ff48164bd25a837208d8ed477df56.webp' },
+              { name: 'Green Apple', img: 'assets/blob/3cfbedbfb7667db64a79cb3368507bfe.webp' },
+              { name: 'Blue Razz Ice', img: 'assets/blob/21d68c7b1d86c2f92025afd07630190d.webp' },
+              { name: 'Grape Ice', img: 'assets/blob/d05a4fb89d2d3db832d552645a04543e.webp' }
+            ] }
+        ],
         flavors: ['Alaskan Mint', 'Banana Ice', 'Black Razz Ice', 'Blue Coconut', 'Blue Rancher', 'Blue Razz Ice', 'Clear', 'Grape Ice', 'Green Apple', 'Mango Bomb', 'Miami Mint', 'Mixed Berry', 'Passionfruit Mango', 'Peach Ice', 'Peach Refresher', 'Punch Ice', 'Sour Neon Fab', 'Sour Watermelon Gami', 'Strawberry Burst', 'Super Mint', 'Tobacco', 'Watermelon BG', 'Watermelon Ice', 'White Gami', 'White Strawberry']
       },
       CIRQL: {
@@ -489,14 +667,33 @@ class Component extends DCLogic {
     };
     const order = ['CLIQ', 'CRUSH', 'CIRQL'];
     const base = products[PRODUCT_KEY];
+    const formats = base.formats || [];
+    const fmtList = (f) => (f.useSlider ? (base.slider || []) : (f.items || []));
+    const fmtIdx = Math.min(this.state.fmt || 0, Math.max(formats.length - 1, 0));
+    const fmtSel = formats[fmtIdx] || {};
+    const fmtItemsRaw = formats.length ? fmtList(fmtSel) : [];
+    const colorOf = {};
+    (base.slider || []).forEach((s) => { colorOf[s.name] = s.color; });
+    const cfN = fmtItemsRaw.length;
+    const cfSel = cfN ? (((this.state.sel || 0) % cfN) + cfN) % cfN : 0;
+    const cfItem = fmtItemsRaw[cfSel] || {};
+    const cfColor = cfItem.color || colorOf[cfItem.name] || base.color;
+    const cfNarrow = (this.state.vw || 1440) < 700;
+    const cfW = cfNarrow ? 200 : 280;
+    const cfMax = cfNarrow ? 2 : 3;
+    const CF_X = [0, 0.82, 1.45, 1.95];
+    const CF_S = [1, 0.74, 0.58, 0.46];
+    const CF_O = [1, 0.92, 0.62, 0.32];
+    const cfStep = (d) => { if (cfN) this.setState({ sel: (cfSel + d + cfN) % cfN }); };
     const title = (n) => n.charAt(0) + n.slice(1).toLowerCase();
     const hasVideo = !!base.video;
-    const pinned = hasVideo && this.pinOn();
+    const playMode = hasVideo && base.videoMode === 'play';
+    const pinned = hasVideo && !playMode && this.pinOn();
     const vp = pinned ? this.state.p : 0;
     const clamp01 = (v) => Math.min(1, Math.max(0, v));
     const chapterAlpha = (c) => Math.min(clamp01((vp - c.s) / 0.03), clamp01((c.e - vp) / 0.03));
-    const chapters = (base.chapters || []).map((c) => {
-      const a = chapterAlpha(c);
+    const chapters = (base.chapters || []).map((c, i) => {
+      const a = playMode ? (i === 0 ? 1 : 0) : chapterAlpha(c);
       return {
         eyebrow: c.eyebrow,
         title: c.title,
@@ -505,7 +702,7 @@ class Component extends DCLogic {
       };
     });
     const lastChapter = (base.chapters || [])[(base.chapters || []).length - 1];
-    const ctaAlpha = lastChapter ? (pinned ? chapterAlpha(lastChapter) : 0) : 0;
+    const ctaAlpha = playMode ? 1 : lastChapter ? (pinned ? chapterAlpha(lastChapter) : 0) : 0;
 
     // Flavor reveal: one device, then the fan opens, then each flavor takes the spotlight.
     const reveal = base.reveal || [];
@@ -561,8 +758,9 @@ class Component extends DCLogic {
         ? 'background: rgba(246,243,238,0.72); backdrop-filter: blur(18px) saturate(160%); -webkit-backdrop-filter: blur(18px) saturate(160%); border-bottom: 1px solid rgba(17,17,19,0.08); box-shadow: 0 8px 30px rgba(17,17,19,0.06)'
         : 'background: rgba(246,243,238,0); border-bottom: 1px solid rgba(17,17,19,0)'),
       vTrackStyle: 'position: relative; height: ' + (pinned ? '3200px' : 'auto'),
-      vStageStyle: (pinned ? 'position: sticky; top: 0; height: 100vh; ' : 'position: relative; height: 820px; ') + 'min-height: 640px; overflow: hidden; background: #000000; color: #FFFFFF',
+      vStageStyle: (pinned ? 'position: sticky; top: 0; height: 100vh; ' : playMode && this.pinOn() ? 'position: relative; height: 100vh; max-height: 980px; ' : 'position: relative; height: 820px; ') + 'min-height: 640px; overflow: hidden; background: #000000; color: #FFFFFF',
       chapters: chapters,
+      vShowBar: !playMode,
       vCtaStyle: 'position: absolute; z-index: 4; left: 6vw; bottom: 140px; display: flex; flex-wrap: wrap; gap: 12px; opacity: ' + ctaAlpha + '; pointer-events: ' + (ctaAlpha > 0.5 ? 'auto' : 'none'),
       vHintStyle: 'position: absolute; z-index: 3; right: 6vw; bottom: 150px; display: ' + (pinned ? 'flex' : 'none') + '; flex-direction: column; align-items: center; gap: 10px; font-size: 11px; font-weight: 700; letter-spacing: 0.32em; color: #FFFFFF; opacity: ' + clamp01(1 - vp * 6),
       vBarStyle: 'height: 100%; border-radius: 3px; background: #7FE7F0; width: ' + (vp * 100).toFixed(2) + '%',
@@ -576,15 +774,121 @@ class Component extends DCLogic {
           name: f.name,
           img: f.img,
           alt: 'BERI ' + title(base.name) + ' in ' + f.name,
-          style: 'flex: 0 0 auto; width: 220px; margin: 0; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; gap: 14px; padding: 10px 10px 18px; border-radius: 24px; background: #F5F5F5; border-top: 5px solid ' + f.color
+          style: 'flex: 0 0 auto; width: 140px; margin: 0; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 6px 6px 12px; border-radius: 18px; background: #F5F5F5; border-top: 4px solid ' + f.color
         }));
       })(),
       rTrackStyle: 'position: relative; height: ' + (rPinned ? '2800px' : 'auto'),
       revealDevices: revealDevices,
       revealNames: revealNames,
+      fmtCards: formats.map((f, i) => {
+        const on = i === fmtIdx;
+        return {
+          title: f.title,
+          sub: f.sub,
+          box: f.box,
+          count: String(fmtList(f).length),
+          unit: f.unit,
+          pressed: on ? 'true' : 'false',
+          pick: () => this.setState({ fmt: i, sel: 0 }),
+          style: 'box-sizing: border-box; display: flex; flex-direction: column; gap: 8px; padding: 18px 22px; border-radius: 20px; text-align: left; font: inherit; cursor: pointer; transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.3s ease; transition-delay: ' + (i * 100) + 'ms; ' + (on
+            ? 'background: #111113; color: #F3F0E9; border: 1.5px solid #111113; box-shadow: 0 18px 40px rgba(17,17,19,0.2)'
+            : 'background: #FFFFFF; color: #111113; border: 1.5px solid #DDD6CA'),
+          pillStyle: 'flex: 0 0 auto; white-space: nowrap; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; padding: 5px 10px; border-radius: 999px; ' + (on ? 'background: ' + base.soft + '; color: #111113' : 'background: ' + base.tint + '; color: ' + base.color),
+          subStyle: 'font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: ' + (on ? base.soft : base.color),
+          boxStyle: 'display: flex; align-items: center; gap: 8px; font-size: 13px; color: ' + (on ? '#B0ACA5' : '#5E5A53')
+        };
+      }),
+      fmtSel: {
+        heading: fmtSel.heading || '',
+        text: fmtSel.text || '',
+        lower:(fmtSel.title || '').toLowerCase(),
+        label: 'BERI ' + base.name + ' ' + (fmtSel.heading || ''),
+        countLabel: fmtItemsRaw.length + ' ' + (fmtSel.unit || ''),
+        cta: 'ORDER ' + (fmtSel.heading || '').toUpperCase() + ' →'
+      },
+      // Coverflow: the selected item sits in the middle at full size, its neighbours shrink and fade out to each side.
+      cfStageStyle: 'position: relative; height: ' + Math.round(cfW * 1.5 + 70) + 'px; touch-action: pan-y; user-select: none; -webkit-user-select: none',
+      cfGlowStyle: 'position: absolute; left: 50%; top: 50%; width: ' + Math.round(cfW * 2.4) + 'px; height: ' + Math.round(cfW * 2.4) + 'px; transform: translate(-50%, -50%); border-radius: 999px; background: radial-gradient(closest-side, ' + cfColor + '40, ' + cfColor + '00); transition: background 0.5s ease; pointer-events: none',
+      cfItems: fmtItemsRaw.map((it, i) => {
+        let o = i - cfSel;
+        if (o > cfN / 2) o -= cfN;
+        if (o < -cfN / 2) o += cfN;
+        const a = Math.abs(o);
+        const k = Math.min(a, 3);
+        const shown = a <= cfMax;
+        const x = Math.sign(o) * (CF_X[k] + Math.max(a - 3, 0) * 0.3) * cfW;
+        const c = it.color || colorOf[it.name] || base.color;
+        return {
+          img: it.img || '',
+          hasImg: !!it.img,
+          noImg: !it.img,
+          ph: '[' + (fmtSel.title || '').toUpperCase() + ' PHOTO]',
+          label: 'BERI ' + title(base.name) + ' ' + (fmtSel.title || '') + ': ' + it.name,
+          current: a === 0 ? 'true' : 'false',
+          hidden: shown ? 'false' : 'true',
+          tab: shown ? '0' : '-1',
+          pick: () => {
+            if (this.cfDragged) { this.cfDragged = false; return; }
+            this.setState({ sel: i });
+          },
+          style: 'position: absolute; left: 50%; top: 50%; width: ' + cfW + 'px; box-sizing: border-box; padding: 0; margin: 0; overflow: hidden; border-radius: 28px; cursor: pointer; font: inherit; background: ' + (fmtSel.cardBg || '#F5F5F5') + '; border: 1px solid ' + (a === 0 ? c : '#EDE8DF') + '; transform: translate(-50%, -50%) translateX(' + Math.round(x) + 'px) scale(' + (CF_S[k] * (a > 3 ? 0.9 : 1)) + '); opacity: ' + (shown ? CF_O[k] : 0) + '; z-index: ' + (20 - a) + '; pointer-events: ' + (shown ? 'auto' : 'none') + '; box-shadow: ' + (a === 0 ? '0 40px 80px -24px ' + c + '99' : '0 12px 30px -16px rgba(17,17,19,0.25)')
+        };
+      }),
+      cfName: cfItem.name || '',
+      cfMeta: (fmtSel.title || '').toUpperCase() + ' · ' + String(cfSel + 1).padStart(2, '0') + ' / ' + String(cfN).padStart(2, '0'),
+      cfMetaStyle: 'white-space: nowrap; font-size: 13px; font-weight: 700; letter-spacing: 0.24em; color: ' + base.color,
+      cfBarStyle: 'height: 100%; border-radius: 4px; background: ' + cfColor + '; width: ' + (cfN ? ((cfSel + 1) / cfN) * 100 : 0) + '%; transition: width 0.4s ease, background 0.4s ease',
+      cfPrev: () => cfStep(-1),
+      cfNext: () => cfStep(1),
+      cfDown: (e) => { this.cfX = e.clientX; this.cfDragged = false; },
+      cfUp: (e) => {
+        if (this.cfX == null) return;
+        const dx = e.clientX - this.cfX;
+        this.cfX = null;
+        if (Math.abs(dx) > 40) {
+          this.cfDragged = true;
+          cfStep(dx < 0 ? 1 : -1);
+        }
+      },
+      cfWheel: (e) => {
+        // Horizontal trackpad swipes browse the row; vertical scrolling is left to the page.
+        if (Math.abs(e.deltaX) <= Math.abs(e.deltaY) || Math.abs(e.deltaX) < 8) return;
+        e.preventDefault();
+        const now = Date.now();
+        if (now - (this.cfWheelAt || 0) < 280) return;
+        this.cfWheelAt = now;
+        cfStep(e.deltaX > 0 ? 1 : -1);
+      },
       p: Object.assign({}, base, {
+        hasFormats: formats.length > 0,
         hasReveal: hasReveal,
         hasSlider: !!(base.slider && base.slider.length),
+        hasSpecVideo: !!base.specVideo,
+        specVideo: base.specVideo || '',
+        specPoster: base.specPoster || '',
+        specClass: base.specVideo ? 'beri-dark' : '',
+        specVideoMode: base.specScrub ? 'scrub' : 'play',
+        specRate: String(base.specRate || 1),
+        // Over the background video the intro and the table sit on dark glass panels; otherwise they are plain.
+        specIntroStyle: base.specVideo
+          ? 'flex: 0 1 520px; min-width: 0; box-sizing: border-box; display: flex; flex-direction: column; gap: 18px; padding: 36px; border-radius: 28px; background: rgba(8,10,16,0.62); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px)'
+          : 'flex: 1 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 18px',
+        specCardStyle: base.specVideo
+          ? 'flex: 0 1 500px; min-width: 0; margin-left: auto; box-sizing: border-box; border-radius: 28px; background: rgba(10,12,18,0.82); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.14); color: #F3F0E9; --mute: #B0ACA5; padding: 12px 32px'
+          : 'flex: 1 1 560px; min-width: 0; border-radius: 28px; background: #FFFFFF; border: 1px solid #DDD6CA; color: #111113; --mute: #5E5A53; padding: 12px 32px',
+        hasModes: !!base.modesImg,
+        modesImg: base.modesImg || '',
+        modesAlt: base.modesAlt || '',
+        hasFeatures: !!(base.features && base.features.length),
+        features: (base.features || []).map((f, i) => {
+          const lg = f.size === 'lg';
+          return {
+            img: f.img,
+            alt: f.top + ' ' + f.main,
+            imgStyle: 'display: block; width: auto; max-width: 100%; height: ' + (lg ? '96px' : '58px'),
+            style: 'grid-column: span ' + (lg ? 3 : 2) + '; min-height: ' + (lg ? '190px' : '110px') + '; box-sizing: border-box; display: flex; align-items: center; justify-content: center; gap: ' + (lg ? '28px' : '16px') + '; padding: ' + (lg ? '32px' : '18px 22px') + '; border-radius: 16px; border: 3.5px solid transparent; background: radial-gradient(circle at 30% 40%, rgba(255,255,255,0.07) 0 1px, transparent 1.6px) 0 0 / 8px 8px padding-box, radial-gradient(circle at 70% 70%, rgba(255,255,255,0.045) 0 1px, transparent 1.5px) 0 0 / 13px 13px padding-box, radial-gradient(ellipse 70% 90% at 30% 45%, rgba(110,120,255,0.22), rgba(110,120,255,0) 70%) padding-box, linear-gradient(180deg, #0B1030 0%, #121945 100%) padding-box, linear-gradient(180deg, rgba(110,120,255,0.12) 0%, rgba(110,120,255,0.18) 40%, #4C7DFF 100%) border-box; transition-delay: ' + (i * 80) + 'ms'
+          };
+        }),
         hasSpecBanner: !!base.specBanner,
         specBanner: base.specBanner || '',
         specBannerAlt: base.specBannerAlt || '',
@@ -597,6 +901,7 @@ class Component extends DCLogic {
         packText: base.packText || '',
         noReveal: !hasReveal,
         hasVideo: hasVideo,
+        videoMode: base.videoMode || 'scrub',
         video: base.video || '',
         poster: base.poster || '',
         flavorCount: base.flavorTotal || (PRODUCT_KEY === 'CIRQL' ? '[COUNT]' : String(base.flavors.length)),
@@ -607,7 +912,7 @@ class Component extends DCLogic {
         specs: base.specs.map((s, i) => ({
           k: s.k,
           v: s.v,
-          rowStyle: 'display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 24px; padding: 18px 0; font-size: 16px; ' + (i < base.specs.length - 1 ? 'border-bottom: 1px solid #DDD6CA' : '')
+          rowStyle: 'display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 24px; padding: 18px 0; font-size: 16px; ' + (i < base.specs.length - 1 ? 'border-bottom: 1px solid ' + (base.specVideo ? 'rgba(255,255,255,0.14)' : '#DDD6CA') : '')
         }))
       }),
       heroStyle: rPinned
@@ -628,7 +933,8 @@ class Component extends DCLogic {
           img: o.img,
           imgAlt: o.imgAlt,
           tagline: o.tagline,
-          style: 'flex: 1 1 480px; min-width: 0; min-height: 340px; box-sizing: border-box; border-radius: 32px; background: ' + o.color + '; color: #FFFFFF; padding: 36px; display: flex; align-items: center; justify-content: space-between; gap: 20px; overflow: hidden; text-decoration: none'
+          cta: 'View BERI ' + title(o.name) + ' →',
+          style: 'flex: 1 1 480px; min-width: 0; min-height: 0; box-sizing: border-box; border-radius: 24px; background: ' + o.color + '; color: #FFFFFF; padding: 22px 28px; display: flex; align-items: center; justify-content: space-between; gap: 20px; overflow: hidden; text-decoration: none'
         };
       }),
       strip: order.map((k) => {
