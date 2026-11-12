@@ -6,8 +6,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Inter:wght@400;500;600;700&amp;family=Permanent+Marker&amp;family=Lexend+Exa:wght@500;600;700&amp;family=Roboto:wght@400;500;700&amp;display=swap">
 <style>
+@font-face{font-family:"GraffitiBomb Fill";src:url("assets/blob/8da92d24c4f602d89a83527e9f6ea0e2.ttf") format("truetype");font-display:swap}
 @font-face{font-family:"GraffitiBomb Outline";src:url("assets/blob/beacc7fcc275100fd9de2ed4d2b72321.ttf") format("truetype");font-display:swap}
 :root{--bg:#F6F3EE;--bg-2:#EDE8DF;--bg-3:#FFFFFF;--line:#DDD6CA;--fg:#111113;--mute:#5E5A53;--gold:#D9C38A;--gold-ink:#7A5F14;--dark:#111113;--display:'Anton',Impact,sans-serif;--display-outline:'GraffitiBomb Outline','Anton',Impact,sans-serif;--body:'Inter',system-ui,sans-serif;--ease:cubic-bezier(.2,.7,.2,1)}
 .beri-dark{--bg:#111113;--bg-2:#17171A;--bg-3:#1E1E22;--line:#2C2C31;--fg:#F3F0E9;--mute:#B0ACA5;--gold-ink:#D9C38A;background-color:#111113;color:#F3F0E9}
@@ -46,6 +47,137 @@ a{color:#111113}a:hover{color:#7A5F14}
 .cf-arrow{transition:background .2s ease,border-color .2s ease}
 .cf-arrow:hover{background:#111113 !important;border-color:#111113 !important;color:#FFFFFF !important}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.rv-ready [data-reveal]{opacity:1;transform:none;transition:none}.beri-marquee,.p-float,.flavor-track{animation:none}.flavor-slider{overflow-x:auto !important}.cf-item{transition:none}}
+/* Shared v2 layout bits */
+.t-cliq,.t-crush,.t-cirql{overflow-x:clip}
+.feat-txt{display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center}
+.feat-txt b{font-family:var(--display);font-weight:600;font-size:34px;line-height:1;text-transform:uppercase}
+.feat-txt span{font-size:12px;font-weight:700;letter-spacing:.24em;text-transform:uppercase}
+/* ---------- CRUSH: graffiti street ---------- */
+.t-crush{--bg:#0B0B0D;--bg-2:#151518;--bg-3:#1E1E22;--line:#2C2C31;--fg:#F4F1EA;--mute:#A9A6A0;--gold-ink:#C6FF00;--tag:'GraffitiBomb Fill','Anton',Impact,sans-serif;--marker:'Permanent Marker','Anton',cursive}
+.t-crush .big-head,.t-crush .v-title{font-family:var(--tag) !important;font-weight:400 !important;letter-spacing:.01em}
+.t-crush .eyebrow{font-family:var(--marker) !important;font-size:22px !important;font-weight:400 !important;letter-spacing:.02em !important;text-transform:lowercase;color:#C6FF00 !important;display:inline-block;transform:rotate(-2deg)}
+.t-crush #reveal-hero > div::before{content:"";position:absolute;inset:0;z-index:0;background:url("assets/blob/57d90c37a1e79c068447e9978b6e9e14.webp") center/cover;opacity:.42;mix-blend-mode:luminosity;pointer-events:none}
+.t-crush #reveal-hero > div > div{position:relative;z-index:1}
+.t-crush #flavors,.t-crush #specs{background-color:#0B0B0D;background-image:linear-gradient(rgba(11,11,13,.74),rgba(11,11,13,.9)),url("assets/blob/57d90c37a1e79c068447e9978b6e9e14.webp");background-size:cover;background-position:center}
+.t-crush .mq-strip{position:relative;z-index:2;background:#FFD400 !important;border:0 !important;border-top:3px solid #0B0B0D !important;border-bottom:3px solid #0B0B0D !important;transform:rotate(-1.4deg);margin:-8px -24px;box-shadow:0 14px 30px rgba(0,0,0,.45)}
+.t-crush .mq-strip .beri-marquee{color:#0B0B0D !important}
+.t-crush .mq-strip .beri-marquee span:nth-child(2n){color:#FF2E93 !important}
+.t-crush .btn-main{background:#C6FF00 !important;color:#0B0B0D !important;box-shadow:0 0 0 3px #0B0B0D,0 0 0 5px #C6FF00}
+.t-crush .btn-alt{border-color:#F4F1EA !important;color:#F4F1EA !important}
+.t-crush .spec-card{position:relative}
+.t-crush .spec-card::before,.t-crush .spec-card::after{content:"";position:absolute;top:-14px;width:110px;height:30px;background:rgba(255,212,0,.88);box-shadow:0 2px 6px rgba(0,0,0,.35)}
+.t-crush .spec-card::before{left:40px;transform:rotate(-6deg)}
+.t-crush .spec-card::after{right:40px;transform:rotate(5deg)}
+.t-crush .feat-tile{transition:transform .35s var(--ease)}
+.t-crush .feat-tile:hover{transform:rotate(-1.5deg) scale(1.03)}
+/* ---------- CIRQL: brand book (black, gold, teal smoke) ---------- */
+.t-cirql{--bg:#13100D;--bg-2:#1E1F1F;--bg-3:#2A2725;--line:#3A332A;--fg:#F5F1E8;--mute:#A8A39A;--gold-ink:#09B1A1;--display:'Lexend Exa','Roboto',system-ui,sans-serif;--body:'Roboto',system-ui,sans-serif;--gold-grad:linear-gradient(100deg,#8C6A1F 0%,#F3D98B 28%,#B8892B 52%,#F7E3A0 74%,#9A7425 100%)}
+.t-cirql .big-head,.t-cirql .v-title{font-weight:600 !important;font-size:clamp(40px,5vw,72px) !important;letter-spacing:.02em;line-height:1.02 !important;background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent !important}
+.t-cirql .eyebrow{color:#09B1A1 !important;letter-spacing:.42em !important}
+.t-cirql #reveal-hero > div::before{content:"";position:absolute;inset:0;z-index:0;background:linear-gradient(90deg,rgba(19,16,13,.9) 0%,rgba(19,16,13,.66) 34%,rgba(19,16,13,.16) 62%,rgba(19,16,13,.3) 100%),linear-gradient(180deg,rgba(19,16,13,.4) 0%,rgba(19,16,13,0) 22%,rgba(19,16,13,0) 74%,rgba(19,16,13,.9) 100%),url("assets/blob/b6fbe849cfbe3161409de2158a89dee9.webp") center/cover;pointer-events:none}
+@media (max-width:899px){.t-cirql #reveal-hero > div::before{background:linear-gradient(180deg,rgba(19,16,13,.9) 0%,rgba(19,16,13,.78) 46%,rgba(19,16,13,.35) 72%,rgba(19,16,13,.9) 100%),url("assets/blob/b6fbe849cfbe3161409de2158a89dee9.webp") 68% center/cover}}
+.t-cirql #reveal-hero > div::after{display:none;content:"";position:absolute;inset:0;z-index:0;background:url("assets/blob/781635b8e88343ccae1179e46d0925ab.webp") right -30px center/360px auto no-repeat,url("assets/blob/781635b8e88343ccae1179e46d0925ab.webp") left -150px bottom -60px/300px auto no-repeat;opacity:.7;pointer-events:none}
+.t-cirql #reveal-hero > div > div{position:relative;z-index:1}
+.t-cirql #flavors{background-color:#13100D;background-image:linear-gradient(rgba(19,16,13,.12),rgba(19,16,13,.38)),url("assets/blob/b0dd130909a2a2f39dd26a06c602c571.webp");background-size:cover;background-position:center}
+.t-cirql #specs{background-color:#13100D;background-image:linear-gradient(180deg,rgba(19,16,13,.55) 0%,rgba(19,16,13,0) 16%,rgba(19,16,13,0) 66%,rgba(19,16,13,.92) 100%),linear-gradient(90deg,rgba(19,16,13,.8) 0%,rgba(19,16,13,.5) 34%,rgba(19,16,13,.12) 56%,rgba(19,16,13,.45) 100%),url("assets/blob/6cb9a3718891d486a8f330b3fc7c658f.webp");background-size:cover;background-position:center}
+@media (max-width:899px){.t-cirql #specs{background-image:linear-gradient(180deg,rgba(19,16,13,.82) 0%,rgba(19,16,13,.6) 40%,rgba(19,16,13,.6) 100%),url("assets/blob/6cb9a3718891d486a8f330b3fc7c658f.webp");background-position:18% center}}
+.t-cirql .mq-strip{background:#0E0B09 !important;border-color:rgba(212,175,99,.3) !important}
+.t-cirql .mq-strip .beri-marquee{font-size:20px !important;letter-spacing:.32em !important;color:#E2C27A !important}
+.t-cirql .mq-strip .beri-marquee span:nth-child(2n){color:#09B1A1 !important}
+.t-cirql .btn-main{background:var(--gold-grad) !important;color:#13100D !important;box-shadow:0 12px 30px rgba(212,175,99,.25)}
+.t-cirql .btn-alt{border-color:rgba(212,175,99,.7) !important;color:#F5F1E8 !important}
+.t-cirql .feat-txt b{background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.t-cirql .feat-txt span{color:#F5F1E8}
+@media (max-width:899px){.t-cirql #reveal-hero > div::after{background-size:200px auto;opacity:.5}.t-cirql #reveal-hero span[style*="font-size: 30px"]{font-size:19px !important}}
+
+/* Explore the lineup: one slim row of product links, the last stop before the footer */
+.xl-sec{box-sizing:border-box;max-width:1320px;margin:0 auto;padding:72px 32px 80px;display:flex;flex-direction:column;gap:24px}
+.xl-head{position:relative;display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 24px}
+.xl-head-text{display:flex;flex-direction:column;gap:10px}
+.xl-title{margin:0;font-family:var(--display);font-weight:400;font-size:44px;line-height:1;text-transform:uppercase}
+.xl-all{display:inline-flex;align-items:center;gap:8px;min-height:44px;color:var(--fg) !important;font-size:14px;font-weight:600;text-decoration:none;opacity:.75;transition:opacity .2s ease}
+.xl-all span{display:inline-block;transition:transform .3s var(--ease)}
+.xl-all:hover{opacity:1}
+.xl-all:hover span{transform:translateX(4px)}
+.xl-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.xl-card{position:relative;box-sizing:border-box;min-width:0;display:flex;align-items:center;gap:16px;padding:12px 16px 12px 12px;border-radius:22px;background:var(--xl-bg);border:1px solid var(--xl-line);color:var(--fg) !important;text-decoration:none}
+.xl-grid .xl-card.xl-card{transition:opacity .9s var(--ease),transform .4s var(--ease),border-color .3s ease,box-shadow .4s var(--ease)}
+.xl-grid .xl-card.xl-card:hover{transform:translateY(-3px);border-color:color-mix(in srgb,var(--c) 70%,transparent);box-shadow:0 22px 44px -30px var(--c)}
+.xl-card:focus-visible{outline:3px solid var(--c);outline-offset:3px}
+.xl-thumb{flex:none;width:96px;height:96px;border-radius:16px;display:flex;align-items:center;justify-content:center;background:radial-gradient(closest-side,color-mix(in srgb,var(--c) 30%,transparent),transparent),color-mix(in srgb,var(--c) 8%,transparent)}
+.xl-img{display:block;width:auto;height:82px;max-width:82px;object-fit:contain;filter:drop-shadow(0 10px 12px rgba(0,0,0,.25));transition:transform .5s var(--ease)}
+.xl-card:hover .xl-img{transform:translateY(-3px) rotate(-5deg) scale(1.06)}
+.xl-meta{flex:1;min-width:0;display:flex;flex-direction:column;gap:5px}
+.xl-kicker{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--c)}
+.xl-name{font-family:var(--display);font-size:26px;line-height:1;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.xl-line{display:block;font-size:13px;line-height:1.45;color:var(--mute)}
+.xl-l1,.xl-l2{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.xl-go{flex:none;width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:1px solid var(--xl-line);color:var(--fg);transition:background .3s ease,border-color .3s ease,color .3s ease,transform .35s var(--ease)}
+.xl-card:hover .xl-go{background:var(--c);border-color:var(--c);color:#FFFFFF;transform:rotate(45deg)}
+@media (max-width:1180px){.xl-card{gap:14px}.xl-thumb{width:82px;height:82px}.xl-img{height:70px;max-width:70px}.xl-name{font-size:22px}}
+@media (max-width:899px){.xl-sec{padding:56px 32px 64px;gap:18px}.xl-head{display:block}.xl-all{position:absolute;right:0;top:-13px;font-size:13px}.xl-title{font-size:32px}.xl-grid{grid-template-columns:minmax(0,1fr);gap:10px}.xl-card{gap:14px;padding:10px 14px 10px 10px;border-radius:18px}.xl-thumb{width:76px;height:76px;border-radius:14px}.xl-img{height:66px;max-width:66px}.xl-name{font-size:22px}.xl-go{width:36px;height:36px}}
+.t-crush .xl-title{font-family:var(--tag) !important}
+.t-cirql .xl-title{font-weight:600;font-size:48px;background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.t-cirql .xl-name{font-weight:600;font-size:24px;letter-spacing:.04em}
+@font-face{font-family:"Siti Maesaroh";src:url("assets/blob/f6801d32a70299cbe7705e67dcf4b7eb.otf") format("opentype");font-display:swap}
+@font-face{font-family:"Ketupat";src:url("assets/blob/50e3d55135bc49f371d13d3e8857aa93.ttf") format("truetype");font-display:swap}
+@font-face{font-family:"Desert Swash BERI";src:url("assets/blob/1b94a39c0fc5943cf3c6afebc347a80a.ttf") format("truetype");font-display:swap}
+/* Cirql headings: Siti Maesaroh (Arabic-style Latin, set in lowercase: its capitals read poorly) in the gold gradient */
+.t-cirql .big-head,.t-cirql .v-title,.t-cirql .xl-title{font-family:"Siti Maesaroh","Ketupat","Lexend Exa",serif !important;font-weight:400 !important;text-transform:lowercase !important;letter-spacing:0 !important;line-height:1.2 !important;padding:.1em .16em .24em .14em;margin-left:-.14em !important;margin-top:0 !important}
+.t-cirql .big-head,.t-cirql .v-title{font-size:clamp(52px,6.2vw,92px) !important}
+.t-cirql .xl-title{font-size:68px !important}
+.t-cirql #specs .big-head{font-size:76px !important}
+@media (max-width:899px){.t-cirql .big-head,.t-cirql .v-title{font-size:52px !important}.t-cirql .xl-title{font-size:42px !important}.t-cirql #specs .big-head{font-size:46px !important}}
+
+/* Header: the Home pill navigation */
+.top-nav{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:16px}
+.top-nav>a:first-child{justify-self:start}
+.nav-pill{display:flex;align-items:center;gap:2px;padding:6px 6px 6px 12px;border-radius:999px;background:rgba(255,255,255,.86);-webkit-backdrop-filter:blur(16px) saturate(160%);backdrop-filter:blur(16px) saturate(160%);border:1px solid rgba(255,255,255,.75);box-shadow:0 12px 30px rgba(17,17,19,.14),inset 0 1px 0 rgba(255,255,255,.85);font-family:'Inter',system-ui,sans-serif;font-size:15px;font-weight:500;letter-spacing:0;white-space:nowrap}
+.pill-link{display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:0 14px;border:none;border-radius:999px;background:none;font:inherit;color:#2A2730;text-decoration:none;cursor:pointer;transition:background .2s ease,color .2s ease}
+.pill-link:hover{background:rgba(17,17,19,.08);color:#111113}
+.pill-link.is-current{color:#C81E64;font-weight:700}
+.pill-cta{display:inline-flex;align-items:center;min-height:44px;margin-left:8px;padding:0 22px;border-radius:999px;background:#111113;color:#FFFFFF !important;font-weight:600;text-decoration:none;transition:background .2s ease}
+.pill-cta:hover{background:#C81E64;color:#FFFFFF}
+#video-hero{margin-top:-80px}
+@media (max-width:899px){#video-hero{margin-top:-132px}.top-nav{grid-template-columns:minmax(0,1fr);row-gap:10px;padding:10px 12px 12px !important}.top-nav>span{display:none}.nav-pill{justify-self:center;font-size:13px;padding:5px 5px 5px 8px}.pill-link{padding:0 8px;gap:4px}.pill-cta{margin-left:4px;padding:0 14px;min-height:40px}}
+
+/* Flavor showcase: packaging shot of the picked flavor, then every flavor as a card */
+.fx-feature{position:relative;isolation:isolate;overflow:hidden;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);align-items:center;gap:40px;min-height:500px;box-sizing:border-box;padding:48px 64px;border-radius:32px;background:linear-gradient(135deg,rgba(255,255,255,.06),rgba(255,255,255,.015));border:1px solid rgba(255,255,255,.1)}
+.fx-feature::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(55% 75% at 32% 50%,color-mix(in srgb,var(--fx) 38%,transparent),transparent 72%);transition:background .5s ease}
+.fx-feature::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;z-index:-1;background:linear-gradient(90deg,transparent,var(--fx),transparent);opacity:.8}
+.fx-img{display:block;width:100%;height:420px;object-fit:contain;filter:drop-shadow(0 34px 40px rgba(0,0,0,.6))}
+.fx-info{display:flex;flex-direction:column;align-items:flex-start;gap:16px}
+.fx-badge{padding:7px 14px;border-radius:999px;background:var(--fx-badge);color:#0B0B0D;font-size:12px;font-weight:800;letter-spacing:.16em}
+.fx-name{margin:0;font-family:var(--display);font-weight:400;font-size:68px;line-height:.92;text-transform:uppercase;color:#F3F0E9}
+.fx-desc{margin:0;max-width:440px;font-size:18px;line-height:1.55;color:#B0ACA5}
+.fx-notes{display:flex;flex-wrap:wrap;gap:10px;font-size:13px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--fx)}
+.fx-notes span+span::before{content:"•";margin-right:10px;opacity:.55}
+.fx-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px}
+.fx-card{position:relative;display:flex;flex-direction:column;align-items:center;gap:12px;min-width:0;padding:18px 12px 16px;border-radius:20px;background:#121214;border:1.5px solid #26262B;color:#F3F0E9;font:inherit;cursor:pointer;transition:transform .3s var(--ease),border-color .3s ease,background .3s ease,box-shadow .3s ease}
+.fx-card:hover{transform:translateY(-4px);border-color:var(--fx)}
+.fx-card[aria-pressed="true"]{border-color:var(--fx);background:color-mix(in srgb,var(--fx) 12%,#121214);box-shadow:0 18px 40px -20px var(--fx)}
+.fx-card:focus-visible{outline:3px solid var(--fx);outline-offset:3px}
+.fx-card img{display:block;width:100%;height:160px;object-fit:contain;transition:transform .4s var(--ease)}
+.fx-card:hover img{transform:scale(1.05)}
+.fx-card span{font-size:14px;font-weight:700;letter-spacing:.04em;line-height:1.25;text-transform:uppercase;text-align:center}
+.t-crush .fx-name{font-family:'Anton',Impact,sans-serif}
+@media (max-width:1180px){.fx-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media (max-width:899px){.fx-feature{grid-template-columns:minmax(0,1fr);gap:18px;min-height:0;padding:24px 20px 28px;border-radius:24px}.fx-feature::before{background:radial-gradient(80% 50% at 50% 30%,color-mix(in srgb,var(--fx) 38%,transparent),transparent 72%)}.fx-img{height:270px}.fx-name{font-size:44px}.fx-desc{font-size:16px}.fx-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.fx-card{padding:14px 8px 12px;border-radius:16px}.fx-card img{height:120px}.fx-card span{font-size:12px}}
+.t-cirql .fx-feature{border-color:rgba(212,175,99,.35);background:linear-gradient(135deg,rgba(212,175,99,.08),rgba(255,255,255,.012))}
+.t-cirql .fx-badge{background:var(--gold-grad);color:#13100D}
+.t-cirql .fx-name{font-weight:600;font-size:52px;letter-spacing:.01em;line-height:1.02}
+.t-cirql .fx-card{background:#17140F;border-color:rgba(212,175,99,.22)}
+.t-cirql .fx-card:hover,.t-cirql .fx-card[aria-pressed="true"]{border-color:var(--fx)}
+.t-cirql .fx-card[aria-pressed="true"]{background:color-mix(in srgb,var(--fx) 12%,#17140F)}
+@media (max-width:899px){.t-cirql .fx-name{font-size:32px}}
+/* Explore the lineup: theme sizes (the themed heading fonts run wider/narrower) */
+.t-crush .xl-sec .xl-title{font-size:60px !important}
+.t-cirql .xl-sec .xl-title{font-size:52px !important}
+.t-cirql .xl-sec .xl-name{font-size:19px;font-weight:600;letter-spacing:.04em}
+.t-crush .xl-sec .xl-kicker,.t-cirql .xl-sec .xl-kicker{color:color-mix(in srgb,var(--c) 55%,#FFFFFF)}
+.t-cirql .xl-sec .xl-card{border-color:rgba(212,175,99,.24)}
+@media (max-width:1180px){.t-cirql .xl-sec .xl-name{font-size:16px}}
+@media (max-width:899px){.t-crush .xl-sec .xl-title{font-size:40px !important}.t-cirql .xl-sec .xl-title{font-size:36px !important}.t-cirql .xl-sec .xl-name{font-size:14px;letter-spacing:.02em}}
 </style>
 
 </head>
@@ -53,30 +185,31 @@ a{color:#111113}a:hover{color:#7A5F14}
 <div id="dc-root"></div>
 <template id="dc-template">
 
-<div style="background: var(--bg); color: var(--fg); font-family: var(--body); font-size: 16px; line-height: 1.6">
+<div class="{{themeClass}}" style="background: var(--bg); color: var(--fg); font-family: var(--body); font-size: 16px; line-height: 1.6">
 
 <div style="position: sticky; top: 0; z-index: 50">
 <div style="background: #FFFFFF; color: #000000; text-align: center; font-weight: 700; font-size: 15px; padding: 8px 16px; line-height: 1.35; border-bottom: 1px solid #DDD6CA">WARNING: This product contains nicotine. Nicotine is an addictive chemical.</div>
 <header style="{{navStyle}}">
-<nav style="max-width: 1320px; margin: 0 auto; padding: 0 32px; min-height: 80px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
-<a href="Beri-Premium.dc.html" aria-label="BERI home" style="display: flex; align-items: center; text-decoration: none">
+<nav class="top-nav" style="max-width: 1320px; margin: 0 auto; padding: 0 32px; min-height: 80px">
+<a href="Home-Color-Images.dc.html" aria-label="BERI home" style="display: flex; align-items: center; text-decoration: none">
 <img src="assets/blob/bd8d6ee885cd447f39d73ea5ec4478b3.png" alt="BERI" style="display: block; height: 46px; width: auto">
 </a>
-<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 40px; font-size: 13px; font-weight: 600; letter-spacing: 0.22em">
-<a class="beri-link" href="Beri-Premium.dc.html" style="color: var(--fg); text-decoration: none">HOME</a>
+<div class="nav-pill">
+<a class="pill-link" href="Home-Color-Images.dc.html">Home</a>
 <div class="nav-dd">
-<button type="button" class="beri-link is-current" aria-haspopup="true" style="display: inline-flex; align-items: center; gap: 6px; padding: 0; border: none; background: none; font: inherit; letter-spacing: inherit; color: var(--fg); cursor: pointer">PRODUCTS<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg></button>
+<button type="button" class="pill-link is-current" aria-haspopup="true">Products<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg></button>
 <div class="nav-menu">
 <div style="min-width: 240px; padding: 10px; border-radius: 20px; background: #FFFFFF; border: 1px solid #DDD6CA; box-shadow: 0 20px 50px rgba(17,17,19,0.14); display: flex; flex-direction: column; gap: 2px; letter-spacing: 0.16em">
 <a class="nav-item" href="Cliq.dc.html"><span aria-hidden="true" style="width: 10px; height: 10px; border-radius: 999px; background: #0F7A42"></span>BERI CLIQ</a>
-<a class="nav-item" href="Crush.dc.html"><span aria-hidden="true" style="width: 10px; height: 10px; border-radius: 999px; background: #C81E64"></span>BERI CRUSH</a>
-<a class="nav-item" href="Cirql.dc.html"><span aria-hidden="true" style="width: 10px; height: 10px; border-radius: 999px; background: #7A1626"></span>BERI CIRQL</a>
+<a class="nav-item" href="Crush-v2.dc.html"><span aria-hidden="true" style="width: 10px; height: 10px; border-radius: 999px; background: #C81E64"></span>BERI CRUSH</a>
+<a class="nav-item" href="Cirql-v2.dc.html"><span aria-hidden="true" style="width: 10px; height: 10px; border-radius: 999px; background: #7A1626"></span>BERI CIRQL</a>
+<a class="nav-item" href="Eliquid.dc.html"><span aria-hidden="true" style="width: 10px; height: 10px; border-radius: 999px; background: #8A6A12"></span>BERI E-LIQUID</a>
 </div>
 </div>
+<a class="pill-link" href="Authenticate.dc.html">Authenticate</a>
+<a class="pill-cta" href="Wholesale.dc.html">Wholesale</a>
 </div>
-<a class="beri-link" href="Authenticate.dc.html" style="color: var(--fg); text-decoration: none">AUTHENTICATE</a>
-<a class="beri-link" href="Wholesale.dc.html" style="color: var(--fg); text-decoration: none">WHOLESALE</a>
-</div>
+<span aria-hidden="true"></span>
 </nav>
 </header>
 </div>
@@ -89,7 +222,7 @@ a{color:#111113}a:hover{color:#7A5F14}
 <div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(90deg, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.3) 42%, rgba(0,0,0,0) 68%)"></div>
 <sc-for list="{{chapters}}" as="ch" hint-placeholder-count="1">
 <div style="{{ch.style}}">
-<span style="font-size: 13px; font-weight: 700; letter-spacing: 0.32em; color: #7FE7F0">{{ch.eyebrow}}</span>
+<span style="font-size: 13px; font-weight: 700; letter-spacing: 0.32em; color: {{p.accent}}">{{ch.eyebrow}}</span>
 <span class="v-title" style="font-family: var(--display); font-size: 96px; line-height: 0.9; text-transform: uppercase; color: #FFFFFF">{{ch.title}}</span>
 <span style="font-size: 18px; color: rgba(255,255,255,0.86)">{{ch.text}}</span>
 </div>
@@ -115,14 +248,14 @@ a{color:#111113}a:hover{color:#7A5F14}
 <div style="width: 100%; max-width: 1320px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; gap: 48px">
 <div style="flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 22px">
 <nav aria-label="Breadcrumb" data-reveal="up" style="font-size: 13px; font-weight: 600; letter-spacing: 0.16em; color: var(--mute)">
-<a href="Beri-Premium.dc.html" style="color: var(--mute); text-decoration: none">HOME</a> / PRODUCTS / <span style="color: var(--fg)">BERI {{p.name}}</span>
+<a href="Home-Color-Images.dc.html" style="color: var(--mute); text-decoration: none">HOME</a> / PRODUCTS / <span style="color: var(--fg)">BERI {{p.name}}</span>
 </nav>
 <span data-reveal="up" style="{{badgeStyle}}">{{p.badge}}</span>
 <h1 data-reveal="up" style="margin: 0; transition-delay: 80ms">
 <img class="p-logo" src="{{p.logo}}" alt="BERI {{p.name}}" style="{{logoStyle}}">
 </h1>
 <sc-if value="{{p.hasModes}}" hint-placeholder-val="{{false}}">
-<img data-reveal="up" src="{{p.modesImg}}" alt="{{p.modesAlt}}" style="display: block; width: 100%; max-width: 380px; height: auto; transition-delay: 110ms">
+<img data-reveal="up" src="{{p.modesImg}}" alt="{{p.modesAlt}}" style="display: block; width: 417px; max-width: 380px; height: auto; transition-delay: 110ms">
 </sc-if>
 <p data-reveal="up" style="margin: 0; max-width: 520px; font-size: 20px; color: var(--mute); transition-delay: 140ms">{{p.tagline}}</p>
 <div data-reveal="up" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; max-width: 620px; padding-top: 8px; transition-delay: 200ms">
@@ -134,8 +267,8 @@ a{color:#111113}a:hover{color:#7A5F14}
 </sc-for>
 </div>
 <div data-reveal="up" style="display: flex; flex-wrap: wrap; gap: 12px; padding-top: 10px; transition-delay: 260ms">
-<a href="Wholesale.dc.html" style="display: inline-flex; align-items: center; min-height: 56px; padding: 0 30px; border-radius: 999px; background: var(--fg); color: var(--bg); font-weight: 700; letter-spacing: 0.06em; text-decoration: none">WHOLESALE INQUIRY →</a>
-<a href="Authenticate.dc.html" style="display: inline-flex; align-items: center; min-height: 56px; padding: 0 28px; border-radius: 999px; border: 1.5px solid var(--fg); color: var(--fg); font-weight: 600; text-decoration: none">Verify authenticity</a>
+<a class="btn-main" href="Wholesale.dc.html" style="display: inline-flex; align-items: center; min-height: 56px; padding: 0 30px; border-radius: 999px; background: var(--fg); color: var(--bg); font-weight: 700; letter-spacing: 0.06em; text-decoration: none">WHOLESALE INQUIRY →</a>
+<a class="btn-alt" href="Authenticate.dc.html" style="display: inline-flex; align-items: center; min-height: 56px; padding: 0 28px; border-radius: 999px; border: 1.5px solid var(--fg); color: var(--fg); font-weight: 600; text-decoration: none">Verify authenticity</a>
 </div>
 </div>
 <div data-reveal="scale" style="flex: 1 1 420px; min-width: 0; min-height: 620px; position: relative; display: flex; align-items: center; justify-content: center; transition-delay: 120ms">
@@ -156,64 +289,16 @@ a{color:#111113}a:hover{color:#7A5F14}
 </div>
 </section>
 
-<div class="beri-dark" aria-hidden="true" style="overflow: hidden; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--bg-2); padding: 22px 0">
-<div class="beri-marquee" style="display: flex; width: max-content; gap: 56px; font-family: var(--display-outline); font-size: 34px; letter-spacing: -0.126em; text-transform: uppercase; white-space: nowrap; color: var(--fg)">
+<div class="beri-dark mq-strip" aria-hidden="true" style="overflow: hidden; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--bg-2); padding: 22px 0">
+<div class="beri-marquee" style="display: flex; width: max-content; gap: 56px; font-family: var(--display); font-size: 30px; line-height: 1.2; letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap; color: var(--fg)">
 <sc-for list="{{marquee}}" as="m" hint-placeholder-count="10">
 <span>{{m.t}}</span><span style="color: var(--gold-ink)">✦</span>
 </sc-for>
 </div>
 </div>
 
-<section id="specs" class="{{p.specClass}}" style="position: relative; overflow: hidden; scroll-margin-top: 120px">
-<sc-if value="{{p.hasSpecVideo}}" hint-placeholder-val="{{false}}">
-<video class="spec-video" data-mode="{{p.specVideoMode}}" data-rate="{{p.specRate}}" src="{{p.specVideo}}" poster="{{p.specPoster}}" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; background: #000000"></video>
-</sc-if>
-<div style="position: relative; max-width: 1320px; margin: 0 auto; padding: 120px 32px; display: flex; flex-wrap: wrap; gap: 40px 64px; justify-content: space-between; align-items: flex-start">
-<div style="{{p.specIntroStyle}}">
-<span data-reveal="left" style="font-size: 13px; font-weight: 600; letter-spacing: 0.32em; color: var(--gold-ink)">SPECIFICATIONS</span>
-<h2 class="big-head" data-reveal="left" style="margin: 0; font-family: var(--display); font-weight: 400; font-size: 96px; line-height: 0.9; text-transform: uppercase; transition-delay: 80ms">Inside<br>BERI {{p.name}}</h2>
-<p data-reveal="left" style="margin: 0; max-width: 420px; font-size: 18px; color: var(--mute); transition-delay: 160ms">{{p.summary}}</p>
-</div>
-<div data-reveal="right" style="{{p.specCardStyle}}">
-<sc-for list="{{p.specs}}" as="s" hint-placeholder-count="8">
-<div style="{{s.rowStyle}}">
-<span style="color: var(--mute)">{{s.k}}</span>
-<span style="font-weight: 600; text-align: right">{{s.v}}</span>
-</div>
-</sc-for>
-</div>
-</div>
-</section>
-
 <sc-if value="{{p.hasFeatures}}" hint-placeholder-val="{{false}}">
-<section aria-label="BERI {{p.name}} highlights" style="max-width: 1320px; margin: 0 auto; padding: 0 32px 120px">
-<ul class="feat-grid" style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 14px">
-<sc-for list="{{p.features}}" as="ft" hint-placeholder-count="5">
-<li class="feat-tile" data-reveal="up" style="{{ft.style}}">
-<img src="{{ft.img}}" alt="{{ft.alt}}" style="{{ft.imgStyle}}">
-</li>
-</sc-for>
-</ul>
-</section>
-</sc-if>
-
-<sc-if value="{{p.hasBanners}}" hint-placeholder-val="{{true}}">
-<section aria-label="Features" style="max-width: 1320px; margin: 0 auto; padding: 0 32px 120px; display: flex; flex-direction: column; gap: 24px">
-<img data-reveal="scale" src="assets/blob/0a2532abcfdd671f02c321ad6f8258e5.webp" alt="BERI Crush: up to 40W power" style="display: block; width: 100%; height: auto; aspect-ratio: 4 / 1; object-fit: cover; border-radius: 28px">
-<img data-reveal="scale" src="assets/blob/a42def607ce5692f865909dfe469729b.webp" alt="Quad coil technology" style="display: block; width: 100%; height: auto; aspect-ratio: 4 / 1; object-fit: cover; border-radius: 28px">
-<img data-reveal="scale" src="assets/blob/2398eaa60b655afe7043664d983da37d.webp" alt="Interactive HD screen" style="display: block; width: 100%; height: auto; aspect-ratio: 4 / 1; object-fit: cover; border-radius: 28px">
-<div style="display: flex; flex-wrap: wrap; gap: 16px; padding-top: 24px">
-<img data-reveal="up" src="assets/blob/14137e017345c2dd41913f3d5bb3e181.png" alt="40 watt super power" style="display: block; flex: 1 1 300px; min-width: 0; height: auto; aspect-ratio: 5 / 2; object-fit: contain">
-<img data-reveal="up" src="assets/blob/59e8e82f49c41f1c896d36885758acde.png" alt="World 1st auto-adaptive power" style="display: block; flex: 1 1 300px; min-width: 0; height: auto; aspect-ratio: 5 / 2; object-fit: contain; transition-delay: 100ms">
-<img data-reveal="up" src="assets/blob/c290186ca08ad6b8a291264e55e8811c.png" alt="Adjustable airflow" style="display: block; flex: 1 1 300px; min-width: 0; height: auto; aspect-ratio: 5 / 2; object-fit: contain; transition-delay: 200ms">
-<img data-reveal="up" src="assets/blob/cf6ecc4bf4dd121a83f9020b207d801a.png" alt="2.5x charging speed" style="display: block; flex: 1 1 300px; min-width: 0; height: auto; aspect-ratio: 5 / 2; object-fit: contain">
-<img data-reveal="up" src="assets/blob/3792cab5944670d3faf0d75c9fcb2203.png" alt="Quad coil technology" style="display: block; flex: 1 1 300px; min-width: 0; height: auto; aspect-ratio: 5 / 2; object-fit: contain; transition-delay: 100ms">
-<img data-reveal="up" src="assets/blob/364e1253c927fdd746bc0975fe8357c3.png" alt="Interactive HD screen" style="display: block; flex: 1 1 300px; min-width: 0; height: auto; aspect-ratio: 5 / 2; object-fit: contain; transition-delay: 200ms">
-</div>
-</section>
-</sc-if>
-
-<sc-if value="{{p.hasSpecBanner}}" hint-placeholder-val="{{false}}">
+<div aria-hidden="true" style="height: 120px"></div>
 <section aria-label="BERI {{p.name}} features" style="max-width: 1320px; margin: 0 auto; padding: 0 32px 120px">
 <img data-reveal="scale" src="{{p.specBanner}}" alt="{{p.specBannerAlt}}" style="display: block; width: 100%; height: auto; border-radius: 28px; box-shadow: 0 30px 70px rgba(17,17,19,0.18)">
 </section>
@@ -245,11 +330,55 @@ a{color:#111113}a:hover{color:#7A5F14}
 </div>
 </div>
 </sc-if>
+<sc-if value="{{p.hasGroups}}" hint-placeholder-val="{{true}}">
+<div style="display: flex; flex-direction: column; gap: 24px">
+<div role="group" aria-label="Flavor collections" style="display: flex; flex-wrap: wrap; gap: 10px">
+<sc-for list="{{p.groupTabs}}" as="gt" hint-placeholder-count="4">
+<button type="button" aria-pressed="{{gt.sel}}" onClick="{{gt.pick}}" style="{{gt.style}}">{{gt.name}} <span style="opacity: 0.6">{{gt.count}}</span></button>
+</sc-for>
+</div>
+<sc-if value="{{p.noPack}}" hint-placeholder-val="{{false}}">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr)); gap: 24px; align-items: start">
+<div role="group" aria-label="Flavors in this collection" style="display: flex; flex-wrap: wrap; gap: 10px; align-content: flex-start">
+<sc-for list="{{p.groupItems}}" as="gi" hint-placeholder-count="12">
+<button type="button" aria-pressed="{{gi.sel}}" onClick="{{gi.pick}}" style="{{gi.style}}">{{gi.n}}</button>
+</sc-for>
+</div>
+<div aria-live="polite" style="{{p.cardStyle}}">
+<span style="font-size: 12px; font-weight: 700; letter-spacing: 0.24em; color: {{p.soft}}">{{p.cur.group}}</span>
+<h3 style="margin: 0; font-family: var(--display); font-weight: 400; font-size: 48px; line-height: 1; text-transform: uppercase; color: #F3F0E9">{{p.cur.n}}</h3>
+<p style="margin: 0; font-size: 17px; line-height: 1.55; color: #B0ACA5">{{p.cur.d}}</p>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<sc-for list="{{p.cur.notes}}" as="nt" hint-placeholder-count="3"><span style="{{nt.style}}">{{nt.t}}</span></sc-for>
+</div>
+</div>
+</div>
+</sc-if>
+<sc-if value="{{p.hasPack}}" hint-placeholder-val="{{true}}">
+<div class="fx-feature" aria-live="polite" style="{{p.cur.fx}}">
+<div class="fx-stage"><img class="fx-img" src="{{p.cur.img}}" alt="{{p.cur.alt}}"></div>
+<div class="fx-info">
+<span class="fx-badge">{{p.cur.group}}</span>
+<h3 class="fx-name">{{p.cur.n}}</h3>
+<p class="fx-desc">{{p.cur.d}}</p>
+<div class="fx-notes"><sc-for list="{{p.cur.noteLine}}" as="nl" hint-placeholder-count="3"><span>{{nl.t}}</span></sc-for></div>
+</div>
+</div>
+<div class="fx-grid" role="group" aria-label="Flavors in this collection">
+<sc-for list="{{p.groupItems}}" as="gi" hint-placeholder-count="10">
+<button type="button" class="fx-card" aria-pressed="{{gi.sel}}" onClick="{{gi.pick}}" style="{{gi.c}}"><img src="{{gi.img}}" alt="" loading="lazy"><span>{{gi.n}}</span></button>
+</sc-for>
+</div>
+</sc-if>
+</div>
+</sc-if>
+<sc-if value="{{p.noGroups}}" hint-placeholder-val="{{false}}">
 <div style="display: flex; flex-wrap: wrap; gap: 10px">
 <sc-for list="{{p.flavorItems}}" as="fl" hint-placeholder-count="16">
 <span data-reveal="scale" style="{{fl.style}}">{{fl.f}}</span>
 </sc-for>
 </div>
+</sc-if>
 </div>
 </section>
 
@@ -314,6 +443,19 @@ a{color:#111113}a:hover{color:#7A5F14}
 </section>
 </sc-if>
 
+<sc-if value="{{p.hasFeatures}}" hint-placeholder-val="{{false}}">
+<section aria-label="BERI {{p.name}} highlights" style="{{p.featSecStyle}}">
+<ul class="feat-grid" style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 14px">
+<sc-for list="{{p.features}}" as="ft" hint-placeholder-count="5">
+<li class="feat-tile" data-reveal="up" style="{{ft.style}}">
+<sc-if value="{{ft.hasImg}}" hint-placeholder-val="{{true}}"><img src="{{ft.img}}" alt="{{ft.alt}}" style="{{ft.imgStyle}}"></sc-if>
+<sc-if value="{{ft.noImg}}" hint-placeholder-val="{{false}}"><span class="feat-txt"><b>{{ft.top}}</b><span>{{ft.main}}</span></span></sc-if>
+</li>
+</sc-for>
+</ul>
+</section>
+</sc-if>
+
 <sc-if value="{{p.hasPackBanner}}" hint-placeholder-val="{{false}}">
 <section aria-label="BERI {{p.name}} retail displays" style="max-width: 1320px; margin: 0 auto; padding: 120px 32px 0; display: flex; flex-direction: column; gap: 24px">
 <img data-reveal="scale" src="{{p.packBanner}}" alt="{{p.packBannerAlt}}" style="display: block; width: 100%; height: auto; border-radius: 28px">
@@ -324,25 +466,48 @@ a{color:#111113}a:hover{color:#7A5F14}
 </section>
 </sc-if>
 
-<section style="max-width: 1320px; margin: 0 auto; padding: 72px 32px 48px; display: flex; flex-direction: column; gap: 24px">
-<h2 data-reveal="up" style="margin: 0; font-family: var(--display); font-weight: 400; font-size: 48px; line-height: 0.95; text-transform: uppercase">Explore the lineup</h2>
-<div style="display: flex; flex-wrap: wrap; gap: 16px">
-<sc-for list="{{others}}" as="o" hint-placeholder-count="2">
-<a data-reveal="up" href="{{o.href}}" style="{{o.style}}">
-<div style="min-width: 0; display: flex; flex-direction: column; gap: 6px">
-<span style="font-size: 11px; font-weight: 700; letter-spacing: 0.28em">BERI</span>
-<span style="font-family: var(--display); font-size: 44px; line-height: 0.9">{{o.name}}</span>
-<span style="max-width: 280px; font-size: 13px; line-height: 1.45; color: rgba(255,255,255,0.9); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden">{{o.tagline}}</span>
-<span style="margin-top: 8px; align-self: flex-start; display: inline-flex; white-space: nowrap; align-items: center; min-height: 44px; padding: 0 18px; border-radius: 999px; background: #FFFFFF; color: {{o.color}}; font-size: 14px; font-weight: 700">{{o.cta}}</span>
+
+<section id="specs" class="{{p.specClass}}" style="position: relative; overflow: hidden; scroll-margin-top: 120px">
+<sc-if value="{{p.hasSpecVideo}}" hint-placeholder-val="{{false}}">
+<video class="spec-video" data-mode="{{p.specVideoMode}}" data-rate="{{p.specRate}}" src="{{p.specVideo}}" poster="{{p.specPoster}}" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; background: #000000"></video>
+</sc-if>
+<div style="position: relative; max-width: 1320px; margin: 0 auto; padding: 120px 32px; display: flex; flex-wrap: wrap; gap: 40px 64px; justify-content: space-between; align-items: flex-start">
+<div style="{{p.specIntroStyle}}">
+<span class="eyebrow" data-reveal="left" style="font-size: 13px; font-weight: 600; letter-spacing: 0.32em; color: var(--gold-ink)">TECHNICAL SPECIFICATIONS</span>
+<h2 class="big-head" data-reveal="left" style="margin: 0; font-family: var(--display); font-weight: 400; font-size: 96px; line-height: 0.9; text-transform: uppercase; transition-delay: 80ms">Inside<br>BERI {{p.name}}</h2>
+<p data-reveal="left" style="margin: 0; max-width: 420px; font-size: 18px; color: {{p.summaryColor}}; transition-delay: 160ms">{{p.summary}}</p>
 </div>
-<img src="{{o.img}}" alt="{{o.imgAlt}}" style="display: block; height: 160px; width: auto; max-width: 45%; object-fit: contain; filter: drop-shadow(0 24px 36px rgba(0,0,0,0.35))">
+<div class="spec-card" data-reveal="right" style="{{p.specCardStyle}}">
+<sc-for list="{{p.specs}}" as="s" hint-placeholder-count="8">
+<div style="{{s.rowStyle}}">
+<span style="{{p.specKeyStyle}}">{{s.k}}</span>
+<span style="font-weight: 600; text-align: right">{{s.v}}</span>
+</div>
+</sc-for>
+</div>
+</div>
+</section>
+<section class="xl-sec" aria-labelledby="xl-title">
+<div class="xl-head">
+<div class="xl-head-text">
+<span class="eyebrow" data-reveal="up" style="font-size: 12px; font-weight: 600; letter-spacing: 0.32em; color: var(--gold-ink)">MORE FROM BERI</span>
+<h2 id="xl-title" class="xl-title" data-reveal="up">Explore the lineup</h2>
+</div>
+<a class="xl-all" data-reveal="up" href="Home-Color-Images.dc.html#products">All products <span aria-hidden="true">→</span></a>
+</div>
+<div class="xl-grid">
+<sc-for list="{{others}}" as="o" hint-placeholder-count="3">
+<a class="xl-card" data-reveal="up" href="{{o.href}}" style="{{o.style}}">
+<span class="xl-thumb" aria-hidden="true"><img class="xl-img" src="{{o.img}}" alt="" loading="lazy"></span>
+<span class="xl-meta">
+<span class="xl-kicker">{{o.kind}}</span>
+<span class="xl-name">BERI {{o.name}}</span>
+<span class="xl-line"><span class="xl-l1">{{o.l1}}</span> <span class="xl-l2">{{o.l2}}</span></span>
+</span>
+<span class="xl-go" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"></path><path d="M8 7h9v9"></path></svg></span>
 </a>
 </sc-for>
 </div>
-</section>
-
-<section aria-label="BERI E-Liquid" style="max-width: 1320px; margin: 0 auto; padding: 0 32px 140px">
-<img data-reveal="scale" src="assets/blob/65202543b257282a3f30a8638ca3e88a.webp" alt="BERI E-Liquid: Grape Drank and Apple Caramel Pop in 30 mL bottles, available in 25 mg and 50 mg, bottled in California" loading="lazy" style="display: block; width: 100%; height: auto; aspect-ratio: 2000 / 610; object-fit: cover; border-radius: 24px; box-shadow: 0 30px 70px rgba(17,17,19,0.18)">
 </section>
 </main>
 
@@ -351,10 +516,11 @@ a{color:#111113}a:hover{color:#7A5F14}
 <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px">
 <img src="assets/blob/bd8d6ee885cd447f39d73ea5ec4478b3.png" alt="BERI" style="display: block; height: 80px; width: auto">
 <div style="display: flex; flex-wrap: wrap; gap: 32px; font-size: 13px; font-weight: 600; letter-spacing: 0.22em">
-<a class="beri-link" href="Beri-Premium.dc.html" style="color: var(--fg); text-decoration: none">HOME</a>
+<a class="beri-link" href="Home-Color-Images.dc.html" style="color: var(--fg); text-decoration: none">HOME</a>
 <a class="beri-link" href="Cliq.dc.html" style="color: var(--fg); text-decoration: none">BERI CLIQ</a>
-<a class="beri-link" href="Crush.dc.html" style="color: var(--fg); text-decoration: none">BERI CRUSH</a>
-<a class="beri-link" href="Cirql.dc.html" style="color: var(--fg); text-decoration: none">BERI CIRQL</a>
+<a class="beri-link" href="Crush-v2.dc.html" style="color: var(--fg); text-decoration: none">BERI CRUSH</a>
+<a class="beri-link" href="Cirql-v2.dc.html" style="color: var(--fg); text-decoration: none">BERI CIRQL</a>
+<a class="beri-link" href="Eliquid.dc.html" style="color: var(--fg); text-decoration: none">BERI E-LIQUID</a>
 <a class="beri-link" href="Authenticate.dc.html" style="color: var(--fg); text-decoration: none">AUTHENTICATE</a>
 <a class="beri-link" href="Wholesale.dc.html" style="color: var(--fg); text-decoration: none">WHOLESALE</a>
 </div>
@@ -365,18 +531,13 @@ a{color:#111113}a:hover{color:#7A5F14}
 </div>
 </footer>
 
-<nav aria-label="Products" style="position: fixed; z-index: 60; left: 50%; bottom: 24px; transform: translateX(-50%); max-width: calc(100% - 32px); box-sizing: border-box; overflow-x: auto; display: flex; gap: 6px; padding: 8px; border-radius: 999px; background: rgba(17,17,19,0.38); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border: 1px solid rgba(255,255,255,0.28); box-shadow: 0 12px 36px rgba(17,17,19,0.16), inset 0 1px 0 rgba(255,255,255,0.18)">
-<sc-for list="{{strip}}" as="s" hint-placeholder-count="3">
-<a class="strip-link" href="{{s.href}}" aria-current="{{s.current}}" style="{{s.style}}">{{s.label}}</a>
-</sc-for>
-</nav>
 </div>
 </template>
-<script type="text/x-dc" data-dc-script data-props='{"animations":{"editor":"boolean","default":true},"$preview":{"width":1440,"height":4300}}'>
+<script type="text/x-dc" data-dc-script data-props="{&quot;animations&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true},&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:7600}}">
 class Component extends DCLogic {
   constructor(props) {
     super(props);
-    this.state = { scrolled: false, p: 0, rp: 0, vh: 900, vw: 1440, fmt: 0, sel: 0 };
+    this.state = { fTab: 0, fPick: '', scrolled: false, p: 0, rp: 0, vh: 900, vw: 1440, fmt: 0, sel: 0 };
   }
   componentDidMount() {
     this.reduce = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
@@ -523,7 +684,7 @@ class Component extends DCLogic {
     document.querySelectorAll('[data-rv]').forEach((el) => el.removeAttribute('data-rv'));
   }
   renderVals() {
-    // Which product this page shows. Cliq.dc.html and Cirql.dc.html share this template.
+    // Which product this page shows. Cliq.dc.html and Cirql-v2.dc.html share this template.
     const PRODUCT_KEY = 'CIRQL';
     // Kit photos, one per kit flavor.
     const kitImg = {
@@ -534,21 +695,29 @@ class Component extends DCLogic {
     };
     const products = {
       CRUSH: {
-        name: 'CRUSH', page: 'Crush.dc.html', color: '#C81E64', soft: '#FF7DB0', tint: '#FBE8F0', badge: '32 FLAVORS · 40W CRUSH MODE', heroH: 560,
+        name: 'CRUSH', page: 'Crush-v2.dc.html', color: '#C81E64', soft: '#FF7DB0', tint: '#FBE8F0', badge: '35 FLAVORS · 40W CRUSH MODE', heroH: 560,
         img: 'assets/blob/0cd95d0e72d332cb0c13ffe953a14a5f.webp', imgAlt: 'BERI Crush device in green with HD screen',
         logo: 'assets/blob/b2c88c4fa1062e9f933ffb37bb39c5ff.webp', logoW: 500,
         tagline: 'Up to 50,000 puffs, 40W Crush Mode and a 1.77 inch HD display on a 1,000 mAh battery.',
         summary: 'A 20 mL rechargeable disposable with a quad-coil mesh, adjustable airflow and an interactive HD screen that shows battery and e-liquid levels.',
         highlights: [{ value: '50K', label: 'Puffs (up to)' }, { value: '40W', label: 'Crush Mode' }, { value: '20 mL', label: 'E-liquid' }, { value: '1.77"', label: 'HD display' }],
         specs: [
-          { k: 'Nicotine strength', v: '5% (50mg)' }, { k: 'Max puffs', v: 'Up to 50,000' }, { k: 'E-liquid', v: '20 mL' },
+          { k: 'Nicotine strength', v: '5% (50mg) · 0% in 5 flavors' }, { k: 'Max puffs', v: 'Up to 50,000' }, { k: 'E-liquid', v: '20 mL' },
           { k: 'Battery', v: '1,000 mAh' }, { k: 'Heating element', v: 'Quad-Coil Mesh' }, { k: 'Power', v: 'Up to 40W (Crush Mode)' },
           { k: 'Airflow', v: 'Adjustable bottom slider' }, { k: 'Display', v: '1.77 inch HD' }, { k: 'Charging', v: 'Type-C, 2.5A max' },
-          { k: 'Charge time', v: '30 minutes' }, { k: 'Operation', v: 'Draw activated' }, { k: 'Dimensions', v: '57.3 × 28.3 × 100.5 mm' }
+          { k: 'Charge time', v: '30 minutes' }, { k: 'Operation', v: 'Draw activated, auto-adaptive 15–25W' }, { k: 'Dimensions', v: '57.3 × 28.3 × 100.5 mm' }, { k: 'Origin', v: 'Designed in USA' }
         ],
         marquee: ['Up to 50,000 puffs', '40W Crush Mode', 'Quad-coil mesh', '1.77 inch HD screen', 'Type-C fast charging'],
         hasBanners: true,
-        flavors: ['Alaskan Mint', 'Banana Taffy', 'Berry Peach Gush', 'Blue Coconut', 'Blue Razz Ice', 'Blue Sour', 'Blueberry Watermelon', 'Cherry B-Pop', 'Cherry Cola Gami', 'Cran Apple Smash', 'Grape Ice', 'Green Apple', 'Juicy Peach', 'Mango Bomb', 'Melon Dragon Slush', 'Miami Mint', 'OG Lemonade', 'Pineapple Passion Punch', 'Polar Ice', 'Punch Ice', 'Sour Neon Fab', 'Sour Watermelon Gami', 'Strawberry Cream', 'Strawberry Watermelon', 'Summer Glacier', 'Super Mint', 'Triple Berry', 'Tropical Gummy', 'Watermelon Ice', 'Watermelon Refresh', 'White Gami', 'White Strawberry']
+        flavorTotal: '35',
+        flavors: ['Banana Taffy', 'Blue Razz Ice', 'Cherry B-Pop', 'Grape Ice', 'Green Apple', 'Mango Bomb', 'Miami Mint', 'Strawberry Cream', 'Strawberry Watermelon', 'Super Mint', 'Triple Berry', 'Watermelon Ice', 'White Strawberry', 'Berry Peach Gush', 'Blue Coconut', 'Blueberry Watermelon', 'Pineapple Passion Punch', 'Sour Watermelon Gami', 'Alaskan Mint', 'Cherry Cola Gami', 'Cran Apple Smash', 'Punch Ice', 'White Gami', 'Blue Sour', 'Juicy Peach', 'Melon Dragon Slush', 'OG Lemonade', 'Polar Ice', 'Sour Neon Fab', 'Watermelon Refresh'],
+        flavorGroups: [
+          { name: 'Core Collection', items: [{ n: 'Banana Taffy', d: 'Sweet banana candy with a smooth, creamy finish.', notes: ['Banana', 'Candy', 'Sweet'] }, { n: 'Blue Razz Ice', d: 'Tangy blue raspberry with a crisp icy finish.', notes: ['Blue Razz', 'Tart', 'Ice'] }, { n: 'Cherry B-Pop', d: 'Bright cherry candy with a sweet, punchy finish.', notes: ['Cherry', 'Candy', 'Sweet'] }, { n: 'Grape Ice', d: 'Bold grape flavor with a crisp, icy finish.', notes: ['Grape', 'Sweet', 'Cool'] }, { n: 'Green Apple', d: 'Crisp green apple with a bright sweet-and-tart bite.', notes: ['Apple', 'Tart', 'Crisp'] }, { n: 'Mango Bomb', d: 'Juicy tropical mango with a bold, fruit-forward finish.', notes: ['Mango', 'Tropical', 'Juicy'] }, { n: 'Miami Mint', d: 'Fresh peppermint with a smooth and slightly fruity icy finish.', notes: ['Peppermint', 'Fresh', 'Icy'] }, { n: 'Strawberry Cream', d: 'Ripe strawberry layered with a smooth, creamy finish.', notes: ['Strawberry', 'Creamy', 'Sweet'] }, { n: 'Strawberry Watermelon', d: 'Juicy watermelon blended with sweet ripe strawberry.', notes: ['Strawberry', 'Watermelon', 'Juicy'] }, { n: 'Super Mint', d: 'An intense mint profile with an extra-cool finish.', notes: ['Mint', 'Bold', 'Extra Cool'] }, { n: 'Triple Berry', d: 'A bold blend of sweet and tangy mixed berries.', notes: ['Mixed Berry', 'Sweet', 'Tart'] }, { n: 'Watermelon Ice', d: 'Juicy watermelon balanced by a refreshing icy finish.', notes: ['Watermelon', 'Juicy', 'Ice'] }, { n: 'White Strawberry', d: 'Sweet, creamy strawberry with a fruit forward finish.', notes: ['Strawberry', 'Creamy', 'Sweet'] }] },
+          { name: 'Summer Edition', items: [{ n: 'Berry Peach Gush', d: 'Ripe peach blended with sweet mixed berries for a juicy, fruit-forward finish.', notes: ['Peach', 'Berry', 'Juicy'] }, { n: 'Blue Coconut', d: 'Sweet blueberry paired with smooth, tropical coconut.', notes: ['Blueberry', 'Coconut', 'Tropical'] }, { n: 'Blueberry Watermelon', d: 'Sweet blueberry blended with crisp, juicy watermelon.', notes: ['Blueberry', 'Watermelon', 'Juicy'] }, { n: 'Pineapple Passion Punch', d: 'Bright pineapple and sweet passion fruit come together in a bold tropical blend.', notes: ['Pineapple', 'Passion Fruit', 'Tropical'] }, { n: 'Sour Watermelon Gami', d: 'Tangy watermelon candy with a sweet gummy-inspired finish.', notes: ['Watermelon', 'Sour', 'Candy'] }] },
+          { name: 'Winter Edition', items: [{ n: 'Alaskan Mint', d: 'Sharp peppermint with a deep, frost-bitten finish.', notes: ['Mint', 'Crisp', 'Extra Cool'] }, { n: 'Cherry Cola Gami', d: 'Sweet cherry cola with a chewy, gummy-inspired finish.', notes: ['Cherry', 'Cola', 'Candy'] }, { n: 'Cran Apple Smash', d: 'Tart cranberry smashed together with crisp orchard apple.', notes: ['Cranberry', 'Apple', 'Tart'] }, { n: 'Punch Ice', d: 'Bright fruit punch chilled to a sharp, frosty finish.', notes: ['Fruit Punch', 'Sweet', 'Ice'] }, { n: 'White Gami', d: 'Soft white gummy candy with a smooth, sugary finish.', notes: ['Gummy', 'Candy', 'Smooth'] }] },
+          { name: 'Graffiti Edition', items: [{ n: 'Blue Sour', d: 'A bold blue candy profile with a bright, tangy sour finish.', notes: ['Blue Candy', 'Sour', 'Tangy'] }, { n: 'Juicy Peach', d: 'Ripe peach flavor with a smooth, juicy sweetness.', notes: ['Peach', 'Juicy', 'Sweet'] }, { n: 'Melon Dragon Slush', d: 'Sweet melon and exotic dragon fruit with a frosty slush finish.', notes: ['Melon', 'Dragon Fruit', 'Frosty'] }, { n: 'OG Lemonade', d: 'Classic lemonade with a bright, sweet-and-tart citrus finish.', notes: ['Lemonade', 'Citrus', 'Sweet'] }, { n: 'Polar Ice', d: 'An intensely cool profile with a crisp, refreshing finish.', notes: ['Icy', 'Crisp', 'Extra Cool'] }, { n: 'Sour Neon Fab', d: 'A bright sour-candy blend with a punchy sweet-and-tart finish.', notes: ['Sour Candy', 'Sweet', 'Tart'] }, { n: 'Watermelon Refresh', d: 'Juicy watermelon with a light, cooling finish.', notes: ['Watermelon', 'Fresh', 'Cool'] }] },
+          { name: '0% Nicotine', items: [{ n: 'Blue Razz Ice', d: 'Tangy blue raspberry with a crisp, icy finish, without nicotine.', notes: ['Blue Razz', 'Tart', 'Ice'] }, { n: 'Grape Ice', d: 'Bold grape flavor with a crisp, cooling finish, without nicotine.', notes: ['Grape', 'Sweet', 'Cool'] }, { n: 'Miami Mint', d: 'Fresh peppermint with a smooth and slightly fruity icy finish, without nicotine.', notes: ['Peppermint', 'Fresh', 'Icy'] }, { n: 'Strawberry Watermelon', d: 'Sweet strawberry and juicy watermelon in a smooth, fruit-forward blend, without nicotine.', notes: ['Strawberry', 'Watermelon', 'Juicy'] }, { n: 'Triple Berry', d: 'A bold blend of sweet and tangy berries, without nicotine.', notes: ['Mixed Berry', 'Sweet', 'Tart'] }] }
+        ]
       },
       CLIQ: {
         name: 'CLIQ', page: 'Cliq.dc.html', color: '#0F7A42', soft: '#5BE39A', tint: '#E4F2EA', badge: 'REFILLABLE POD SYSTEM', heroH: 520,
@@ -646,27 +815,142 @@ class Component extends DCLogic {
               { name: 'Grape Ice', img: 'assets/blob/d05a4fb89d2d3db832d552645a04543e.webp' }
             ] }
         ],
-        flavors: ['Alaskan Mint', 'Banana Ice', 'Black Razz Ice', 'Blue Coconut', 'Blue Rancher', 'Blue Razz Ice', 'Clear', 'Grape Ice', 'Green Apple', 'Mango Bomb', 'Miami Mint', 'Mixed Berry', 'Passionfruit Mango', 'Peach Ice', 'Peach Refresher', 'Punch Ice', 'Sour Neon Fab', 'Sour Watermelon Gami', 'Strawberry Burst', 'Super Mint', 'Tobacco', 'Watermelon BG', 'Watermelon Ice', 'White Gami', 'White Strawberry']
+        flavors: ['Alaskan Mint', 'Banana Ice', 'Black Razz Ice', 'Blue Coconut', 'Blue Rancher', 'Blue Razz Ice', 'Clear', 'Grape Ice', 'Green Apple', 'Mango Bomb', 'Miami Mint', 'Mixed Berry', 'Passionfruit Mango', 'Peach Ice', 'Peach Refresher', 'Punch Ice', 'Sour Neon Fab', 'Sour Watermelon Gami', 'Strawberry Burst', 'Super Mint', 'Tobacco', 'Watermelon BG', 'Watermelon Ice', 'White Gami', 'White Strawberry'],
+        flavorGroups: [
+          { name: 'Pods', items: [{ n: 'Alaskan Mint', d: 'Crisp mint with a clean, intensely cool finish.', notes: ['Mint', 'Crisp', 'Cool'] }, { n: 'Banana Ice', d: 'Smooth banana sweetness balanced by a refreshing icy finish.', notes: ['Banana', 'Sweet', 'Ice'] }, { n: 'Black Razz Ice', d: 'Black raspberry with a tangy berry bite and cool finish.', notes: ['Black Raspberry', 'Tart', 'Ice'] }, { n: 'Blue Coconut', d: 'Sweet blueberry paired with smooth, tropical coconut.', notes: ['Blueberry', 'Coconut', 'Tropical'] }, { n: 'Blue Rancher', d: 'Hard blue candy with a sharp, sweet-and-sour bite.', notes: ['Blue Candy', 'Sweet', 'Sour'] }, { n: 'Blue Razz Ice', d: 'Tangy blue raspberry with a crisp icy finish.', notes: ['Blue Razz', 'Tart', 'Ice'] }, { n: 'Clear', d: 'A clean, understated profile with minimal added flavor.', notes: ['Clean', 'Light', 'Neutral'] }, { n: 'Grape Ice', d: 'Bold grape sweetness balanced by a chilled finish.', notes: ['Grape', 'Sweet', 'Ice'] }, { n: 'Green Apple', d: 'Crisp green apple with a bright sweet-and-tart bite.', notes: ['Apple', 'Tart', 'Crisp'] }, { n: 'Mango Bomb', d: 'Bold tropical mango with a smooth, juicy finish.', notes: ['Mango', 'Tropical', 'Juicy'] }, { n: 'Miami Mint', d: 'Fresh peppermint with a smooth and slightly fruity icy finish.', notes: ['Peppermint', 'Fresh', 'Icy'] }, { n: 'Mixed Berry', d: 'A blend of ripe berries with a smooth, jammy sweetness.', notes: ['Mixed Berry', 'Ripe', 'Sweet'] }, { n: 'Passion Fruit Mango', d: 'Tart passion fruit lifted by ripe mango, bright and tropical throughout.', notes: ['Passion Fruit', 'Mango', 'Tropical'] }, { n: 'Peach Ice', d: 'Ripe peach sweetness paired with a light icy finish.', notes: ['Peach', 'Sweet', 'Ice'] }, { n: 'Peach Refresher', d: 'Ripe peach over a light, crisp base, closer to a cold drink than a candy.', notes: ['Peach', 'Refreshing', 'Light'] }, { n: 'Punch Ice', d: 'Sweet mixed fruit punch with a crisp icy finish.', notes: ['Fruit Punch', 'Sweet', 'Ice'] }, { n: 'Sour Neon Fab', d: 'Bright sour-candy flavor with a bold sweet-and-tart finish.', notes: ['Sour Candy', 'Sweet', 'Tart'] }, { n: 'Sour Watermelon Gami', d: 'Tangy watermelon candy with a sweet gummy-inspired finish.', notes: ['Watermelon', 'Sour', 'Candy'] }, { n: 'Strawberry Burst', d: 'Ripe strawberry at full volume, sweet and juicy with a clean finish.', notes: ['Strawberry', 'Juicy', 'Sweet'] }, { n: 'Super Mint', d: 'Strong, refreshing mint with an intensely cool finish.', notes: ['Mint', 'Fresh', 'Extra Cool'] }, { n: 'Tobacco', d: 'A classic tobacco-style profile with a smooth, familiar finish.', notes: ['Tobacco', 'Rich', 'Classic'] }, { n: 'Watermelon BG', d: 'Juicy watermelon bubblegum with a soft, chewy finish.', notes: ['Watermelon', 'Bubblegum', 'Sweet'] }, { n: 'Watermelon Ice', d: 'Juicy watermelon balanced by a refreshing icy finish.', notes: ['Watermelon', 'Juicy', 'Ice'] }, { n: 'White Gami', d: 'Soft white gummy candy with a smooth, sugary finish.', notes: ['Gummy', 'Candy', 'Smooth'] }, { n: 'White Strawberry', d: 'Sweet, creamy strawberry with a fruit forward finish.', notes: ['Strawberry', 'Creamy', 'Sweet'] }] },
+          { name: 'Kits', items: [{ n: 'Blue Razz Ice', d: 'Tangy blue raspberry with a crisp icy finish.', notes: ['Blue Razz', 'Tart', 'Ice'] }, { n: 'Clear', d: 'A clean, understated profile with minimal added flavor.', notes: ['Clean', 'Light', 'Neutral'] }, { n: 'Grape Ice', d: 'Bold grape sweetness balanced by a chilled finish.', notes: ['Grape', 'Sweet', 'Ice'] }, { n: 'Miami Mint', d: 'Fresh peppermint with a smooth and slightly fruity icy finish.', notes: ['Peppermint', 'Fresh', 'Icy'] }, { n: 'Peach Ice', d: 'Ripe peach sweetness paired with a light icy finish.', notes: ['Peach', 'Sweet', 'Ice'] }, { n: 'Super Mint', d: 'Strong, refreshing mint with an intensely cool finish.', notes: ['Mint', 'Fresh', 'Extra Cool'] }, { n: 'Tobacco', d: 'A classic tobacco-style profile with a smooth, familiar finish.', notes: ['Tobacco', 'Rich', 'Classic'] }, { n: 'Watermelon Ice', d: 'Juicy watermelon balanced by a refreshing icy finish.', notes: ['Watermelon', 'Juicy', 'Ice'] }, { n: 'White Gami', d: 'Soft white gummy candy with a smooth, sugary finish.', notes: ['Gummy', 'Candy', 'Smooth'] }, { n: 'White Strawberry', d: 'Sweet, creamy strawberry with a fruit forward finish.', notes: ['Strawberry', 'Creamy', 'Sweet'] }] }
+        ]
       },
       CIRQL: {
-        name: 'CIRQL', page: 'Cirql.dc.html', color: '#7A1626', soft: '#F2A1AC', tint: '#F7E8EA', badge: 'NEW', heroH: 640,
+        name: 'CIRQL', page: 'Cirql-v2.dc.html', color: '#7A1626', soft: '#F2A1AC', tint: '#F7E8EA', badge: 'E-HOOKAH SERIES', heroH: 640,
         img: 'assets/blob/c43367147c58d259a2d0d61aa5fc2440.webp', imgAlt: 'BERI Cirql device in red with gold pattern and Boost and Regular modes',
         logo: 'assets/blob/601b3347995ee75c5806b2cd82298933.webp', logoW: 420,
-        tagline: '[Cirql ki one-line tagline]',
-        summary: '[Cirql ka short description: kya hai, kiske liye hai aur kya khaas hai.]',
-        highlights: [{ value: '[PUFFS]', label: 'Puffs (up to)' }, { value: '[mL]', label: 'E-liquid' }, { value: '[mAh]', label: 'Battery' }, { value: '2', label: 'Modes: Boost / Regular [confirm]' }],
+        tagline: 'Shisha, reimagined. Hookah without the setup: up to 150,000 puffs of shisha-inspired flavor through a quad-mesh coil.',
+        summary: 'BERI CIRQL brings the hookah flavor experience into a high-capacity disposable format, with Regular and Boost modes and shisha-inspired profiles such as Double Apple, Lady Killer and Love 66.',
+        highlights: [{ value: '150K', label: 'Puffs (up to)' }, { value: 'Quad', label: 'Mesh coil' }, { value: '2', label: 'Modes: Regular / Boost' }, { value: '13', label: 'Shisha flavors' }],
         specs: [
-          { k: 'Nicotine strength', v: '[NICOTINE %]' }, { k: 'Max puffs', v: '[PUFFS]' }, { k: 'E-liquid', v: '[mL]' },
-          { k: 'Battery', v: '[mAh]' }, { k: 'Modes', v: 'Boost / Regular [confirm]' }, { k: 'Coil', v: '[COIL]' },
-          { k: 'Display', v: '[DISPLAY]' }, { k: 'Charging', v: '[CHARGING]' }
+          { k: 'Max puffs', v: 'Up to 150,000' }, { k: 'Coil', v: 'Quad-mesh' }, { k: 'Modes', v: 'Regular + Boost' },
+          { k: 'Flavor profile', v: 'Shisha-inspired' }, { k: 'Format', v: 'Disposable e-hookah' }, { k: 'Origin', v: 'Made in USA' }
         ],
-        marquee: ['BERI Cirql', 'Boost mode', 'Regular mode', '[Feature]', '[Feature]'],
+        marquee: ['Up to 150,000 puffs', 'Shisha-inspired flavor', 'Quad-mesh coil', 'Regular + Boost modes', 'Made in USA'],
         hasBanners: false,
-        flavors: ['Lady Killer [confirm]', '[FLAVOR 2]', '[FLAVOR 3]', '[FLAVOR 4]']
+        flavorTotal: '13',
+        pack: {
+          'blue-razz': ['assets/blob/5b0132f3572324100a678f52808c2f51.webp', '#5CCDE0'],
+          'blueberry-ice': ['assets/blob/bef2ab2a01b755c25fa1c281ef21dad6.webp', '#336CCC'],
+          'cool-mint': ['assets/blob/9ca250a28c60a38052579a259c54f677.webp', '#33CCC0'],
+          'double-apple': ['assets/blob/16370723eb64b7ad36b784b1a3e3675a.webp', '#C6D350'],
+          'grape-ice': ['assets/blob/b8f0109b8f2e57a0971cc4990ab8548e.webp', '#D558BF'],
+          'lady-killer': ['assets/blob/d510c102cd7e0d46e23c4ac5f22a58d7.webp', '#CC3344'],
+          'lemon-mint': ['assets/blob/2510acdf3e9ce191d5260036dcfed9e0.webp', '#D8CC64'],
+          'love-66': ['assets/blob/fbd10016a23ff4eab57c9f7a0dd65bdc.webp', '#7141D0'],
+          'lucid-dreams': ['assets/blob/efa8b0e2f7ce108e66dc31227b30cc5e.webp', '#D7AD60'],
+          'peach-ice': ['assets/blob/a3755ef90080684cb31b0ed0ed75035d.webp', '#DDAC5F'],
+          'peach-mango-watermelon': ['assets/blob/7c97446d6ac3e7cfaa6dc5770b1e6b8a.webp', '#D48153'],
+          'strawberry-punch': ['assets/blob/737e32d065aa4a640101a48f42d4cd00.webp', '#CC3340'],
+          'watermelon-ice': ['assets/blob/f07a3be731394054d8612dec8fb24e46.webp', '#33CC45']
+        },
+        flavors: ['Blue Razz', 'Blueberry Ice', 'Cool Mint', 'Double Apple', 'Grape Ice', 'Lady Killer', 'Lemon Mint', 'Love 66', 'Lucid Dreams', 'Peach Ice', 'Peach Mango Watermelon', 'Strawberry Punch', 'Watermelon Ice'],
+        flavorGroups: [
+          { name: 'E-Hookah', items: [{ n: 'Blue Razz', d: 'Blue raspberry with the deep, syrupy sweetness of a lounge favorite. Tart on the draw, rounded and candied on the exhale.', notes: ['Blue Razz', 'Tart', 'Sweet'] }, { n: 'Blueberry Ice', d: 'Ripe blueberry laid over a cooling base. The fruit stays soft and jammy while the ice keeps every draw clean.', notes: ['Blueberry', 'Jammy', 'Ice'] }, { n: 'Cool Mint', d: 'Straight mint, cut clean. A cooling profile that resets the palate between heavier bowls.', notes: ['Mint', 'Clean', 'Cool'] }, { n: 'Double Apple', d: 'The classic shisha profile. Red and green apple carried by the aniseed edge that made it a lounge staple for a century.', notes: ['Apple', 'Aniseed', 'Classic'] }, { n: 'Grape Ice', d: 'Dark grape with a chilled finish. Rich and lightly candied up front, cool and dry on the way out.', notes: ['Grape', 'Rich', 'Ice'] }, { n: 'Lady Killer', d: 'A layered berry and citrus blend, sweet at the centre with a sharp edge. One of the boldest profiles in the range.', notes: ['Berry', 'Citrus', 'Bold'] }, { n: 'Lemon Mint', d: 'Bright lemon over cool mint, the pairing that anchors half the menu in a Middle Eastern lounge. Sharp, clean and endlessly smokeable.', notes: ['Lemon', 'Mint', 'Sharp'] }, { n: 'Love 66', d: 'A melon-led mixed fruit blend named after the lounge classic. Sweet, floral and rounded, with no single fruit taking over.', notes: ['Melon', 'Mixed Fruit', 'Floral'] }, { n: 'Lucid Dreams', d: 'A soft, dessert-leaning blend of berries and cream. The slowest and sweetest profile in the lineup.', notes: ['Berry', 'Cream', 'Sweet'] }, { n: 'Peach Ice', d: 'Ripe peach with a light frost. The fruit reads as fresh rather than candied, and the ice keeps it from turning heavy.', notes: ['Peach', 'Fresh', 'Ice'] }, { n: 'Peach Mango Watermelon', d: 'Three summer fruits stacked together. Peach for body, mango for sweetness, watermelon for the clean finish.', notes: ['Peach', 'Mango', 'Watermelon'] }, { n: 'Strawberry Punch', d: 'Ripe strawberry pushed into fruit punch territory. Sweet and full, with a tart lift that keeps it from cloying.', notes: ['Strawberry', 'Punch', 'Sweet'] }, { n: 'Watermelon Ice', d: 'Juicy watermelon over a cold base. Light-bodied and refreshing, the closest thing here to a summer drink.', notes: ['Watermelon', 'Juicy', 'Ice'] }] }
+        ]
+      },
+      ELIQUID: {
+        name: 'E-LIQUID', page: 'Eliquid.dc.html', color: '#8A6A12', soft: '#F2C94C', tint: '#FBF3DC', badge: 'BOTTLED E-LIQUID', heroH: 560,
+        img: 'assets/blob/1a6e959e6fbe802d98e56b00f8beba80.webp', imgAlt: 'BERI E-liquid Blue Frost 30 mL bottle and box',
+        logo: 'assets/blob/bbc52b1f7a19e7e64a5e50854eed55ee.webp', logoW: 420,
+        tagline: 'The best damn disposable flavors in a bottle. 30 mL nicotine salt in 25 mg or 50 mg.',
+        summary: 'The signature flavor profiles behind BERI, now in bottled form for your own device. Each 30 mL nicotine salt e-liquid comes with a child-resistant cap, in 25 mg and 50 mg strengths across 12 flavors, bottled in California.',
+        highlights: [{ value: '30 mL', label: 'Bottle' }, { value: '25 / 50', label: 'mg nicotine salt' }, { value: '12', label: 'Flavors' }, { value: 'CA', label: 'Bottled in California' }],
+        specs: [
+          { k: 'Bottle size', v: '30 mL' }, { k: 'Nicotine strength', v: '25 mg / 50 mg' }, { k: 'Formula', v: 'Nicotine salt' },
+          { k: 'Flavors', v: '12' }, { k: 'Cap', v: 'Child-resistant' }, { k: 'Bottled in', v: 'California, USA' }
+        ],
+        marquee: ['30 mL bottles', 'Nicotine salt', '25 mg & 50 mg', 'Child-resistant cap', 'Bottled in California'],
+        hasBanners: false,
+        slider: [
+          { name: 'Apple Caramel Pop', img: 'assets/blob/c0daf37ea766e474926e658d11a346e1.webp', color: '#E88A1A' },
+          { name: 'Blue Frost', img: 'assets/blob/3d858aae4240f9970718948a763034d6.webp', color: '#2A9BD6' },
+          { name: 'Citrus Squeeze', img: 'assets/blob/4f969915706683377752dfac5a081e34.webp', color: '#B5C21A' },
+          { name: 'Grape Drank', img: 'assets/blob/3bf9930ee0369fa4b510607ddc9ad785.webp', color: '#8E44AD' },
+          { name: 'Lime Frost', img: 'assets/blob/58c4f6fd97aeb566907822ae4d53dc2d.webp', color: '#6DB33F' },
+          { name: 'Minty O\'s', img: 'assets/blob/dd7400f2d61d62c747f333589b89be48.webp', color: '#3FBFC4' },
+          { name: 'Mother\'s Milk', img: 'assets/blob/3dc18a590df162cf6022c1a02018f8ad.webp', color: '#D98AAE' },
+          { name: 'Pistachio Gelato', img: 'assets/blob/17f93e327d158fa3685d9f44ed95747f.webp', color: '#7FAF4E' },
+          { name: 'Red Ropes', img: 'assets/blob/f0fa8a646bc2f47cec96581b20325cd1.webp', color: '#E0352B' },
+          { name: 'Sunni Drank', img: 'assets/blob/98f3b5ee9cc761f12118b98fbfd1f8a9.webp', color: '#E8960F' },
+          { name: 'Winter Green Saverz', img: 'assets/blob/281db74967324fb17d27f3ab1f49c3f1.webp', color: '#239E89' }
+        ],
+        flavorTotal: '12',
+        flavors: ['Apple Caramel Pop', 'Apple Juice', 'Blue Frost', 'Citrus Squeeze', 'Grape Drank', 'Lime Frost', 'Minty O\'s', 'Mother\'s Milk', 'Pistachio Gelato', 'Red Ropes', 'Sunni Drank', 'Winter Green Saverz'],
+        flavorGroups: [{ name: 'Salt Nicotine', items: [{ n: 'Apple Caramel Pop', d: 'Crisp apple layered with smooth caramel sweetness for a rich, candy-inspired finish.', notes: ['Apple', 'Caramel', 'Sweet'] }, { n: 'Apple Juice', d: 'Sweet pressed apple with a clean, juice-box finish.', notes: ['Apple', 'Juicy', 'Sweet'] }, { n: 'Blue Frost', d: 'Blue raspberry chilled to a sharp, frosted finish.', notes: ['Blue Razz', 'Tart', 'Ice'] }, { n: 'Citrus Squeeze', d: 'Bright mixed citrus with a zesty, freshly squeezed finish.', notes: ['Citrus', 'Zesty', 'Fresh'] }, { n: 'Grape Drank', d: 'Rich purple grape soda with a smooth, syrupy finish.', notes: ['Grape', 'Soda', 'Smooth'] }, { n: 'Lime Frost', d: 'Tart lime lifted by a cool, frosted edge.', notes: ['Lime', 'Tart', 'Cool'] }, { n: 'Minty O\'s', d: 'Sweet cereal mint with a creamy, cooling finish.', notes: ['Mint', 'Cereal', 'Creamy'] }, { n: 'Mother\'s Milk', d: 'Smooth cream layered with soft vanilla sweetness.', notes: ['Cream', 'Vanilla', 'Smooth'] }, { n: 'Pistachio Gelato', d: 'Roasted pistachio folded into a rich, frozen cream.', notes: ['Pistachio', 'Nutty', 'Creamy'] }, { n: 'Red Ropes', d: 'Chewy red licorice candy with a bright berry sweetness.', notes: ['Licorice', 'Berry', 'Candy'] }, { n: 'Sunni Drank', d: 'Bright tropical punch with a sunny, citrus-forward finish.', notes: ['Tropical', 'Citrus', 'Sweet'] }, { n: 'Winter Green Saverz', d: 'Cool wintergreen candy with a crisp, minty snap.', notes: ['Wintergreen', 'Mint', 'Crisp'] }] }]
       }
     };
-    const order = ['CLIQ', 'CRUSH', 'CIRQL'];
+    // v2: every product page shares one layout; colours, fonts and decoration come from its theme.
+    Object.assign(products.CRUSH, {
+      soft: '#C6FF00', tint: '#0B0B0D', accent: '#C6FF00', theme: 'crush',
+      video: 'assets/blob/165d0438f53ea62f81952c87b4047469.mp4', poster: 'assets/blob/48f8d0392055c82ceba9fc4a9088ff42.webp', videoMode: 'play',
+      chapters: [{ s: -1, e: 2, eyebrow: 'BERI CRUSH', title: 'Crush it.', text: 'Up to 50,000 puffs, a 40W Crush Mode and a 1.77 inch HD screen.' }],
+      reveal: [
+        { name: '', img: 'assets/blob/83968a9d0e5da88f09d47d928f2ad983.webp', alt: 'BERI Crush in icy blue', color: '#22D3EE', tint: '#061C2A' },
+        { name: '', img: 'assets/blob/98de8943c95bc88c1c871334365c5bdd.webp', alt: 'BERI Crush in orange with a gold side panel', color: '#FFB000', tint: '#2A1A04' },
+        { name: '', img: 'assets/blob/1886ce764e7568a2280964791e1303a3.webp', alt: 'BERI Crush in mint green', color: '#2EE6C5', tint: '#062A1C' }
+      ],
+      specBanner: 'assets/blob/0a2532abcfdd671f02c321ad6f8258e5.webp', specBannerAlt: 'BERI Crush: up to 40W power',
+      features: [
+        { size: 'sm', full: true, top: '40 Watt', main: 'Super power', img: 'assets/blob/14137e017345c2dd41913f3d5bb3e181.png' },
+        { size: 'sm', full: true, top: 'World 1st', main: 'Auto-adaptive power', img: 'assets/blob/59e8e82f49c41f1c896d36885758acde.png' },
+        { size: 'sm', full: true, top: 'Adjustable', main: 'Airflow', img: 'assets/blob/c290186ca08ad6b8a291264e55e8811c.png' },
+        { size: 'sm', full: true, top: '2.5x', main: 'Charging speed', img: 'assets/blob/cf6ecc4bf4dd121a83f9020b207d801a.png' },
+        { size: 'sm', full: true, top: 'Quad coil', main: 'Technology', img: 'assets/blob/3792cab5944670d3faf0d75c9fcb2203.png' },
+        { size: 'sm', full: true, top: 'Interactive', main: 'HD screen', img: 'assets/blob/364e1253c927fdd746bc0975fe8357c3.png' }
+      ]
+    });
+    Object.assign(products.CIRQL, {
+      soft: '#E2C27A', tint: '#13100D', accent: '#E2C27A', theme: 'cirql',
+      logo: 'assets/blob/bb2d38a29345daf1c488cc66d3082504.webp',
+      video: 'assets/blob/c8e983514891d2f1cc80c2a39220522e.mp4', poster: 'assets/blob/eb8c684067920084ff8ec05da9685285.webp', videoMode: 'play',
+      chapters: [{ s: -1, e: 2, eyebrow: 'BERI CIRQL · ELECTRONIC HOOKAH', title: 'Shisha, reimagined.', text: 'Up to 150,000 puffs of shisha-inspired flavor through a quad-mesh coil.' }],
+      reveal: [
+        { name: 'Peach Ice', img: 'assets/blob/f1f2cd52ab49ddb46b7471ab0a396135.webp', alt: 'BERI Cirql in Peach Ice', color: '#F2A66B', tint: '#2A170C' },
+        { name: 'Lady Killer', img: 'assets/blob/4ae31177e89431358a0d6d868583c620.webp', alt: 'BERI Cirql in Lady Killer', color: '#E8708C', tint: '#2A0A14' },
+        { name: 'Blue Razz', img: 'assets/blob/9e5b98dc6f71fc7077f983f8b50248c0.webp', alt: 'BERI Cirql in Blue Razz', color: '#6FB4EE', tint: '#0A1A2A' }
+      ],
+      specBanner: 'assets/blob/0f9b20cdbf809de2a74caca0cba9a190.webp', specBannerAlt: 'BERI Cirql: 150K puffs, shown in Mixed Berries and blue with their boxes',
+      features: [
+        { size: 'sm', top: '150K', main: 'Puffs' },
+        { size: 'sm', top: 'Quad', main: 'Mesh coil' },
+        { size: 'sm', top: '2', main: 'Modes: Regular / Boost' },
+        { size: 'lg', top: 'Authentic', main: 'Shisha-inspired flavor' },
+        { size: 'lg', top: 'USA', main: 'Made in' }
+      ]
+    });
+    products.CLIQ.theme = 'cliq';
+    const order = ['CLIQ', 'CRUSH', 'CIRQL', 'ELIQUID'];
     const base = products[PRODUCT_KEY];
+    const theme = base.theme || 'cliq';
+    const dark = theme === 'crush' || theme === 'cirql';
+    const TH = {
+      cliq: { nav: 'rgba(246,243,238,0.72)', navLine: 'rgba(17,17,19,0.08)', revealShadow: 'rgba(17,17,19,0.3)' },
+      crush: { nav: 'rgba(11,11,13,0.82)', navLine: 'rgba(255,255,255,0.08)', revealShadow: 'rgba(0,0,0,0.7)', badge: 'background: #FF2E93; color: #FFFFFF; transform: rotate(-2deg); box-shadow: 3px 3px 0 #0B0B0D',
+        card: 'flex: 1 1 560px; min-width: 0; box-sizing: border-box; border-radius: 6px; background: #F2EFE8 url(' + "'assets/blob/5935a3b7f7c3b3e8d33d1c3661eb5ace.webp'" + ') center / cover; color: #111113; padding: 22px 36px; transform: rotate(-0.6deg); box-shadow: 0 30px 60px rgba(0,0,0,0.5)',
+        rowLine: '2px dashed rgba(17,17,19,0.22)', key: 'color: #4A4740', summary: '#D8D5CE',
+        tile: 'border-radius: 12px; overflow: hidden; background: #0B0B0D; box-shadow: 0 16px 34px rgba(0,0,0,0.45)',
+        flavorCard: 'background: #141417; border: 2px solid #C6FF00; box-shadow: 6px 6px 0 #FF2E93' },
+      cirql: { nav: 'rgba(19,16,13,0.86)', navLine: 'rgba(212,175,99,0.22)', revealShadow: 'rgba(0,0,0,0.7)', badge: 'background: linear-gradient(100deg,#8C6A1F 0%,#F3D98B 28%,#B8892B 52%,#F7E3A0 74%,#9A7425 100%); color: #13100D',
+        card: 'flex: 1 1 560px; min-width: 0; box-sizing: border-box; border-radius: 22px; background: #1A1714; border: 1px solid rgba(212,175,99,0.5); outline: 1px solid rgba(212,175,99,0.18); outline-offset: -10px; color: #F5F1E8; padding: 20px 40px',
+        rowLine: '1px dotted rgba(212,175,99,0.45)', key: 'color: #A8A39A', summary: '#D7D1C6',
+        tile: 'border-radius: 140px 140px 18px 18px; background: linear-gradient(180deg,#1E1F1F,#151C24); border: 1px solid rgba(212,175,99,0.4)',
+        flavorCard: 'background: #1A1714; border: 1px solid rgba(212,175,99,0.5)' }
+    }[theme];
+    // Flavor explorer: collections as tabs, one flavor shown in detail.
+    const fGroups = base.flavorGroups || [];
+    const fIdx = Math.min(this.state.fTab || 0, Math.max(fGroups.length - 1, 0));
+    const fGroup = fGroups[fIdx] || { name: '', items: [] };
+    const fCur = fGroup.items.find((x) => x.n === this.state.fPick) || fGroup.items[0] || { n: '', d: '', notes: [] };
+    const fSlug = (g, n) => ((base.packPrefix || {})[g] || (/0%/.test(g || '') ? 'zero-' : '')) + String(n).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    const fPack = (g, n) => { const v = (base.pack || {})[fSlug(g, n)] || ['', '']; return [v[0], v[1] || base.soft]; };
+    const fCurPack = fPack(fGroup.name, fCur.n);
     const formats = base.formats || [];
     const fmtList = (f) => (f.useSlider ? (base.slider || []) : (f.items || []));
     const fmtIdx = Math.min(this.state.fmt || 0, Math.max(formats.length - 1, 0));
@@ -742,10 +1026,11 @@ class Component extends DCLogic {
       return {
         img: f.img,
         alt: f.alt,
-        style: 'position: absolute; left: 50%; top: 46%; z-index: ' + ((i === 1 ? 3 : 2) + (weights[i] > 0.5 && spot > 0 ? 5 : 0)) + '; display: block; height: ' + devH + 'px; width: auto; max-width: none; opacity: ' + op.toFixed(3) + '; transform: translate(-50%, -50%) translate(' + x.toFixed(1) + 'px, ' + y.toFixed(1) + 'px) rotate(' + r.toFixed(2) + 'deg) scale(' + sc.toFixed(3) + '); filter: drop-shadow(0 36px 44px rgba(17,17,19,0.3)); will-change: transform, opacity'
+        style: 'position: absolute; left: 50%; top: 46%; z-index: ' + ((i === 1 ? 3 : 2) + (weights[i] > 0.5 && spot > 0 ? 5 : 0)) + '; display: block; height: ' + devH + 'px; width: auto; max-width: none; opacity: ' + op.toFixed(3) + '; transform: translate(-50%, -50%) translate(' + x.toFixed(1) + 'px, ' + y.toFixed(1) + 'px) rotate(' + r.toFixed(2) + 'deg) scale(' + sc.toFixed(3) + '); filter: drop-shadow(0 36px 44px ' + TH.revealShadow + '); will-change: transform, opacity'
       };
     });
-    const revealNames = reveal.map((f, i) => {
+    const revealNames = reveal.filter((f) => f.name).map((f) => {
+      const i = reveal.indexOf(f);
       const a = weights[i] * spot;
       return {
         name: f.name,
@@ -754,16 +1039,15 @@ class Component extends DCLogic {
     });
 
     return {
-      navStyle: 'transition: background 0.4s ease, border-color 0.4s ease, backdrop-filter 0.4s ease; ' + (this.state.scrolled
-        ? 'background: rgba(246,243,238,0.72); backdrop-filter: blur(18px) saturate(160%); -webkit-backdrop-filter: blur(18px) saturate(160%); border-bottom: 1px solid rgba(17,17,19,0.08); box-shadow: 0 8px 30px rgba(17,17,19,0.06)'
-        : 'background: rgba(246,243,238,0); border-bottom: 1px solid rgba(17,17,19,0)'),
+      themeClass: 't-' + theme,
+      navStyle: 'background: transparent',
       vTrackStyle: 'position: relative; height: ' + (pinned ? '3200px' : 'auto'),
       vStageStyle: (pinned ? 'position: sticky; top: 0; height: 100vh; ' : playMode && this.pinOn() ? 'position: relative; height: 100vh; max-height: 980px; ' : 'position: relative; height: 820px; ') + 'min-height: 640px; overflow: hidden; background: #000000; color: #FFFFFF',
       chapters: chapters,
       vShowBar: !playMode,
       vCtaStyle: 'position: absolute; z-index: 4; left: 6vw; bottom: 140px; display: flex; flex-wrap: wrap; gap: 12px; opacity: ' + ctaAlpha + '; pointer-events: ' + (ctaAlpha > 0.5 ? 'auto' : 'none'),
       vHintStyle: 'position: absolute; z-index: 3; right: 6vw; bottom: 150px; display: ' + (pinned ? 'flex' : 'none') + '; flex-direction: column; align-items: center; gap: 10px; font-size: 11px; font-weight: 700; letter-spacing: 0.32em; color: #FFFFFF; opacity: ' + clamp01(1 - vp * 6),
-      vBarStyle: 'height: 100%; border-radius: 3px; background: #7FE7F0; width: ' + (vp * 100).toFixed(2) + '%',
+      vBarStyle: 'height: 100%; border-radius: 3px; background: ' + (base.accent || '#7FE7F0') + '; width: ' + (vp * 100).toFixed(2) + '%',
       // The slider track holds the flavors twice (filled to at least 12), so the loop wraps without a gap.
       slides: (() => {
         const src = base.slider || [];
@@ -873,17 +1157,32 @@ class Component extends DCLogic {
         specIntroStyle: base.specVideo
           ? 'flex: 0 1 520px; min-width: 0; box-sizing: border-box; display: flex; flex-direction: column; gap: 18px; padding: 36px; border-radius: 28px; background: rgba(8,10,16,0.62); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px)'
           : 'flex: 1 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 18px',
-        specCardStyle: base.specVideo
+        specKeyStyle: TH.key || 'color: var(--mute)',
+        summaryColor: TH.summary || '#ffffff',
+        accent: base.accent || '#7FE7F0',
+        specCardStyle: TH.card ? TH.card : base.specVideo
           ? 'flex: 0 1 500px; min-width: 0; margin-left: auto; box-sizing: border-box; border-radius: 28px; background: rgba(10,12,18,0.82); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.14); color: #F3F0E9; --mute: #B0ACA5; padding: 12px 32px'
           : 'flex: 1 1 560px; min-width: 0; border-radius: 28px; background: #FFFFFF; border: 1px solid #DDD6CA; color: #111113; --mute: #5E5A53; padding: 12px 32px',
         hasModes: !!base.modesImg,
         modesImg: base.modesImg || '',
         modesAlt: base.modesAlt || '',
         hasFeatures: !!(base.features && base.features.length),
+        featSecStyle: 'max-width: 1320px; margin: 0 auto; padding: 120px 32px ' + (base.packBanner ? '0' : '120px'),
         features: (base.features || []).map((f, i) => {
           const lg = f.size === 'lg';
+          if (f.full) {
+            return { img: f.img, hasImg: true, noImg: false, top: f.top, main: f.main, alt: f.top + ' ' + f.main,
+              imgStyle: 'display: block; width: 100%; height: auto',
+              style: 'grid-column: span 2; box-sizing: border-box; padding: 0; ' + TH.tile + '; transition-delay: ' + (i * 80) + 'ms' };
+          }
+          if (!f.img) {
+            return { img: '', hasImg: false, noImg: true, top: f.top, main: f.main, alt: '',
+              imgStyle: '',
+              style: 'grid-column: span ' + (lg ? 3 : 2) + '; min-height: ' + (lg ? '190px' : '150px') + '; box-sizing: border-box; display: flex; align-items: center; justify-content: center; padding: 28px 22px; ' + (TH.tile || '') + '; transition-delay: ' + (i * 80) + 'ms' };
+          }
           return {
             img: f.img,
+            hasImg: true, noImg: false, top: f.top, main: f.main,
             alt: f.top + ' ' + f.main,
             imgStyle: 'display: block; width: auto; max-width: 100%; height: ' + (lg ? '96px' : '58px'),
             style: 'grid-column: span ' + (lg ? 3 : 2) + '; min-height: ' + (lg ? '190px' : '110px') + '; box-sizing: border-box; display: flex; align-items: center; justify-content: center; gap: ' + (lg ? '28px' : '16px') + '; padding: ' + (lg ? '32px' : '18px 22px') + '; border-radius: 16px; border: 3.5px solid transparent; background: radial-gradient(circle at 30% 40%, rgba(255,255,255,0.07) 0 1px, transparent 1.6px) 0 0 / 8px 8px padding-box, radial-gradient(circle at 70% 70%, rgba(255,255,255,0.045) 0 1px, transparent 1.5px) 0 0 / 13px 13px padding-box, radial-gradient(ellipse 70% 90% at 30% 45%, rgba(110,120,255,0.22), rgba(110,120,255,0) 70%) padding-box, linear-gradient(180deg, #0B1030 0%, #121945 100%) padding-box, linear-gradient(180deg, rgba(110,120,255,0.12) 0%, rgba(110,120,255,0.18) 40%, #4C7DFF 100%) border-box; transition-delay: ' + (i * 80) + 'ms'
@@ -905,6 +1204,31 @@ class Component extends DCLogic {
         video: base.video || '',
         poster: base.poster || '',
         flavorCount: base.flavorTotal || (PRODUCT_KEY === 'CIRQL' ? '[COUNT]' : String(base.flavors.length)),
+        hasGroups: fGroups.length > 0,
+        hasPack: !!base.pack,
+        noPack: !base.pack,
+        noGroups: fGroups.length === 0,
+        soft: base.soft,
+        groupTabs: fGroups.map((g, i) => ({
+          name: g.name, count: String(g.items.length), sel: i === fIdx ? 'true' : 'false',
+          pick: () => this.setState({ fTab: i, fPick: '' }),
+          style: 'min-height: 44px; padding: 0 18px; border-radius: 999px; cursor: pointer; font: inherit; font-size: 15px; font-weight: 600; border: 1.5px solid ' + (i === fIdx ? base.soft : '#3A3A40') + '; background: ' + (i === fIdx ? base.soft : 'transparent') + '; color: ' + (i === fIdx ? '#111113' : '#F3F0E9')
+        })),
+        groupItems: fGroup.items.map((x) => {
+          const on = x.n === fCur.n;
+          const pk = fPack(fGroup.name, x.n);
+          return { n: x.n, sel: on ? 'true' : 'false', img: pk[0], c: '--fx: ' + pk[1],
+            pick: () => {
+              this.setState({ fPick: x.n });
+              const el = base.pack && document.querySelector('.fx-feature');
+              if (el) { const r = el.getBoundingClientRect(); if (r.top < 0 || r.top > window.innerHeight * 0.55) el.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+            },
+            style: 'display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border-radius: 999px; cursor: pointer; font: inherit; font-size: 15px; font-weight: 500; border: 1px solid ' + (on ? base.soft : '#2C2C31') + '; background: ' + (on ? '#2A2A30' : '#1E1E22') + '; color: #F3F0E9' };
+        }),
+        cur: { n: fCur.n, d: fCur.d || '', group: (fGroup.name || '').toUpperCase(), img: fCurPack[0], alt: 'BERI ' + base.name + ' ' + fCur.n + ' box and device', fx: '--fx: ' + fCurPack[1] + '; --fx-badge: ' + base.soft,
+          noteLine: (fCur.notes || []).map((t) => ({ t: t })),
+          notes: (fCur.notes || []).map((t) => ({ t: t, style: 'padding: 6px 12px; border-radius: 999px; font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #111113; background: ' + base.soft })) },
+        cardStyle: 'position: sticky; top: 140px; display: flex; flex-direction: column; gap: 14px; padding: 32px; border-radius: 24px; ' + (TH.flavorCard || 'background: #17171A; border: 1px solid #2C2C31'),
         flavorItems: base.flavors.map((f, i) => ({
           f: f,
           style: 'display: inline-flex; align-items: center; min-height: 48px; padding: 0 22px; border-radius: 999px; background: #1E1E22; border: 1px solid #2C2C31; font-size: 16px; font-weight: 500; color: #F3F0E9; transition-delay: ' + Math.min(i * 30, 600) + 'ms'
@@ -912,13 +1236,13 @@ class Component extends DCLogic {
         specs: base.specs.map((s, i) => ({
           k: s.k,
           v: s.v,
-          rowStyle: 'display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 24px; padding: 18px 0; font-size: 16px; ' + (i < base.specs.length - 1 ? 'border-bottom: 1px solid ' + (base.specVideo ? 'rgba(255,255,255,0.14)' : '#DDD6CA') : '')
+          rowStyle: 'display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 24px; padding: 18px 0; font-size: 16px; ' + (i < base.specs.length - 1 ? 'border-bottom: ' + (TH.rowLine || ('1px solid ' + (base.specVideo ? 'rgba(255,255,255,0.14)' : '#DDD6CA'))) : '')
         }))
       }),
       heroStyle: rPinned
         ? 'position: sticky; top: 0; height: 100vh; min-height: 720px; box-sizing: border-box; display: flex; align-items: center; overflow: hidden; padding: 120px 32px 110px; background: ' + revealBg
         : 'position: relative; overflow: hidden; ' + (hasVideo ? 'padding: 110px 32px 90px; ' : 'margin-top: -80px; padding: 150px 32px 90px; ') + 'background: ' + (hasReveal ? revealBg : base.tint),
-      badgeStyle: 'align-self: flex-start; font-size: 12px; font-weight: 700; letter-spacing: 0.24em; color: #FFFFFF; background: ' + base.color + '; padding: 8px 14px; border-radius: 999px',
+      badgeStyle: 'align-self: flex-start; font-size: 12px; font-weight: 700; letter-spacing: 0.24em; padding: 8px 14px; border-radius: 999px; ' + (TH.badge || 'color: #FFFFFF; background: ' + base.color),
       logoStyle: 'display: block; width: 100%; max-width: ' + base.logoW + 'px; height: auto',
       glowStyle: 'position: absolute; width: 560px; height: 560px; border-radius: 999px; background: radial-gradient(closest-side, ' + base.soft + '88, ' + base.soft + '00)',
       imgStyle: 'position: relative; display: block; height: ' + base.heroH + 'px; width: auto; max-width: 100%; object-fit: contain; filter: drop-shadow(0 40px 50px rgba(17,17,19,0.28))',
@@ -926,6 +1250,13 @@ class Component extends DCLogic {
       marquee: base.marquee.concat(base.marquee).map((t) => ({ t: t })),
       others: order.filter((k) => k !== PRODUCT_KEY).map((k) => {
         const o = products[k];
+        const xl = {
+          CLIQ: ['Refillable pod', 'Up to 50K puffs · 360° crystal tank', '#0F7A42'],
+          CRUSH: ['Disposable', 'Up to 50K puffs · 40W Crush Mode', '#C81E64'],
+          CIRQL: ['E-hookah', 'Up to 150K puffs · Shisha flavor', '#B23A48'],
+          ELIQUID: ['Bottled e-liquid', '30 mL salt nic · 12 flavors', '#B8892B']
+        }[k];
+        const darkPage = /t-(crush|cirql)/.test('t-' + (base.theme || ''));
         return {
           name: o.name,
           href: o.page,
@@ -933,8 +1264,12 @@ class Component extends DCLogic {
           img: o.img,
           imgAlt: o.imgAlt,
           tagline: o.tagline,
+          kind: xl[0],
+          line: xl[1],
+          l1: xl[1].split(' · ')[0],
+          l2: xl[1].split(' · ').slice(1).join(' · '),
           cta: 'View BERI ' + title(o.name) + ' →',
-          style: 'flex: 1 1 480px; min-width: 0; min-height: 0; box-sizing: border-box; border-radius: 24px; background: ' + o.color + '; color: #FFFFFF; padding: 22px 28px; display: flex; align-items: center; justify-content: space-between; gap: 20px; overflow: hidden; text-decoration: none'
+          style: '--c: ' + xl[2] + '; --xl-bg: ' + (darkPage ? 'rgba(255,255,255,0.03)' : '#FFFFFF') + '; --xl-line: ' + (darkPage ? 'rgba(255,255,255,0.1)' : '#E7E2DA')
         };
       }),
       strip: order.map((k) => {

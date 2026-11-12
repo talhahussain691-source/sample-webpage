@@ -7,8 +7,8 @@ use File::Copy;
 
 my ($src, $assets, $repo) = @ARGV;
 my %pages = (
-  'Beri-Premium' => 'index.html', 'Cliq' => 'cliq.html', 'Crush' => 'crush.html',
-  'Cirql' => 'cirql.html', 'Authenticate' => 'authenticate.html', 'Wholesale' => 'wholesale.html',
+  'Home-Color-Images' => 'index.html', 'Cliq' => 'cliq.html', 'Crush-v2' => 'crush.html', 'Cirql-v2' => 'cirql.html',
+  'Eliquid' => 'eliquid.html', 'Authenticate' => 'authenticate.html', 'Wholesale' => 'wholesale.html',
 );
 
 # id -> file name with extension, from the downloaded assets
