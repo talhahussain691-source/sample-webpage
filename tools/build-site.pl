@@ -30,7 +30,7 @@ for my $name (sort keys %pages) {
   my $head = qq{<meta name="viewport" content="width=device-width, initial-scale=1">\n} . $helmet;
   $html =~ s{<script src="\./support\.js"></script>}{$head} or die "no support.js line in $name";
   $html =~ s{<x-dc>.*?</x-dc>}{<div id="dc-root"></div>\n<template id="dc-template">$dc</template>}s;
-  $html =~ s{</body>}{<script src="assets/js/beri-runtime.js"></script>\n</body>};
+  $html =~ s{</body>}{<script src="assets/js/beri-runtime.js?v=3"></script>\n</body>};
 
   $html =~ s{/_blob/([0-9a-f]{32})}{
     my $id = $1; die "asset $id not downloaded" unless $blob{$id};
