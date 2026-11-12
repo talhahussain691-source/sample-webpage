@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>BERI home page</title>
+<title>Colour hero test · BERI home page</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -38,22 +38,177 @@ a{color:#111113}a:hover{color:#7A5F14}
 .nav-item:hover{background:#F6F3EE;color:#111113}
 .strip-link{transition:background .3s ease,color .3s ease;text-shadow:0 1px 3px rgba(0,0,0,.35)}
 .strip-link:hover{background:rgba(255,255,255,.2)}
-.lu-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:24px}
+.lu-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;align-items:stretch}
 .lu-grid .lu-card.lu-card{transition:opacity .9s var(--ease),transform .5s var(--ease),box-shadow .5s var(--ease)}
-.lu-grid .lu-card.lu-card:hover{transform:translateY(-6px);box-shadow:0 40px 80px rgba(17,17,19,.22)}
-.lu-card{position:relative;overflow:hidden;isolation:isolate;box-sizing:border-box;border-radius:36px;color:#FFFFFF;display:flex}
-.lu-feature{grid-row:span 2;flex-direction:column;min-height:760px;padding:36px}
-.lu-side{flex-direction:row;align-items:stretch;gap:16px;min-height:368px;padding:32px}
-.lu-img{display:block;width:auto;max-width:100%;object-fit:contain;filter:drop-shadow(0 30px 40px rgba(0,0,0,.4));transition:transform .7s var(--ease)}
+.lu-grid .lu-card.lu-card:hover{transform:translateY(-6px);box-shadow:0 36px 70px rgba(17,17,19,.24)}
+.lu-card{position:relative;overflow:hidden;isolation:isolate;box-sizing:border-box;min-width:0;display:flex;flex-direction:column;padding:24px;border-radius:28px;color:#FFFFFF}
+.lu-card::before{content:"";position:absolute;z-index:-1;inset:-45%;background-image:var(--logo);background-size:96px auto;background-repeat:space;transform:rotate(-18deg);mix-blend-mode:soft-light;opacity:.22;pointer-events:none;transition:opacity .5s ease}
+.lu-grid .lu-card:hover::before{opacity:.34}
+.ws-head{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:12px;font-weight:700;letter-spacing:.28em;color:#D8C8FF}
+.ws-count{font-size:11px;letter-spacing:.14em;padding:6px 10px;border-radius:999px;background:rgba(216,200,255,.14);border:1px solid rgba(216,200,255,.3)}
+.ws-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.ws-tile{position:relative;overflow:hidden;isolation:isolate;min-width:0;min-height:190px;box-sizing:border-box;display:flex;flex-direction:column;gap:4px;padding:18px 18px 16px;border-radius:24px;background:linear-gradient(160deg,rgba(255,255,255,.14),rgba(255,255,255,.04));border:1px solid rgba(255,255,255,.18);color:#FFFFFF !important;text-decoration:none;transition:transform .4s var(--ease),border-color .4s ease,background .4s ease}
+.ws-tile::before{content:"";position:absolute;left:18px;top:0;width:36px;height:4px;border-radius:0 0 6px 6px;background:var(--c)}
+.ws-glow{position:absolute;z-index:-1;right:-40px;top:-40px;width:170px;height:170px;border-radius:50%;background:radial-gradient(closest-side,rgba(255,255,255,.22),rgba(255,255,255,0));opacity:1;transition:opacity .4s ease,transform .6s var(--ease)}
+.ws-img{position:absolute;z-index:-1;right:10px;top:14px;height:116px;width:auto;max-width:42%;object-fit:contain;filter:drop-shadow(0 14px 18px rgba(0,0,0,.45));transform:rotate(8deg);transition:transform .5s var(--ease)}
+.ws-kind{margin-top:4px;font-size:10px;font-weight:800;letter-spacing:.2em;color:var(--c)}
+.ws-name{font-family:var(--display);font-size:30px;line-height:1;letter-spacing:.02em}
+.ws-spec{max-width:62%;font-size:12.5px;line-height:1.4;color:#E6DDFB}
+.ws-spec b{display:block;font-family:var(--display);font-weight:400;font-size:24px;line-height:1.05;color:#FFFFFF}
+.ws-foot{margin-top:auto;padding-top:10px;display:flex;align-items:center;justify-content:space-between}
+.ws-chip{font-size:11px;font-weight:700;padding:5px 10px;border-radius:999px;background:rgba(255,255,255,.12)}
+.ws-arrow{width:30px;height:30px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:var(--c);color:#2A0E55;font-weight:800;transition:transform .3s ease}
+.ws-tile:hover{transform:translateY(-4px);border-color:var(--c);background:linear-gradient(160deg,rgba(255,255,255,.2),rgba(255,255,255,.06))}
+.ws-tile:hover .ws-img{transform:rotate(0deg) translateY(-6px) scale(1.06)}
+.ws-tile:hover .ws-glow{transform:scale(1.2)}
+.ws-tile:hover .ws-arrow{transform:translateX(3px)}
+.ws-note{margin:4px 0 0;font-size:13px;color:#D8C8FF}
+@media (max-width:640px){#wholesale>div{padding:40px 22px !important}#wholesale h2{font-size:84px !important}.ws-grid{grid-template-columns:minmax(0,1fr)}.ws-tile{min-height:150px}.ws-img{height:104px}.ws-head{flex-wrap:wrap}}
+.pw-head{box-sizing:border-box;max-width:1320px;margin:0 auto 40px;padding:0 32px;display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px}
+.pw-title{margin:0;font-family:var(--display);font-weight:400;font-size:120px;line-height:.9;text-transform:uppercase}
+.pw-lede{margin:0;max-width:420px;font-size:18px;color:var(--mute)}
+.pw-bento{box-sizing:border-box;max-width:1320px;margin:0 auto 24px;padding:0 32px;display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);grid-template-rows:repeat(2,minmax(0,1fr));gap:20px}
+.pw-hero{grid-row:span 2}
+.pw-hero,.pw-side,.pw-card{position:relative;display:block;overflow:hidden;border-radius:28px;background:#111113;text-decoration:none}
+.pw-hero img,.pw-side img{display:block;width:100%;height:100%;object-fit:cover;aspect-ratio:1672/941;transition:transform .8s var(--ease)}
+.pw-hero:hover img,.pw-side:hover img,.pw-card:hover img{transform:scale(1.04)}
+.pw-tag{position:absolute;z-index:2;right:14px;bottom:14px;padding:6px 12px;border-radius:999px;color:#FFFFFF;font-size:11px;font-weight:800;letter-spacing:.2em;box-shadow:0 6px 16px rgba(0,0,0,.3)}
+.pw-banner{display:block;overflow:hidden;width:100%;margin:0 0 30px;padding:0}
+.pw-banner img{display:block;width:100%;height:auto;aspect-ratio:2000/1126;object-fit:cover;transition:transform .8s var(--ease)}
+.pw-banner:hover img{transform:scale(1.01)}
+.pw-rail{overflow:hidden;padding:8px 0;-webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
+.pw-track{display:flex;width:max-content;gap:20px;animation:pwSlide 70s linear infinite}
+.pw-rail:hover .pw-track{animation-play-state:paused}
+@keyframes pwSlide{to{transform:translateX(calc(-50% - 10px))}}
+.pw-card{flex:0 0 auto;width:270px;aspect-ratio:3/4;box-shadow:0 18px 40px rgba(17,17,19,.14)}
+.pw-card img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+.pw-name{position:absolute;left:0;right:0;bottom:0;padding:40px 16px 14px;background:linear-gradient(180deg,rgba(0,0,0,0),rgba(0,0,0,.75));color:#FFFFFF;font-family:var(--display);font-size:22px;letter-spacing:.02em;text-transform:uppercase;opacity:0;transform:translateY(8px);transition:opacity .35s ease,transform .35s ease}
+.pw-card:hover .pw-name,.pw-card:focus-visible .pw-name{opacity:1;transform:none}
+@media (max-width:899px){.pw-title{font-size:72px}.pw-bento{grid-template-columns:minmax(0,1fr);grid-template-rows:none}.pw-hero{grid-row:auto}.pw-card{width:200px}.pw-name{opacity:1;transform:none;font-size:18px}}
+@media (max-width:640px){.pw-head,.pw-bento{padding:0 20px}.pw-title{font-size:60px}}
+@media (prefers-reduced-motion:reduce){.pw-track{animation:none}.pw-rail{overflow-x:auto}}
+.tech-light{overflow:clip}
+@media (max-width:640px){#technology h2{font-size:64px !important}.tech-big{flex-basis:auto !important}}
+.tech-big{color:#111113}
+.lu-head{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.lu-num{font-size:12px;font-weight:700;letter-spacing:.24em}
+.lu-num span{opacity:.6}
+.lu-badge{font-size:11px;font-weight:700;letter-spacing:.16em;padding:6px 11px;border-radius:999px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.42);white-space:nowrap}
+.lu-media{position:relative;height:300px;margin:6px 0 10px;display:flex;align-items:flex-end;justify-content:center}
+.lu-media::after{content:"";position:absolute;z-index:-1;left:18%;right:18%;bottom:-6px;height:22px;border-radius:50%;background:radial-gradient(closest-side,rgba(0,0,0,.38),rgba(0,0,0,0))}
+.lu-media::before{content:"";position:absolute;z-index:-1;left:50%;top:46%;width:230px;height:230px;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(closest-side,rgba(255,255,255,.22),rgba(255,255,255,0))}
+.lu-img{display:block;width:auto;max-width:none;object-fit:contain;filter:drop-shadow(0 26px 30px rgba(0,0,0,.4));transition:transform .7s var(--ease)}
 .lu-dev{transform:translateX(var(--x,0px)) rotate(var(--r,0deg))}
-.lu-card:hover .lu-dev{transform:translateX(calc(var(--x,0px) * 2)) translateY(-12px) rotate(calc(var(--r,0deg) * 1.5))}
+.lu-card:hover .lu-dev{transform:translateX(calc(var(--x,0px) * 2)) translateY(-10px) rotate(calc(var(--r,0deg) * 1.5))}
+.lu-kicker{font-size:12px;font-weight:700;letter-spacing:.32em;color:rgba(255,255,255,.8)}
+.lu-name{margin:4px 0 0;font-family:var(--display);font-weight:400;font-size:56px;line-height:.95;white-space:nowrap}
+.lu-tag{margin:12px 0 0;min-height:4.5em;font-size:15px;line-height:1.5;color:rgba(255,255,255,.92)}
+.lu-specs{margin:16px 0 0;padding:0;list-style:none;border-bottom:1px solid rgba(255,255,255,.26)}
+.lu-specs li{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:10px 0;border-top:1px solid rgba(255,255,255,.26)}
+.lu-sv{font-family:var(--display);font-size:24px;line-height:1.1;white-space:nowrap}
+.lu-sk{font-size:12px;letter-spacing:.04em;text-align:right;color:rgba(255,255,255,.84)}
+.lu-foot{margin-top:auto;padding-top:20px;display:flex;flex-direction:column;gap:4px}
+.lu-btn{display:flex;align-items:center;justify-content:center;min-height:48px;padding:0 16px;border-radius:999px;background:#FFFFFF;font-size:14px;font-weight:700;letter-spacing:.02em;text-decoration:none;white-space:nowrap;transition:background .3s ease,color .3s ease}
+.lu-btn:hover{background:#111113;color:#FFFFFF !important}
+.lu-link{display:flex;align-items:center;justify-content:center;min-height:44px;font-size:14px;font-weight:600;color:#FFFFFF;text-decoration:none}
+.lu-link:hover{text-decoration:underline;text-underline-offset:4px}
 .lu-cta{display:inline-flex;align-items:center;min-height:48px;padding:0 22px;border-radius:999px;font-size:15px;font-weight:700;text-decoration:none;transition:background .3s ease}
 .lu-ghost{border:1.5px solid rgba(255,255,255,.55);color:#FFFFFF !important}
 .lu-ghost:hover{background:rgba(255,255,255,.14)}
-@media (max-width:899px){.lu-grid{grid-template-columns:minmax(0,1fr)}.lu-feature{grid-row:auto;min-height:0}.lu-side{flex-direction:column}}
+.au-card{position:relative;overflow:hidden;isolation:isolate;box-sizing:border-box;max-width:1320px;margin:0 auto;padding:72px 64px;border-radius:40px;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:56px;align-items:center;color:#F3F0E9;background:radial-gradient(60% 80% at 85% 40%,rgba(242,194,48,.16),rgba(242,194,48,0) 70%),#111113}
+.au-card::before{content:"";position:absolute;inset:-50%;z-index:-1;background-image:url("assets/blob/2cffc67c998d9d4fcfa45c0105a151bb.png"),url("assets/blob/2cffc67c998d9d4fcfa45c0105a151bb.png");background-size:220px 140px,220px 140px;background-position:0 0,110px 70px;transform:rotate(-24deg);opacity:.03;pointer-events:none}
+.au-copy{display:flex;flex-direction:column;gap:22px;min-width:0}
+.au-eyebrow{display:inline-flex;align-items:center;gap:10px;align-self:flex-start;font-size:13px;font-weight:700;letter-spacing:.32em;color:#F2C230}
+.au-title{margin:0;font-family:var(--display);font-weight:400;font-size:110px;line-height:.88;text-transform:uppercase}
+.au-title span{background:linear-gradient(135deg,#FFE58F 0%,#F2C230 38%,#C8960C 68%,#FFD95A 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.au-lede{margin:0;max-width:500px;font-size:18px;line-height:1.55;color:#B0ACA5}
+.au-steps{margin:6px 0 0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.au-steps li{display:flex;flex-direction:column;gap:6px;padding:18px;border-radius:20px;background:rgba(255,255,255,.04);border:1px solid rgba(242,194,48,.22)}
+.au-steps b{font-family:var(--display);font-weight:400;font-size:26px;line-height:1;background:linear-gradient(135deg,#FFE58F 0%,#F2C230 38%,#C8960C 68%,#FFD95A 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.au-steps strong{font-size:15px;color:#F3F0E9}
+.au-steps span{font-size:13px;line-height:1.45;color:#B0ACA5}
+.au-ctas{display:flex;flex-wrap:wrap;align-items:center;gap:18px;padding-top:4px}
+.au-btn{display:inline-flex;align-items:center;gap:10px;min-height:58px;padding:0 30px;border-radius:999px;background:linear-gradient(135deg,#FFE58F 0%,#F2C230 38%,#C8960C 68%,#FFD95A 100%);color:#2A1606;font-size:16px;font-weight:800;text-decoration:none;box-shadow:0 14px 34px rgba(242,194,48,.28);transition:transform .3s ease}
+.au-btn:hover{transform:translateY(-2px);color:#2A1606}
+.au-note{font-size:14px;color:#B0ACA5}
+.au-stage{position:relative;height:440px;display:flex;align-items:center;justify-content:center}
+.au-ring{position:absolute;left:50%;top:50%;border-radius:50%;border:1px dashed rgba(242,194,48,.3);transform:translate(-50%,-50%);animation:auSpin 40s linear infinite}
+@keyframes auSpin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+.au-label{position:relative;width:360px;box-sizing:border-box;padding:26px;border-radius:24px;background:#F6F3EE;color:#111113;transform:rotate(-6deg);box-shadow:0 40px 80px rgba(0,0,0,.55);animation:auFloat 6s ease-in-out infinite}
+@keyframes auFloat{0%,100%{translate:0 0}50%{translate:0 -12px}}
+.au-lhead{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.au-lhead img{height:34px;width:auto}
+.au-holo{width:58px;height:58px;border-radius:50%;background:conic-gradient(from 0deg,#FFE58F,#9BE7FF,#F2A1F0,#B8FFB0,#FFE58F);box-shadow:inset 0 0 0 3px rgba(255,255,255,.6);animation:auHolo 5s linear infinite;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:800;letter-spacing:.12em;color:#2A1606}
+@keyframes auHolo{to{filter:hue-rotate(360deg)}}
+.au-ltitle{margin:18px 0 4px;font-size:11px;font-weight:800;letter-spacing:.28em;color:#7A5F14}
+.au-lsub{margin:0;font-size:13px;color:#5E5A53}
+.au-code{position:relative;overflow:hidden;margin-top:18px;height:62px;border-radius:14px;background:#FFFFFF;border:1.5px dashed #D9C38A;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:800;letter-spacing:.08em;color:#111113}
+.au-scratch{position:absolute;top:0;bottom:0;right:0;width:58%;background:repeating-linear-gradient(115deg,#C9CCD1 0 6px,#E4E6E9 6px 12px);border-left:2px solid rgba(0,0,0,.08);animation:auScratch 5s ease-in-out infinite}
+@keyframes auScratch{0%,25%{width:58%}55%,80%{width:0}100%{width:58%}}
+.au-scratch::after{content:"SCRATCH";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;letter-spacing:.3em;color:#7C8087}
+.au-lfoot{display:flex;justify-content:space-between;margin-top:16px;font-size:11px;font-weight:700;letter-spacing:.16em;color:#5E5A53}
+.au-ok{position:absolute;z-index:2;right:6%;bottom:56px;display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border-radius:999px;background:#0F7A42;color:#FFFFFF;font-size:15px;font-weight:800;box-shadow:0 16px 36px rgba(0,0,0,.45);animation:auPop 5s ease-in-out infinite}
+.au-ok i{width:22px;height:22px;border-radius:50%;background:#FFFFFF;color:#0F7A42;display:inline-flex;align-items:center;justify-content:center;font-style:normal;font-size:13px}
+@keyframes auPop{0%,50%{opacity:0;transform:translateY(10px) scale(.9)}60%,85%{opacity:1;transform:none}100%{opacity:0;transform:translateY(10px) scale(.9)}}
+@media (max-width:1099px){.au-card{grid-template-columns:minmax(0,1fr);padding:48px 32px}.au-stage{order:-1;height:380px}}
+@media (max-width:640px){.au-card{padding:36px 20px;border-radius:32px}.au-title{font-size:64px}.au-steps{grid-template-columns:minmax(0,1fr)}.au-stage{height:320px}.au-label{width:270px;padding:20px}.au-code{font-size:15px;height:52px}.au-ok{right:2%;bottom:20px;font-size:13px}}
+@media (prefers-reduced-motion:reduce){.au-ring,.au-label,.au-holo,.au-scratch,.au-ok{animation:none}.au-scratch{width:0}.au-ok{opacity:1}}
+.nl-card{position:relative;overflow:hidden;box-sizing:border-box;max-width:1320px;margin:0 auto;border-radius:40px;background:#140A08;color:#FFFFFF;box-shadow:0 40px 80px rgba(17,17,19,.18)}
+.nl-photo{position:relative;aspect-ratio:2000/750;overflow:hidden}
+.nl-photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 50%;transition:transform 1.2s var(--ease)}
+.nl-card:hover .nl-photo img{transform:scale(1.03)}
+.nl-photo::after{content:"";position:absolute;inset:auto 0 0 0;height:30%;background:linear-gradient(180deg,rgba(20,10,8,0),#140A08);pointer-events:none}
+.nl-eyebrow{position:absolute;z-index:2;top:32px;left:32px;display:inline-flex;align-items:center;gap:10px;padding:8px 14px;border-radius:999px;background:linear-gradient(135deg,#FFE58F 0%,#F2C230 38%,#C8960C 68%,#FFD95A 100%);color:#2A1606;font-size:12px;font-weight:700;letter-spacing:.24em}
+.nl-dot{width:8px;height:8px;border-radius:50%;background:#7A1626;animation:nlPulse 1.6s ease-in-out infinite}
+@keyframes nlPulse{0%,100%{box-shadow:0 0 0 0 rgba(122,22,38,.7)}50%{box-shadow:0 0 0 7px rgba(122,22,38,0)}}
+.nl-spin{position:absolute;z-index:3;top:-58px;left:410px;width:140px;height:140px}
+.nl-spin::before{content:"";position:absolute;inset:0;border-radius:50%;background:rgba(20,10,8,.62);backdrop-filter:blur(4px);border:1px solid rgba(242,194,48,.45);box-shadow:0 12px 30px rgba(0,0,0,.4)}
+.nl-spin svg{position:absolute;inset:0;width:100%;height:100%;animation:nlRotate 12s linear infinite}
+.nl-spin text{font-family:var(--body);font-size:14.5px;font-weight:800;letter-spacing:2px;fill:#F2C230}
+.nl-spin-core{position:absolute;inset:36px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(135deg,#FFE58F 0%,#F2C230 38%,#C8960C 68%,#FFD95A 100%);color:#2A1606;font-family:var(--display);font-size:24px;line-height:.9;box-shadow:0 8px 20px rgba(0,0,0,.4),inset 0 0 0 2px rgba(255,255,255,.35)}
+.nl-spin-core small{font-family:var(--body);font-size:8px;font-weight:800;letter-spacing:.18em;margin-top:2px}
+@keyframes nlRotate{to{transform:rotate(360deg)}}
+.nl-info{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:48px;align-items:end;margin-top:-24px;padding:0 56px 36px}
+.nl-copy{display:flex;flex-direction:column;gap:16px;min-width:0}
+.nl-title{margin:0;font-family:var(--display);font-weight:400;font-size:60px;line-height:.9;text-transform:uppercase}
+.nl-title span{background:linear-gradient(135deg,#FFE58F 0%,#F2C230 38%,#C8960C 68%,#FFD95A 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.nl-lede{margin:0;max-width:500px;font-size:17px;line-height:1.55;color:rgba(255,255,255,.84)}
+.nl-side{display:flex;flex-direction:column;gap:24px;min-width:0}
+.nl-stats{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid rgba(242,194,48,.35);border-bottom:1px solid rgba(242,194,48,.35)}
+.nl-stats li{display:flex;flex-direction:column;gap:6px;padding:16px 12px 16px 0}
+.nl-stats li+li{padding-left:16px;border-left:1px solid rgba(242,194,48,.25)}
+.nl-sv{font-family:var(--display);font-size:32px;line-height:1;background:linear-gradient(135deg,#FFE58F 0%,#F2C230 38%,#C8960C 68%,#FFD95A 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.nl-sk{font-size:13px;color:rgba(255,255,255,.78)}
+.nl-ctas{display:flex;flex-wrap:wrap;gap:12px}
+.nl-btn{display:inline-flex;align-items:center;min-height:56px;padding:0 28px;border-radius:999px;background:linear-gradient(135deg,#FFE58F 0%,#F2C230 38%,#C8960C 68%,#FFD95A 100%);color:#2A1606;font-size:15px;font-weight:700;text-decoration:none;transition:background .3s ease}
+.nl-btn:hover{background:#FFE58F}
+.nl-ghost{display:inline-flex;align-items:center;min-height:56px;padding:0 28px;border-radius:999px;border:1.5px solid rgba(255,255,255,.5);color:#FFFFFF;font-size:15px;font-weight:700;text-decoration:none;transition:background .3s ease}
+.nl-ghost:hover{background:rgba(255,255,255,.12)}
+@media (max-width:899px){.nl-card{border-radius:32px}.nl-photo{aspect-ratio:1/1}.nl-spin{top:-84px;left:auto;right:18px;width:104px;height:104px}.nl-spin-core{inset:27px;font-size:19px}.nl-spin-core small{font-size:6.5px}.nl-photo img{object-position:71% 50%}.nl-eyebrow{top:18px;left:18px;font-size:10px;letter-spacing:.14em}.nl-info{grid-template-columns:minmax(0,1fr);gap:24px;margin-top:-24px;padding:0 24px 32px}.nl-title{font-size:56px}.nl-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.nl-stats li:nth-child(3){padding-left:0;border-left:0}.nl-stats li:nth-child(n+3){border-top:1px solid rgba(242,194,48,.25)}}
+@media (prefers-reduced-motion:reduce){.nl-dot,.nl-spin svg{animation:none}.nl-photo img{transition:none}}
+@media (max-width:1199px){.lu-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){.lu-grid{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:84%;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -32px;padding:0 32px 8px;scroll-padding:0 32px}.lu-card{scroll-snap-align:start}.rv-ready .lu-grid .lu-card[data-reveal]{opacity:1;transform:none}}
 @keyframes beriSlideLR{from{transform:translateX(-50%)}to{transform:translateX(0)}}
 .flavor-track{animation:beriSlideLR 90s linear infinite}
 .flavor-slider:hover .flavor-track{animation-play-state:paused}
+.bd-sec{border-top:1px solid #2C2C31}
+.bd-wrap{box-sizing:border-box;max-width:1320px;margin:0 auto;padding:120px 32px 140px;display:flex;flex-direction:column;gap:28px}
+.bd-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px;padding-bottom:12px}
+.bd-eyebrow{font-size:13px;font-weight:700;letter-spacing:.32em;color:#D9C38A}
+.bd-title{margin:0;font-family:var(--display);font-weight:400;font-size:96px;line-height:.9;text-transform:uppercase;color:#F3F0E9}
+.bd-title span{color:#D9C38A}
+.bd-lede{margin:0;max-width:400px;font-size:17px;line-height:1.55;color:#B0ACA5}
+.bd-bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:6px 8px 16px}
+.bd-id{display:flex;align-items:center;flex-wrap:wrap;gap:10px 14px;min-width:0}
+.bd-num{font-family:var(--display);font-size:18px;color:#5E5A53}
+.bd-name{font-family:var(--display);font-size:30px;line-height:1;letter-spacing:.02em;color:#F3F0E9}
+.bd-chips{display:flex;flex-wrap:wrap;gap:8px;margin-left:6px}
+.bd-chip{display:inline-flex;align-items:center;min-height:28px;padding:0 12px;border-radius:999px;font-size:12px;font-weight:700}
+.bd-go{flex:0 0 auto;display:inline-flex;align-items:center;min-height:44px;padding:0 22px;border-radius:999px;color:#FFFFFF;font-size:14px;font-weight:700;transition:transform .3s ease,filter .3s ease}
+.tb-card:hover .bd-go{transform:translateX(3px);filter:brightness(1.15)}
+.bd-img{display:block;width:100%;height:auto;border-radius:22px}
+@media (max-width:899px){.bd-title{font-size:64px}.bd-chips{display:none}.bd-name{font-size:24px}.bd-go{min-height:38px;padding:0 16px;font-size:13px}}
+@media (max-width:640px){.bd-wrap{padding:90px 20px 100px}.bd-title{font-size:52px}.bd-bar{padding:4px 4px 12px}.bd-num{display:none}}
 .tb-card{transition:transform .4s var(--ease)}
 .tb-card:hover{transform:translateY(-4px)}
 @keyframes beriBreathe{0%{transform:scale(.88);opacity:.75}100%{transform:scale(1.12);opacity:1}}
@@ -82,6 +237,15 @@ a{color:#111113}a:hover{color:#7A5F14}
 .hero-copy>*:nth-child(2){animation-delay:.12s}.hero-copy>*:nth-child(3){animation-delay:.24s}.hero-copy>*:nth-child(4){animation-delay:.36s}.hero-copy>*:nth-child(5){animation-delay:.48s}
 @keyframes heroSticker{to{background-position:300% 0}}
 .hero-sticker{display:inline-block;margin:6px 0 4px;padding:0 .2em;border:3px solid #111113;border-radius:12px;background:linear-gradient(90deg,#FF4F9A,#FF7A1F,#E0306A,#8B5CF6,#2B7FFF,#FF4F9A);background-size:300% 100%;animation:heroSticker 6s linear infinite;color:#FFFFFF;box-shadow:5px 5px 0 #111113;transform:rotate(-2.5deg)}
+.top-nav{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:16px}
+.top-nav>a:first-child{justify-self:start}
+.nav-pill{display:flex;align-items:center;gap:2px;padding:6px 6px 6px 12px;border-radius:999px;background:rgba(255,255,255,.42);-webkit-backdrop-filter:blur(16px) saturate(160%);backdrop-filter:blur(16px) saturate(160%);border:1px solid rgba(255,255,255,.75);box-shadow:0 12px 30px rgba(17,17,19,.14),inset 0 1px 0 rgba(255,255,255,.85);font-family:var(--body);font-size:15px;font-weight:500;letter-spacing:0;white-space:nowrap}
+.pill-link{display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:0 14px;border:none;border-radius:999px;background:none;font:inherit;color:#2A2730;text-decoration:none;cursor:pointer;transition:background .2s ease,color .2s ease}
+.pill-link:hover{background:rgba(17,17,19,.08);color:#111113}
+.pill-link.is-current{color:#C81E64;font-weight:700}
+.pill-cta{display:inline-flex;align-items:center;min-height:44px;margin-left:8px;padding:0 22px;border-radius:999px;background:#111113;color:#FFFFFF;font-weight:600;text-decoration:none;transition:background .2s ease}
+.pill-cta:hover{background:#C81E64;color:#FFFFFF}
+@media (max-width:899px){.top-nav{grid-template-columns:minmax(0,1fr);row-gap:10px;padding:10px 12px 12px !important}.top-nav>span{display:none}.nav-pill{justify-self:center;font-size:13px;padding:5px 5px 5px 8px}.pill-link{padding:0 8px;gap:4px}.pill-cta{margin-left:4px;padding:0 14px;min-height:40px}}
 .hero-cta{box-shadow:5px 5px 0 #FF4F9A;transition:transform .25s var(--ease),box-shadow .25s var(--ease)}
 .hero-cta:hover{color:var(--bg);transform:translate(-2px,-2px);box-shadow:8px 8px 0 #FF9A1F}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.rv-ready [data-reveal]{opacity:1;transform:none;transition:none}.beri-marquee{animation:none}.hero-glow,.hero-spin,.hero-pattern,.hero-blob,.hero-ring,.hero-pop,.hero-float,.hero-bubble,.hero-popin,.hero-copy>*,.hero-sticker{animation:none}.flavor-track{animation:none}.flavor-slider{overflow-x:auto !important}.lu-img,.lu-grid .lu-card.lu-card{transition:none}}
@@ -97,25 +261,27 @@ a{color:#111113}a:hover{color:#7A5F14}
 <div style="position: sticky; top: 0; z-index: 50">
 <div style="background: #FFFFFF; color: #000000; text-align: center; font-weight: 700; font-size: 15px; padding: 8px 16px; line-height: 1.35; border-bottom: 1px solid #DDD6CA">WARNING: This product contains nicotine. Nicotine is an addictive chemical.</div>
 <header style="{{navStyle}}">
-<nav style="max-width: 1320px; margin: 0 auto; padding: 0 32px; min-height: 80px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<nav class="top-nav" style="max-width: 1320px; margin: 0 auto; padding: 0 32px; min-height: 80px">
 <a href="#top" aria-label="BERI home" style="display: flex; align-items: center; text-decoration: none">
 <img src="assets/blob/bd8d6ee885cd447f39d73ea5ec4478b3.png" alt="BERI" style="display: block; height: 46px; width: auto">
 </a>
-<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 40px; font-size: 13px; font-weight: 600; letter-spacing: 0.22em">
-<a class="beri-link is-current" href="#top" aria-current="page" style="color: var(--fg); text-decoration: none">HOME</a>
+<div class="nav-pill">
+<a class="pill-link is-current" href="#top" aria-current="page">Home</a>
 <div class="nav-dd">
-<button type="button" class="beri-link" aria-haspopup="true" style="display: inline-flex; align-items: center; gap: 6px; padding: 0; border: none; background: none; font: inherit; letter-spacing: inherit; color: var(--fg); cursor: pointer">PRODUCTS<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg></button>
+<button type="button" class="pill-link" aria-haspopup="true">Products<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg></button>
 <div class="nav-menu">
 <div style="min-width: 240px; padding: 10px; border-radius: 20px; background: #FFFFFF; border: 1px solid #DDD6CA; box-shadow: 0 20px 50px rgba(17,17,19,0.14); display: flex; flex-direction: column; gap: 2px; letter-spacing: 0.16em">
 <a class="nav-item" href="Cliq.dc.html"><span aria-hidden="true" style="width: 10px; height: 10px; border-radius: 999px; background: #0F7A42"></span>BERI CLIQ</a>
-<a class="nav-item" href="Crush.dc.html"><span aria-hidden="true" style="width: 10px; height: 10px; border-radius: 999px; background: #C81E64"></span>BERI CRUSH</a>
-<a class="nav-item" href="Cirql.dc.html"><span aria-hidden="true" style="width: 10px; height: 10px; border-radius: 999px; background: #7A1626"></span>BERI CIRQL</a>
+<a class="nav-item" href="Crush-v2.dc.html"><span aria-hidden="true" style="width: 10px; height: 10px; border-radius: 999px; background: #C81E64"></span>BERI CRUSH</a>
+<a class="nav-item" href="Cirql-v2.dc.html"><span aria-hidden="true" style="width: 10px; height: 10px; border-radius: 999px; background: #7A1626"></span>BERI CIRQL</a>
+<a class="nav-item" href="Eliquid.dc.html"><span aria-hidden="true" style="width: 10px; height: 10px; border-radius: 999px; background: #8A6A12"></span>BERI E-LIQUID</a>
 </div>
 </div>
 </div>
-<a class="beri-link" href="Authenticate.dc.html" style="color: var(--fg); text-decoration: none">AUTHENTICATE</a>
-<a class="beri-link" href="Wholesale.dc.html" style="color: var(--fg); text-decoration: none">WHOLESALE</a>
+<a class="pill-link" href="Authenticate.dc.html">Authenticate</a>
+<a class="pill-cta" href="Wholesale.dc.html">Wholesale</a>
 </div>
+<span aria-hidden="true"></span>
 </nav>
 </header>
 </div>
@@ -124,7 +290,7 @@ a{color:#111113}a:hover{color:#7A5F14}
 <section id="hero-scroll" aria-label="BERI lineup" style="{{heroTrackStyle}}">
 <div style="{{heroStageStyle}}">
 <video id="hero-video" src="assets/blob/7c3c125b1a599c7d3919907992e33969.mp4" poster="assets/blob/526eee121bd5f2785fff515f8b8ba969.webp" aria-hidden="true" style="{{heroVideoStyle}}"></video>
-<div aria-hidden="true" style="position: absolute; inset: 0; z-index: 1; background: linear-gradient(90deg, rgba(255,248,241,0.88) 0%, rgba(255,248,241,0.6) 32%, rgba(255,248,241,0) 58%); pointer-events: none"></div>
+<div aria-hidden="true" style="{{heroFadeStyle}}"></div>
 <div aria-hidden="true" style="{{hintStyle}}">
 <span>SCROLL</span>
 <span style="display: block; width: 2px; height: 40px; background: var(--fg); opacity: 0.4"></span>
@@ -147,7 +313,7 @@ a{color:#111113}a:hover{color:#7A5F14}
 </section>
 
 <div class="beri-dark" aria-hidden="true" style="overflow: hidden; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--bg-2); padding: 22px 0">
-<div class="beri-marquee" style="display: flex; width: max-content; gap: 56px; font-family: var(--display-outline); font-size: 34px; letter-spacing: -0.126em; text-transform: uppercase; white-space: nowrap; color: var(--fg)">
+<div class="beri-marquee" style="display: flex; width: max-content; gap: 56px; font-family: var(--display); font-size: 30px; line-height: 1.2; letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap; color: var(--fg)">
 <span>Up to 50,000 puffs</span><span style="color: var(--gold-ink)">✦</span><span>40W Crush Mode</span><span style="color: var(--gold-ink)">✦</span><span>Quad-mesh coil</span><span style="color: var(--gold-ink)">✦</span><span>360° crystal tank</span><span style="color: var(--gold-ink)">✦</span><span>Type-C fast charging</span><span style="color: var(--gold-ink)">✦</span>
 <span>Up to 50,000 puffs</span><span style="color: var(--gold-ink)">✦</span><span>40W Crush Mode</span><span style="color: var(--gold-ink)">✦</span><span>Quad-mesh coil</span><span style="color: var(--gold-ink)">✦</span><span>360° crystal tank</span><span style="color: var(--gold-ink)">✦</span><span>Type-C fast charging</span><span style="color: var(--gold-ink)">✦</span>
 </div>
@@ -159,42 +325,65 @@ a{color:#111113}a:hover{color:#7A5F14}
 <span data-reveal="up" style="font-size: 13px; font-weight: 600; letter-spacing: 0.32em; color: var(--gold-ink)">THE PRODUCTS</span>
 <h2 data-reveal="up" style="margin: 0; font-family: var(--display); font-weight: 400; font-size: 120px; line-height: 0.9; text-transform: uppercase">The<br>lineup</h2>
 </div>
-<p data-reveal="up" style="margin: 0; max-width: 420px; font-size: 18px; color: var(--mute); transition-delay: 120ms">Three devices, one standard. Pick the format that fits how you vape.</p>
+<p data-reveal="up" style="margin: 0; max-width: 420px; font-size: 18px; color: var(--mute); transition-delay: 120ms">Three devices and a bottled e-liquid, built to one standard. Pick the format that fits how you vape.</p>
 </div>
 <div class="lu-grid">
-<sc-for list="{{cards}}" as="c" hint-placeholder-count="3">
-<article id="{{c.anchor}}" class="{{c.cls}}" data-reveal="up" style="{{c.style}}">
-<div aria-hidden="true" style="{{c.wordStyle}}">{{c.name}}</div>
-<div style="{{c.mediaStyle}}">
+<sc-for list="{{cards}}" as="c" hint-placeholder-count="4">
+<article id="{{c.anchor}}" class="lu-card" data-reveal="up" style="{{c.style}}">
+<div class="lu-head">
+<span class="lu-num">{{c.index}} <span>/ 04</span></span>
+<span class="lu-badge">{{c.badge}}</span>
+</div>
+<div class="lu-media">
 <sc-for list="{{c.devices}}" as="dv" hint-placeholder-count="3">
 <img class="lu-img lu-dev" src="{{dv.img}}" alt="{{dv.alt}}" style="{{dv.style}}">
 </sc-for>
 </div>
-<div style="position: relative; flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; justify-content: flex-end; gap: 14px">
-<div style="display: flex; justify-content: space-between; align-items: center; gap: 16px">
-<span style="font-size: 12px; font-weight: 700; letter-spacing: 0.28em">{{c.index}} / 03</span>
-<span style="font-size: 12px; font-weight: 700; letter-spacing: 0.18em; padding: 6px 12px; border-radius: 999px; background: rgba(255,255,255,0.16); border: 1px solid rgba(255,255,255,0.4)">{{c.badge}}</span>
-</div>
-<div style="display: flex; flex-direction: column; gap: 4px">
-<span style="font-size: 13px; font-weight: 700; letter-spacing: 0.32em; color: rgba(255,255,255,0.8)">BERI</span>
-<h3 style="{{c.nameStyle}}">{{c.name}}</h3>
-</div>
-<p style="margin: 0; max-width: 460px; font-size: 16px; color: rgba(255,255,255,0.92)">{{c.tagline}}</p>
-<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; padding: 16px 0 4px; border-top: 1px solid rgba(255,255,255,0.3)">
+<span class="lu-kicker">BERI</span>
+<h3 class="lu-name">{{c.name}}</h3>
+<p class="lu-tag">{{c.tagline}}</p>
+<ul class="lu-specs">
 <sc-for list="{{c.stats}}" as="s" hint-placeholder-count="3">
-<div style="display: flex; flex-direction: column">
-<span style="font-family: var(--display); font-size: 28px; line-height: 1.1">{{s.v}}</span>
-<span style="font-size: 13px; color: rgba(255,255,255,0.85)">{{s.k}}</span>
-</div>
+<li><span class="lu-sv">{{s.v}}</span><span class="lu-sk">{{s.k}}</span></li>
 </sc-for>
-</div>
-<div style="display: flex; flex-wrap: wrap; gap: 10px">
-<a class="lu-cta" href="{{c.href}}" style="background: #FFFFFF; color: {{c.color}}">Explore BERI {{c.name}} →</a>
-<a class="lu-cta lu-ghost" href="{{c.flavorHref}}">{{c.flavorLabel}}</a>
-</div>
+</ul>
+<div class="lu-foot">
+<a class="lu-btn" href="{{c.href}}" style="color: {{c.color}}">{{c.cta}}</a>
+<a class="lu-link" href="{{c.flavorHref}}">{{c.flavorCta}}</a>
 </div>
 </article>
 </sc-for>
+</div>
+</section>
+
+<section id="new-launch" aria-label="New launch: BERI Cirql" style="padding: 0 32px 120px">
+<div class="nl-card" data-reveal="up">
+<div class="nl-photo">
+<img src="assets/blob/f212e0000e23b0c4c76ff5739b8bf337.webp" alt="BERI Cirql electronic hookah in Blueberry Ice, Lady Killer and orange, on a stone table with blueberries, strawberries, mango, watermelon, smoke and a lantern">
+<span class="nl-eyebrow"><span class="nl-dot"></span>NEW LAUNCH · E-HOOKAH SERIES</span>
+</div>
+<div class="nl-info">
+<div class="nl-spin" aria-hidden="true">
+<svg viewBox="0 0 200 200"><defs><path id="nl-circle" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"></path></defs><text><textPath href="#nl-circle" textLength="488">NEW PRODUCT LAUNCH ✦ NEW PRODUCT LAUNCH ✦</textPath></text></svg>
+<span class="nl-spin-core">NEW<small>LAUNCH</small></span>
+</div>
+<div class="nl-copy">
+<h2 class="nl-title">Shisha,<br><span>reimagined.</span></h2>
+<p class="nl-lede">Meet BERI Cirql. Hookah-style flavor without the setup: up to 150,000 puffs through a quad-mesh coil, with Regular and Boost modes. Built for after hours.</p>
+</div>
+<div class="nl-side">
+<ul class="nl-stats">
+<li><span class="nl-sv">150K</span><span class="nl-sk">Puffs (up to)</span></li>
+<li><span class="nl-sv">Quad</span><span class="nl-sk">Mesh coil</span></li>
+<li><span class="nl-sv">2</span><span class="nl-sk">Modes: Regular / Boost</span></li>
+<li><span class="nl-sv">13</span><span class="nl-sk">Shisha flavors</span></li>
+</ul>
+<div class="nl-ctas">
+<a class="nl-btn" href="Cirql-v2.dc.html">Explore BERI Cirql →</a>
+<a class="nl-ghost" href="Cirql-v2.dc.html#flavors">See all 13 flavors</a>
+</div>
+</div>
+</div>
 </div>
 </section>
 
@@ -214,66 +403,63 @@ a{color:#111113}a:hover{color:#7A5F14}
 </div>
 </section>
 
-<section id="flavors" aria-label="Flavors" style="scroll-margin-top: 120px; background: #FFFFFF; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 120px 0; display: flex; flex-direction: column; gap: 56px">
-<div style="box-sizing: border-box; width: 100%; max-width: 1320px; margin: 0 auto; padding: 0 32px; display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px">
-<div style="display: flex; flex-direction: column; gap: 16px">
-<span data-reveal="up" style="font-size: 13px; font-weight: 600; letter-spacing: 0.32em; color: var(--gold-ink)">FLAVORS</span>
-<h2 data-reveal="up" style="margin: 0; font-family: var(--display); font-weight: 400; font-size: 120px; line-height: 0.9; text-transform: uppercase">Find your<br>flavor</h2>
+<section id="flavor-wall" aria-label="Flavors in the wild" style="scroll-margin-top: 120px; padding: 0 0 120px; background-color: #ffffff">
+<div class="pw-head">
+<div style="display: flex; flex-direction: column; gap: 14px">
+<span style="font-size: 13px; font-weight: 600; letter-spacing: 0.32em; color: var(--gold-ink)">FLAVORS</span>
+<h2 class="pw-title">Find your<br>flavor</h2>
 </div>
-<div data-reveal="up" style="display: flex; flex-direction: column; align-items: flex-start; gap: 20px; max-width: 420px; transition-delay: 120ms">
-<p style="margin: 0; font-size: 18px; color: var(--mute)">25 Cliq flavors and 32 on Crush, from icy mints to sour gummies.</p>
-<a href="Cliq.dc.html#flavors" style="display: inline-flex; align-items: center; min-height: 52px; padding: 0 26px; border-radius: 999px; background: var(--fg); color: var(--bg); font-weight: 700; text-decoration: none">Explore Cliq flavors →</a>
+<p class="pw-lede">85 flavors across the lineup, from icy mints to sour gummies. Tap a poster to explore.</p>
 </div>
-</div>
-<div class="flavor-slider" role="region" aria-label="BERI Cliq flavors" style="position: relative; overflow: hidden; padding: 8px 0; -webkit-mask-image: linear-gradient(90deg, transparent, #000000 6%, #000000 94%, transparent); mask-image: linear-gradient(90deg, transparent, #000000 6%, #000000 94%, transparent)">
-<div class="flavor-track" style="display: flex; width: max-content; gap: 20px">
-<sc-for list="{{slides}}" as="sl" hint-placeholder-count="12">
-<figure style="{{sl.style}}">
-<img src="{{sl.img}}" alt="{{sl.alt}}" loading="lazy" style="display: block; width: 100%; height: auto; aspect-ratio: 4 / 7; object-fit: cover; border-radius: 16px">
-<figcaption style="font-family: var(--display); font-size: 22px; line-height: 1.1; text-transform: uppercase; text-align: center; color: #111113">{{sl.name}}</figcaption>
-</figure>
-</sc-for>
+<a class="pw-banner" href="Crush-v2.dc.html"><img src="assets/blob/bcc82cfc3893ac6edf657d96a124c491.webp" alt="BERI Crush in green with ice cubes against a graffiti wall" width="2560" height="1441"></a>
+<div class="pw-rail" role="region" aria-label="BERI flavor posters">
+<div class="pw-track">
+<a class="pw-card" href="Cliq.dc.html#flavors"><img src="assets/blob/7c29d20368ce7300b7fff1ab7862aa86.webp" alt="BERI Cliq Miami Mint poster" loading="lazy"><span class="pw-tag" style="background: #0F7A42">CLIQ</span><span class="pw-name">Miami Mint</span></a>
+<a class="pw-card" href="Crush-v2.dc.html#flavors"><img src="assets/blob/01339a3879ef0a126cc877f582c00616.webp" alt="BERI Crush poster" loading="lazy"><span class="pw-tag" style="background: #C81E64">CRUSH</span><span class="pw-name">BERI Crush</span></a>
+<a class="pw-card" href="Cliq.dc.html#flavors"><img src="assets/blob/fda20f5ad136d60d443ba5beda8c6a89.webp" alt="BERI Cliq Peach Ice poster" loading="lazy"><span class="pw-tag" style="background: #0F7A42">CLIQ</span><span class="pw-name">Peach Ice</span></a>
+<a class="pw-card" href="Crush-v2.dc.html#flavors"><img src="assets/blob/9503e94e08a74a88eed505b8579c29da.webp" alt="BERI Crush poster" loading="lazy"><span class="pw-tag" style="background: #C81E64">CRUSH</span><span class="pw-name">BERI Crush</span></a>
+<a class="pw-card" href="Cliq.dc.html#flavors"><img src="assets/blob/756264b9050f6d54ca733b378b8d0e78.webp" alt="BERI Cliq Green Apple poster" loading="lazy"><span class="pw-tag" style="background: #0F7A42">CLIQ</span><span class="pw-name">Green Apple</span></a>
+<a class="pw-card" href="Cliq.dc.html#flavors"><img src="assets/blob/674cd8ea246091878e6e22a040388ee5.webp" alt="BERI Cliq Watermelon BG poster" loading="lazy"><span class="pw-tag" style="background: #0F7A42">CLIQ</span><span class="pw-name">Watermelon BG</span></a>
+<a class="pw-card" href="Cliq.dc.html#flavors"><img src="assets/blob/45ddcdc1f88acb7fb161f93d639f6c97.webp" alt="BERI Cliq Banana Ice poster" loading="lazy"><span class="pw-tag" style="background: #0F7A42">CLIQ</span><span class="pw-name">Banana Ice</span></a>
+<a class="pw-card" href="Crush-v2.dc.html#flavors"><img src="assets/blob/f90d4d8101715ce9af61090f3bfe3f18.webp" alt="BERI Crush poster" loading="lazy"><span class="pw-tag" style="background: #C81E64">CRUSH</span><span class="pw-name">BERI Crush</span></a>
+<a class="pw-card" href="Cliq.dc.html#flavors"><img src="assets/blob/97b0809b52299c34d8ae1bab354883ec.webp" alt="BERI Cliq Blue Rancher poster" loading="lazy"><span class="pw-tag" style="background: #0F7A42">CLIQ</span><span class="pw-name">Blue Rancher</span></a>
+<a class="pw-card" href="Cliq.dc.html#flavors" aria-hidden="true" tabindex="-1"><img src="assets/blob/7c29d20368ce7300b7fff1ab7862aa86.webp" alt="BERI Cliq Miami Mint poster" loading="lazy"><span class="pw-tag" style="background: #0F7A42">CLIQ</span><span class="pw-name">Miami Mint</span></a>
+<a class="pw-card" href="Crush-v2.dc.html#flavors" aria-hidden="true" tabindex="-1"><img src="assets/blob/01339a3879ef0a126cc877f582c00616.webp" alt="BERI Crush poster" loading="lazy"><span class="pw-tag" style="background: #C81E64">CRUSH</span><span class="pw-name">BERI Crush</span></a>
+<a class="pw-card" href="Cliq.dc.html#flavors" aria-hidden="true" tabindex="-1"><img src="assets/blob/fda20f5ad136d60d443ba5beda8c6a89.webp" alt="BERI Cliq Peach Ice poster" loading="lazy"><span class="pw-tag" style="background: #0F7A42">CLIQ</span><span class="pw-name">Peach Ice</span></a>
+<a class="pw-card" href="Crush-v2.dc.html#flavors" aria-hidden="true" tabindex="-1"><img src="assets/blob/9503e94e08a74a88eed505b8579c29da.webp" alt="BERI Crush poster" loading="lazy"><span class="pw-tag" style="background: #C81E64">CRUSH</span><span class="pw-name">BERI Crush</span></a>
+<a class="pw-card" href="Cliq.dc.html#flavors" aria-hidden="true" tabindex="-1"><img src="assets/blob/756264b9050f6d54ca733b378b8d0e78.webp" alt="BERI Cliq Green Apple poster" loading="lazy"><span class="pw-tag" style="background: #0F7A42">CLIQ</span><span class="pw-name">Green Apple</span></a>
+<a class="pw-card" href="Cliq.dc.html#flavors" aria-hidden="true" tabindex="-1"><img src="assets/blob/674cd8ea246091878e6e22a040388ee5.webp" alt="BERI Cliq Watermelon BG poster" loading="lazy"><span class="pw-tag" style="background: #0F7A42">CLIQ</span><span class="pw-name">Watermelon BG</span></a>
+<a class="pw-card" href="Cliq.dc.html#flavors" aria-hidden="true" tabindex="-1"><img src="assets/blob/45ddcdc1f88acb7fb161f93d639f6c97.webp" alt="BERI Cliq Banana Ice poster" loading="lazy"><span class="pw-tag" style="background: #0F7A42">CLIQ</span><span class="pw-name">Banana Ice</span></a>
+<a class="pw-card" href="Crush-v2.dc.html#flavors" aria-hidden="true" tabindex="-1"><img src="assets/blob/f90d4d8101715ce9af61090f3bfe3f18.webp" alt="BERI Crush poster" loading="lazy"><span class="pw-tag" style="background: #C81E64">CRUSH</span><span class="pw-name">BERI Crush</span></a>
+<a class="pw-card" href="Cliq.dc.html#flavors" aria-hidden="true" tabindex="-1"><img src="assets/blob/97b0809b52299c34d8ae1bab354883ec.webp" alt="BERI Cliq Blue Rancher poster" loading="lazy"><span class="pw-tag" style="background: #0F7A42">CLIQ</span><span class="pw-name">Blue Rancher</span></a>
 </div>
 </div>
 </section>
 
-<section id="technology" class="beri-dark beri-pattern" style="scroll-margin-top: 120px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background-color: #000000; opacity: 1; border-style: solid">
+<section id="technology" class="tech-light" style="scroll-margin-top: 120px; background-color: #FFFFFF; color: #111113; border-top: 1px solid var(--line)">
 <div style="max-width: 1320px; margin: 0 auto; padding: 140px 32px; display: flex; flex-wrap: wrap; gap: 64px; align-items: flex-start">
 <div style="flex: 1 1 420px; min-width: 0; position: sticky; top: 180px; display: flex; flex-direction: column; gap: 20px">
-<span data-reveal="left" style="font-size: 13px; font-weight: 600; letter-spacing: 0.32em; color: var(--gold-ink)">TECHNOLOGY</span>
+<span data-reveal="left" style="font-size: 13px; font-weight: 600; letter-spacing: 0.32em; color: var(--gold-ink)">WHY BERI</span>
 <h2 data-reveal="left" style="margin: 0; font-family: var(--display); font-weight: 400; font-size: 104px; line-height: 0.9; text-transform: uppercase; transition-delay: 80ms">Engineered<br>to outlast.</h2>
-<p data-reveal="left" style="margin: 0; max-width: 440px; font-size: 18px; color: var(--mute); transition-delay: 160ms">Every BERI is built around mesh heating, high-capacity batteries and fast Type-C charging.</p>
+<p data-reveal="left" style="margin: 0; max-width: 440px; font-size: 18px; color: var(--mute); transition-delay: 160ms">More formats, more flavors, more puffs, and proof that it’s real. Here’s what sets BERI apart.</p>
 </div>
 <div style="flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column">
 <sc-for list="{{tech}}" as="t" hint-placeholder-count="6">
-<div data-reveal="right" style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 32px; padding: 32px 0; border-bottom: 1px solid var(--line)">
-<span style="flex: 0 0 220px; font-family: var(--display); font-size: 56px; line-height: 1; color: var(--fg)">{{t.big}}</span>
+<div data-reveal="right" class="tech-row" style="padding: 32px 0; border-bottom: 1px solid var(--line)">
+<div style="{{t.zoomStyle}}">
+<span class="tech-big" style="flex: 0 0 220px; font-family: var(--display); font-size: 67px; line-height: 1; color: #3b1478">{{t.big}}</span>
 <div style="flex: 1 1 240px; min-width: 0; display: flex; flex-direction: column; gap: 4px">
 <span style="font-size: 18px; font-weight: 700">{{t.title}}</span>
 <span style="font-size: 16px; color: var(--mute)">{{t.text}}</span>
 </div>
 </div>
+</div>
 </sc-for>
 </div>
-</div>
-<div style="max-width: 1320px; margin: 0 auto; padding: 0 32px 140px; display: flex; flex-direction: column; gap: 28px">
-<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px; padding-bottom: 8px">
-<h3 data-reveal="up" style="margin: 0; font-family: var(--display); font-weight: 400; font-size: 72px; line-height: 0.9; text-transform: uppercase">Built different.<br><span style="color: var(--gold-ink)">All three.</span></h3>
-<p data-reveal="up" style="margin: 0; max-width: 380px; font-size: 16px; color: var(--mute)">Pick a device to see what it packs.</p>
-</div>
-<sc-for list="{{techBanners}}" as="b" hint-placeholder-count="3">
-<a class="tb-card" href="{{b.href}}" aria-label="Explore BERI {{b.name}}" style="{{b.style}}">
-<div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 4px 8px 14px">
-<span style="display: inline-flex; align-items: center; gap: 12px; font-family: var(--display); font-size: 26px; letter-spacing: 0.02em; color: #F3F0E9"><span aria-hidden="true" style="{{b.dotStyle}}"></span>BERI {{b.name}}</span>
-<span style="font-size: 13px; font-weight: 700; letter-spacing: 0.22em; color: #D9C38A">EXPLORE →</span>
-</div>
-<img src="{{b.img}}" alt="{{b.alt}}" loading="lazy" style="display: block; width: 100%; height: auto; border-radius: 22px">
-</a>
-</sc-for>
 </div>
 </section>
 
-<section id="wholesale" style="scroll-margin-top: 120px; padding: 140px 32px">
+<section id="wholesale" style="scroll-margin-top: 120px; padding: 0 32px 140px; background: #FFFFFF">
 <div data-reveal="scale" style="position: relative; overflow: hidden; max-width: 1320px; margin: 0 auto; border-radius: 40px; background: #3B1478; color: #FFFFFF; padding: 72px 64px; box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: stretch; justify-content: space-between; gap: 48px">
 <img src="assets/blob/bd8d6ee885cd447f39d73ea5ec4478b3.png" alt="" aria-hidden="true" style="position: absolute; right: -60px; bottom: -90px; width: 560px; height: auto; opacity: 0.08; pointer-events: none">
 <div style="position: relative; flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 20px">
@@ -282,7 +468,7 @@ a{color:#111113}a:hover{color:#7A5F14}
 <p style="margin: 0; max-width: 480px; font-size: 18px; color: #E6DDFB">Retailers and distributors: get wholesale pricing, availability and authentic BERI supply across the full lineup.</p>
 <div style="display: flex; flex-wrap: wrap; gap: 12px 28px; font-size: 15px; font-weight: 600; color: #FFFFFF">
 <span style="display: inline-flex; align-items: center; gap: 8px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#D8C8FF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg>Wholesale pricing</span>
-<span style="display: inline-flex; align-items: center; gap: 8px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#D8C8FF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg>All three product lines</span>
+<span style="display: inline-flex; align-items: center; gap: 8px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#D8C8FF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg>All four product lines</span>
 <span style="display: inline-flex; align-items: center; gap: 8px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#D8C8FF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg>Authenticity verification</span>
 </div>
 <div style="display: flex; flex-wrap: wrap; gap: 12px; padding-top: 12px">
@@ -291,33 +477,108 @@ a{color:#111113}a:hover{color:#7A5F14}
 </div>
 </div>
 <div style="position: relative; flex: 1 1 380px; min-width: 0; display: flex; flex-direction: column; justify-content: center; gap: 12px">
-<span style="font-size: 12px; font-weight: 700; letter-spacing: 0.28em; color: #D8C8FF">THE LINEUP</span>
-<div style="display: flex; align-items: center; gap: 16px; padding: 20px 22px; border-radius: 22px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.16)">
-<span aria-hidden="true" style="flex: 0 0 auto; width: 14px; height: 44px; border-radius: 999px; background: #5BE39A"></span>
-<div style="display: flex; flex-direction: column; line-height: 1.3">
-<span style="font-family: var(--display); font-size: 28px; letter-spacing: 0.02em">BERI CLIQ</span>
-<span style="font-size: 14px; color: #E6DDFB">Up to 50,000 puffs · 18 mL refillable pod</span>
+<div class="ws-head"><span>THE LINEUP</span><span class="ws-count">4 formats · 85 flavors</span></div>
+<div class="ws-grid">
+<a class="ws-tile" href="Cliq.dc.html" style="--c: #5BE39A">
+<span class="ws-glow" aria-hidden="true"></span>
+<img class="ws-img" src="assets/blob/38e90c83b18e5f9b193d4e2806393e55.webp" alt="BERI Cliq">
+<span class="ws-kind">REFILLABLE POD</span>
+<span class="ws-name">CLIQ</span>
+<span class="ws-spec"><b>50K</b> puffs · 18 mL pod</span>
+<span class="ws-foot"><span class="ws-chip">25 flavors</span><span class="ws-arrow" aria-hidden="true">→</span></span>
+</a>
+<a class="ws-tile" href="Crush-v2.dc.html" style="--c: #FF7DB0">
+<span class="ws-glow" aria-hidden="true"></span>
+<img class="ws-img" src="assets/blob/40384a297060f1b830c4315be8e85a9b.webp" alt="BERI Crush">
+<span class="ws-kind">DISPOSABLE</span>
+<span class="ws-name">CRUSH</span>
+<span class="ws-spec"><b>50K</b> puffs · 40W Crush Mode</span>
+<span class="ws-foot"><span class="ws-chip">35 flavors</span><span class="ws-arrow" aria-hidden="true">→</span></span>
+</a>
+<a class="ws-tile" href="Cirql-v2.dc.html" style="--c: #F2A1AC">
+<span class="ws-glow" aria-hidden="true"></span>
+<img class="ws-img" src="assets/blob/4ae31177e89431358a0d6d868583c620.webp" alt="BERI Cirql">
+<span class="ws-kind">E-HOOKAH</span>
+<span class="ws-name">CIRQL</span>
+<span class="ws-spec"><b>150K</b> puffs · quad-mesh coil</span>
+<span class="ws-foot"><span class="ws-chip">13 flavors</span><span class="ws-arrow" aria-hidden="true">→</span></span>
+</a>
+<a class="ws-tile" href="Eliquid.dc.html" style="--c: #F2C94C">
+<span class="ws-glow" aria-hidden="true"></span>
+<img class="ws-img" src="assets/blob/1a6e959e6fbe802d98e56b00f8beba80.webp" alt="BERI E-liquid bottle and box">
+<span class="ws-kind">BOTTLED</span>
+<span class="ws-name">E-LIQUID</span>
+<span class="ws-spec"><b>30 mL</b> 25 / 50 mg nicotine salt</span>
+<span class="ws-foot"><span class="ws-chip">12 flavors</span><span class="ws-arrow" aria-hidden="true">→</span></span>
+</a>
 </div>
-</div>
-<div style="display: flex; align-items: center; gap: 16px; padding: 20px 22px; border-radius: 22px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.16)">
-<span aria-hidden="true" style="flex: 0 0 auto; width: 14px; height: 44px; border-radius: 999px; background: #FF7DB0"></span>
-<div style="display: flex; flex-direction: column; line-height: 1.3">
-<span style="font-family: var(--display); font-size: 28px; letter-spacing: 0.02em">BERI CRUSH</span>
-<span style="font-size: 14px; color: #E6DDFB">Up to 50,000 puffs · 20 mL · 40W Crush Mode</span>
-</div>
-</div>
-<div style="display: flex; align-items: center; gap: 16px; padding: 20px 22px; border-radius: 22px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.16)">
-<span aria-hidden="true" style="flex: 0 0 auto; width: 14px; height: 44px; border-radius: 999px; background: #F2A1AC"></span>
-<div style="display: flex; flex-direction: column; line-height: 1.3">
-<span style="font-family: var(--display); font-size: 28px; letter-spacing: 0.02em">BERI CIRQL</span>
-<span style="font-size: 14px; color: #E6DDFB">[Cirql key specs]</span>
-</div>
-</div>
+<p class="ws-note">One supplier for the full lineup, with authentic stock you can verify.</p>
 </div>
 </div>
 </section>
+
+<section id="built-different" class="beri-dark beri-pattern bd-sec" aria-label="Built different" style="background-color: #000000">
+<div class="bd-wrap">
+<div class="bd-head">
+<div style="display: flex; flex-direction: column; gap: 14px">
+<span data-reveal="up" class="bd-eyebrow">THE DEVICES</span>
+<h3 data-reveal="up" class="bd-title">Built different.<br><span>All three.</span></h3>
+</div>
+<p data-reveal="up" class="bd-lede">Three devices, each built around one big idea. Pick one to see what it packs.</p>
+</div>
+<sc-for list="{{techBanners}}" as="b" hint-placeholder-count="3">
+<a class="tb-card" href="{{b.href}}" aria-label="Explore BERI {{b.name}}" style="{{b.style}}">
+<div class="bd-bar">
+<div class="bd-id">
+<span class="bd-num">{{b.num}}</span>
+<span aria-hidden="true" style="{{b.dotStyle}}"></span>
+<span class="bd-name">BERI {{b.name}}</span>
+<span class="bd-chips">
+<sc-for list="{{b.chips}}" as="ch" hint-placeholder-count="3">
+<span class="bd-chip" style="{{b.chipStyle}}">{{ch}}</span>
+</sc-for>
+</span>
+</div>
+<span class="bd-go" style="{{b.goStyle}}">Explore →</span>
+</div>
+<img src="{{b.img}}" alt="{{b.alt}}" loading="lazy" class="bd-img">
+</a>
+</sc-for>
+</div>
+</section>
+
 </main>
 
+<section id="authenticate" aria-label="Check your BERI is genuine" style="scroll-margin-top: 120px; padding: 140px 32px">
+<div class="au-card" data-reveal="up">
+<div class="au-copy">
+<span class="au-eyebrow">AUTHENTICITY CHECK</span>
+<h2 class="au-title">Is your<br><span>BERI real?</span></h2>
+<p class="au-lede">Every genuine BERI box carries a security label. Scratch it, enter the code and check your device in seconds.</p>
+<ol class="au-steps">
+<li><b>01</b><strong>Scratch the label</strong><span>Find the security label on your BERI box and scratch off the coating.</span></li>
+<li><b>02</b><strong>Enter the code</strong><span>Type the code exactly as printed.</span></li>
+<li><b>03</b><strong>See the result</strong><span>We check it against BERI records and tell you if it is genuine.</span></li>
+</ol>
+<div class="au-ctas">
+<a class="au-btn" href="Authenticate.dc.html">Verify my BERI →</a>
+<span class="au-note">Takes less than a minute.</span>
+</div>
+</div>
+<div class="au-stage" aria-hidden="true">
+<div class="au-ring" style="width: 420px; height: 420px"></div>
+<div class="au-ring" style="width: 300px; height: 300px; animation-direction: reverse"></div>
+<div class="au-label">
+<div class="au-lhead"><img src="assets/blob/bd8d6ee885cd447f39d73ea5ec4478b3.png" alt=""><span class="au-holo">100%</span></div>
+<p class="au-ltitle">SECURITY LABEL</p>
+<p class="au-lsub">Scratch to reveal your code</p>
+<div class="au-code">XXXX-XXXX-XXXX<span class="au-scratch"></span></div>
+<div class="au-lfoot"><span>GENUINE PRODUCT</span><span>BERI.</span></div>
+</div>
+<span class="au-ok"><i>✓</i>Genuine BERI</span>
+</div>
+</div>
+</section>
 <footer class="beri-dark" style="border-top: 1px solid var(--line)">
 <div style="max-width: 1320px; margin: 0 auto; padding: 56px 32px 140px; display: flex; flex-direction: column; gap: 24px">
 <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px">
@@ -325,8 +586,9 @@ a{color:#111113}a:hover{color:#7A5F14}
 <div style="display: flex; flex-wrap: wrap; gap: 32px; font-size: 13px; font-weight: 600; letter-spacing: 0.22em">
 <a class="beri-link" href="#top" style="color: var(--fg); text-decoration: none">HOME</a>
 <a class="beri-link" href="Cliq.dc.html" style="color: var(--fg); text-decoration: none">BERI CLIQ</a>
-<a class="beri-link" href="Crush.dc.html" style="color: var(--fg); text-decoration: none">BERI CRUSH</a>
-<a class="beri-link" href="Cirql.dc.html" style="color: var(--fg); text-decoration: none">BERI CIRQL</a>
+<a class="beri-link" href="Crush-v2.dc.html" style="color: var(--fg); text-decoration: none">BERI CRUSH</a>
+<a class="beri-link" href="Cirql-v2.dc.html" style="color: var(--fg); text-decoration: none">BERI CIRQL</a>
+<a class="beri-link" href="Eliquid.dc.html" style="color: var(--fg); text-decoration: none">BERI E-LIQUID</a>
 <a class="beri-link" href="Authenticate.dc.html" style="color: var(--fg); text-decoration: none">AUTHENTICATE</a>
 <a class="beri-link" href="Wholesale.dc.html" style="color: var(--fg); text-decoration: none">WHOLESALE</a>
 </div>
@@ -337,18 +599,13 @@ a{color:#111113}a:hover{color:#7A5F14}
 </div>
 </footer>
 
-<nav aria-label="Products" style="position: fixed; z-index: 60; left: 50%; bottom: 24px; transform: translateX(-50%); max-width: calc(100% - 32px); box-sizing: border-box; overflow-x: auto; display: flex; gap: 6px; padding: 8px; border-radius: 999px; background: rgba(17,17,19,0.38); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border: 1px solid rgba(255,255,255,0.28); box-shadow: 0 12px 36px rgba(17,17,19,0.16), inset 0 1px 0 rgba(255,255,255,0.18)">
-<sc-for list="{{strip}}" as="s" hint-placeholder-count="3">
-<a class="strip-link" href="{{s.href}}" style="{{s.style}}">{{s.label}}</a>
-</sc-for>
-</nav>
 </div>
 </template>
 <script type="text/x-dc" data-dc-script data-props='{"animations":{"editor":"boolean","default":true},"$preview":{"width":1440,"height":7800}}'>
 class Component extends DCLogic {
   constructor(props) {
     super(props);
-    this.state = { scrolled: false, flavorTab: 0, p: 0, vw: 1440, vh: 900, hdr: 116 };
+    this.state = { scrolled: false, flavorTab: 0, p: 0, vw: 1440, vh: 900, hdr: 116, tf: -1 };
   }
   componentDidMount() {
     this.reduce = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
@@ -371,9 +628,26 @@ class Component extends DCLogic {
         const ht = p * (hv.duration - 0.05);
         if (Math.abs(hv.currentTime - ht) > 0.01) hv.currentTime = ht;
       }
+      // Why BERI list: the row level with the sticky heading zooms in (mid-screen on phones).
+      let tf = -1;
+      const techSec = document.getElementById('technology');
+      if (techSec && !this.reduce) {
+        const sr = techSec.getBoundingClientRect();
+        if (sr.bottom > 0 && sr.top < vh) {
+          const hd = vw > 899 ? techSec.querySelector('h2') : null;
+          const hr = hd ? hd.getBoundingClientRect() : null;
+          const target = hr ? hr.top + hr.height / 2 : vh * 0.5;
+          let best = Infinity;
+          techSec.querySelectorAll('.tech-row').forEach((row, i) => {
+            const rr = row.getBoundingClientRect();
+            const d = Math.abs(rr.top + rr.height / 2 - target);
+            if (d < best) { best = d; tf = i; }
+          });
+        }
+      }
       const s = this.state;
-      if (Math.abs(p - s.p) > 0.001 || scrolled !== s.scrolled || vw !== s.vw || vh !== s.vh || hdr !== s.hdr) {
-        this.setState({ p: p, scrolled: scrolled, vw: vw, vh: vh, hdr: hdr });
+      if (Math.abs(p - s.p) > 0.001 || scrolled !== s.scrolled || vw !== s.vw || vh !== s.vh || hdr !== s.hdr || tf !== s.tf) {
+        this.setState({ p: p, scrolled: scrolled, vw: vw, vh: vh, hdr: hdr, tf: tf });
       }
     };
     this.onScroll = () => {
@@ -469,11 +743,13 @@ class Component extends DCLogic {
   renderVals() {
     const products = [
       {
-        name: 'CLIQ', color: '#0F7A42', surface: '#3FB876', h: 340, badge: 'REFILLABLE POD',
+        name: 'CLIQ', color: '#0F7A42', surface: '#3FB876', h: 340, badge: 'REFILLABLE POD', kind: 'REFILLABLE POD', fan: [204, 252, 46],
+        lineTag: '360° crystal tank, dual mesh coils and a refillable pod system.',
+        cardBg: 'radial-gradient(120% 70% at 50% 24%, #3FB876 0%, #0F7A42 52%, #073D21 100%)',
         img: 'assets/blob/38e90c83b18e5f9b193d4e2806393e55.webp', imgAlt: 'BERI Cliq device in Blue Rancher', heroH: 440,
         tagline: '360° crystal tank, dual mesh coils and a refillable pod system.',
-        stats: [{ v: '50K', k: 'Puffs, ECO Mode' }, { v: '18 mL', k: 'E-liquid' }, { v: '900', k: 'mAh battery' }],
-        flavorLabel: '25 flavors',
+        stats: [{ v: '50K', k: 'Puffs, ECO mode' }, { v: '18 mL', k: 'E-liquid' }, { v: '900', k: 'mAh battery' }],
+        flavorLabel: 'See all 25 flavors',
         // Lineup card shows three flavors; the middle one sits in front.
         devices: [
           { img: 'assets/blob/31b1edbaeba711836a1ad80ace0b0986.webp', alt: 'BERI Cliq in Miami Mint' },
@@ -483,11 +759,13 @@ class Component extends DCLogic {
         gradient: 'radial-gradient(120% 75% at 50% 28%, #3FB876 0%, #0F7A42 55%, #073D21 100%)'
       },
       {
-        name: 'CRUSH', color: '#C81E64', surface: '#F06BA0', h: 300, badge: '32 FLAVORS',
+        name: 'CRUSH', color: '#C81E64', surface: '#F06BA0', h: 300, badge: '35 FLAVORS', kind: 'DISPOSABLE', fan: [178, 222, 52],
+        lineTag: '40W Crush Mode and a 1.77 inch HD display that shows battery and e-liquid levels.',
+        cardBg: 'radial-gradient(120% 70% at 50% 24%, #F06BA0 0%, #C81E64 52%, #5E0A2E 100%)',
         img: 'assets/blob/40384a297060f1b830c4315be8e85a9b.webp', imgAlt: 'BERI Crush device in orange with gold side panel', heroH: 450,
         tagline: 'Up to 50,000 puffs, 40W Crush Mode and a 1.77 inch HD display.',
         stats: [{ v: '50K', k: 'Puffs (up to)' }, { v: '20 mL', k: 'E-liquid' }, { v: '1,000', k: 'mAh battery' }],
-        flavorLabel: '32 flavors',
+        flavorLabel: 'See all 35 flavors',
         devices: [
           { img: 'assets/blob/98de8943c95bc88c1c871334365c5bdd.webp', alt: 'BERI Crush in orange' },
           { img: 'assets/blob/83968a9d0e5da88f09d47d928f2ad983.webp', alt: 'BERI Crush in icy blue' },
@@ -496,11 +774,13 @@ class Component extends DCLogic {
         gradient: 'radial-gradient(90% 120% at 80% 50%, #F06BA0 0%, #C81E64 50%, #5E0A2E 100%)'
       },
       {
-        name: 'CIRQL', color: '#7A1626', surface: '#B23A48', h: 270, badge: 'NEW',
+        name: 'CIRQL', color: '#7A1626', surface: '#B23A48', h: 270, badge: 'NEW', kind: 'E-HOOKAH', fan: [232, 268, 4],
+        lineTag: 'Shisha, reimagined. Hookah-style flavor without the setup, built for after hours.',
+        cardBg: 'radial-gradient(120% 70% at 50% 24%, #C2414F 0%, #7A1626 52%, #3A0A12 100%)',
         img: 'assets/blob/e9ea89c793e45a9ce48e351c886df9d5.webp', imgAlt: 'BERI Cirql device in Lady Killer red with gold pattern and Boost and Regular modes', heroH: 580,
-        tagline: '[Cirql ki one-line tagline]',
-        stats: [{ v: '[PUFFS]', k: 'Puffs (up to)' }, { v: '[mL]', k: 'E-liquid' }, { v: '[mAh]', k: 'mAh battery' }],
-        flavorLabel: 'See flavors',
+        tagline: 'Shisha, reimagined. Up to 150,000 puffs through a quad-mesh coil.',
+        stats: [{ v: '150K', k: 'Puffs (up to)' }, { v: 'Quad', k: 'Mesh coil' }, { v: '2', k: 'Modes: Regular / Boost' }],
+        flavorLabel: 'See all 13 flavors',
         devices: [
           { img: 'assets/blob/f1f2cd52ab49ddb46b7471ab0a396135.webp', alt: 'BERI Cirql in Peach Ice' },
           { img: 'assets/blob/4ae31177e89431358a0d6d868583c620.webp', alt: 'BERI Cirql in Lady Killer' },
@@ -509,6 +789,20 @@ class Component extends DCLogic {
         gradient: 'radial-gradient(90% 120% at 80% 50%, #C2414F 0%, #7A1626 50%, #3A0A12 100%)'
       }
     ];
+    // E-liquid joins the lineup cards only (the hero and the bottom strip keep the three devices).
+    const eliquidCard = {
+      name: 'E-LIQUID', page: 'Eliquid.dc.html', color: '#8A6A12', kind: 'BOTTLED',
+      lineTag: 'The best damn disposable flavors in a bottle. Nicotine salt, bottled in California.',
+      stats: [{ v: '30 mL', k: 'Bottle' }, { v: '25 / 50', k: 'mg nicotine salt' }, { v: '12', k: 'Flavors' }],
+      flavorLabel: 'See all 12 flavors',
+      fan: [192, 238, 72],
+      devices: [
+        { img: 'assets/blob/c0daf37ea766e474926e658d11a346e1.webp', alt: 'BERI E-liquid Apple Caramel Pop 30 mL bottle and box' },
+        { img: 'assets/blob/3d858aae4240f9970718948a763034d6.webp', alt: 'BERI E-liquid Blue Frost 30 mL bottle and box' },
+        { img: 'assets/blob/f0fa8a646bc2f47cec96581b20325cd1.webp', alt: 'BERI E-liquid Red Ropes 30 mL bottle and box' }
+      ],
+      cardBg: 'radial-gradient(120% 70% at 50% 24%, #F2C94C 0%, #A57B14 48%, #3D2C05 100%)'
+    };
     // Cliq flavor photos for the home page slider (same set as the Cliq product page).
     const flavorSlider = [
       { name: 'Alaskan Mint', img: 'assets/blob/958393619da0898a35d58c44c31317f8.webp', color: '#7CB518' },
@@ -538,9 +832,9 @@ class Component extends DCLogic {
       { name: 'White Strawberry', img: 'assets/blob/c897eabec665fc76436422ae0c2dd1b2.webp', color: '#F0524F' }
     ];
     const techBanners = [
-      { name: 'CLIQ', color: '#3FB876', img: 'assets/blob/a0379a66f1c66bf53840606c6603637e.webp', alt: 'BERI Cliq: Find your Cliq. Cliq Mode 25K puffs, Normal Mode 50K puffs' },
-      { name: 'CRUSH', color: '#F06BA0', img: 'assets/blob/0a2532abcfdd671f02c321ad6f8258e5.webp', alt: 'BERI Crush: up to 40W power' },
-      { name: 'CIRQL', color: '#C2414F', img: 'assets/blob/0f9b20cdbf809de2a74caca0cba9a190.webp', alt: 'BERI Cirql: 150K puffs, shown in Mixed Berries and blue with their boxes' }
+      { name: 'CLIQ', color: '#0F7A42', tint: 'rgba(91,227,154,0.12)', soft: '#5BE39A', img: 'assets/blob/a0379a66f1c66bf53840606c6603637e.webp', alt: 'BERI Cliq: Find your Cliq. Cliq Mode 25K puffs, Normal Mode 50K puffs', chips: ['Refillable pod', 'Up to 50K puffs', '360° crystal tank'] },
+      { name: 'CRUSH', color: '#C81E64', tint: 'rgba(255,125,176,0.12)', soft: '#FF7DB0', img: 'assets/blob/0a2532abcfdd671f02c321ad6f8258e5.webp', alt: 'BERI Crush: up to 40W power', chips: ['Disposable', '40W Crush Mode', '1.77" HD screen'] },
+      { name: 'CIRQL', color: '#7A1626', tint: 'rgba(242,161,172,0.12)', soft: '#F2A1AC', img: 'assets/blob/0f9b20cdbf809de2a74caca0cba9a190.webp', alt: 'BERI Cirql: 150K puffs, shown in Mixed Berries and blue with their boxes', chips: ['E-hookah', 'Up to 150K puffs', 'Regular + Boost'] }
     ];
     // The hero pins in a window-sized view while scroll scrubs the lineup clip; the copy stays put.
     const vw = this.state.vw;
@@ -583,6 +877,24 @@ class Component extends DCLogic {
       CIRQL: ['rgba(224,48,74,0.72)', 'rgba(255,79,154,0.32)']
     };
     const glowSize = Math.round((mobile ? 420 : 640) * sizeK);
+    // Colour hero: the stage takes the background colour of the lineup clip at the current scroll point
+    // (sampled from the clip every half second: Cliq blue, Crush peach, Cirql rose), so the copy side and the
+    // clip read as one scene. The far left gets a richer version of the same colour.
+    const heroTints = ["#C9DDE5", "#C9DDE5", "#C9DDE5", "#C9DDE5", "#CADDE5", "#C9DDE7", "#C5DDE6", "#CADDE6", "#C4D7E5", "#CADDE6", "#C5DDE5", "#DDD0C2", "#F3C5A1", "#F2C5A1", "#F2C5A1", "#F2C5A1", "#F3C5A2", "#F3C5A4", "#F3C5A4", "#F3C4A2", "#F3C4A1", "#F2C3A0", "#E5B7A7", "#D8ADAF", "#D8ADB0", "#D7ACAF", "#D7ADAF", "#D9ACAF", "#D8ADB0", "#D8ADAF", "#D7ACAF", "#D7ADAF", "#D7ACAF", "#D8ACAF"];
+    const hexRgb = (h) => [parseInt(h.slice(1, 3), 16), parseInt(h.slice(3, 5), 16), parseInt(h.slice(5, 7), 16)];
+    const tintRgb = (() => {
+      const n = heroTints.length - 1;
+      const f = clamp01(p) * n;
+      const i = Math.min(n - 1, Math.floor(f));
+      const a = hexRgb(heroTints[i]), b = hexRgb(heroTints[i + 1]);
+      return a.map((v, j) => Math.round(lerp(v, b[j], f - i)));
+    })();
+    const richRgb = (() => {
+      const g = (tintRgb[0] + tintRgb[1] + tintRgb[2]) / 3;
+      return tintRgb.map((v) => Math.round(Math.min(255, Math.max(0, g + (v - g) * 1.9 + 6))));
+    })();
+    const rgba = (c, a) => 'rgba(' + c[0] + ',' + c[1] + ',' + c[2] + ',' + a + ')';
+    const overHero = pinned ? p < 0.995 : !this.state.scrolled;
     // Stickers sit beside the starting device cluster and leave with the copy.
     const stickerShow = 1 - copyOut;
     const spinSize = mobile ? 92 : Math.round(150 * sizeK);
@@ -590,11 +902,11 @@ class Component extends DCLogic {
     const newAt = [600 * k, -250 * sizeK];
 
     return {
-      navStyle: 'transition: background 0.4s ease, border-color 0.4s ease, backdrop-filter 0.4s ease; ' + (this.state.scrolled
-        ? 'background: rgba(246,243,238,0.72); backdrop-filter: blur(18px) saturate(160%); -webkit-backdrop-filter: blur(18px) saturate(160%); border-bottom: 1px solid rgba(17,17,19,0.08); box-shadow: 0 8px 30px rgba(17,17,19,0.06)'
-        : 'background: rgba(246,243,238,0); border-bottom: 1px solid rgba(17,17,19,0)'),
-      heroTrackStyle: 'position: relative; margin-top: -80px; height: ' + (pinned ? '3600px' : 'auto'),
-      heroStageStyle: (pinned ? 'position: sticky; top: 0; height: 100vh; ' : 'position: relative; height: 900px; ') + 'min-height: 720px; overflow: hidden; isolation: isolate; background: #FFF8F1',
+      // Floating pill header: no bar behind it at any scroll point, only the glass pill and the logo.
+      navStyle: 'padding: 10px 0; background: transparent',
+      heroFadeStyle: 'position: absolute; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(90deg, ' + rgba(richRgb, 0.95) + ' 0%, ' + rgba(richRgb, 0.7) + ' 26%, ' + rgba(tintRgb, 0.35) + ' 44%, ' + rgba(tintRgb, 0) + ' 60%)',
+      heroTrackStyle: 'position: relative; margin-top: -' + (this.state.hdr || 116) + 'px; height: ' + (pinned ? '3600px' : 'auto'),
+      heroStageStyle: (pinned ? 'position: sticky; top: 0; height: 100vh; ' : 'position: relative; height: 900px; ') + 'min-height: 720px; overflow: hidden; isolation: isolate; background: ' + rgba(tintRgb, 1),
       // The logo tile is multiplied over a moving rainbow (white fill takes the colour, the outline stays dark),
       // then masked by the same tile so only the logos show.
       patternStyle: 'position: absolute; z-index: 0; left: 0; right: 0; top: -10%; height: 160%; background-image: url("assets/blob/2cffc67c998d9d4fcfa45c0105a151bb.png"), linear-gradient(120deg, #2B7FFF, #FF4F9A, #FF9A1F, #3FB876, #8B5CF6, #2B7FFF); background-size: 220px 140px, 300% 300%; background-repeat: repeat, no-repeat; background-blend-mode: multiply; -webkit-mask-image: url("assets/blob/2cffc67c998d9d4fcfa45c0105a151bb.png"); mask-image: url("assets/blob/2cffc67c998d9d4fcfa45c0105a151bb.png"); -webkit-mask-size: 220px 140px; mask-size: 220px 140px; -webkit-mask-repeat: repeat; mask-repeat: repeat; opacity: 0.07; pointer-events: none',
@@ -617,8 +929,8 @@ class Component extends DCLogic {
         const areaH = (pinned ? vh : 900) - hdr;
         const wide = vw / Math.max(1, areaH) > 1.6;
         return 'position: absolute; z-index: 0; top: ' + hdr + 'px; height: calc(100% - ' + hdr + 'px); ' + (wide
-          ? 'right: 0; width: auto; max-width: none; -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 22%); mask-image: linear-gradient(90deg, transparent 0%, #000 22%)'
-          : 'left: 0; width: 100%; object-fit: cover; object-position: 62% 50%');
+          ? 'right: 0; width: auto; max-width: none; -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 22%), linear-gradient(180deg, transparent 0, #000 64px); -webkit-mask-composite: source-in; mask-image: linear-gradient(90deg, transparent 0%, #000 22%), linear-gradient(180deg, transparent 0, #000 64px); mask-composite: intersect'
+          : 'left: 0; width: 100%; object-fit: cover; object-position: 62% 50%; -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 64px); mask-image: linear-gradient(180deg, transparent 0, #000 64px)');
       })(),
       heroBarStyle: 'height: 100%; border-radius: 3px; background: linear-gradient(90deg, #2B7FFF, #FF9A1F, #C2414F); width: ' + (p * 100).toFixed(2) + '%; display: ' + (pinned ? 'block' : 'none'),
       hintStyle: 'position: absolute; z-index: 3; left: 50%; bottom: 110px; transform: translateX(-50%); display: ' + (pinned ? 'flex' : 'none') + '; flex-direction: column; align-items: center; gap: 10px; font-size: 11px; font-weight: 700; letter-spacing: 0.32em; color: var(--mute); opacity: ' + clamp01(1 - p * 5),
@@ -635,7 +947,7 @@ class Component extends DCLogic {
           glowInner: 'background: radial-gradient(closest-side, ' + g[0] + ', ' + g[1] + ' 55%, rgba(255,255,255,0) 100%); animation-delay: ' + (-1.7 * i) + 's',
           name: d.name,
           img: d.img,
-          href: d.name.charAt(0) + d.name.slice(1).toLowerCase() + '.dc.html',
+          href: ({ CRUSH: 'Crush-v2.dc.html', CIRQL: 'Cirql-v2.dc.html' }[d.name] || (d.name.charAt(0) + d.name.slice(1).toLowerCase() + '.dc.html')),
           floatStyle: 'animation-duration: ' + [6, 7, 5.5][i] + 's; animation-delay: ' + (1.2 + i * 0.25) + 's',
           alt: d.imgAlt,
           style: 'position: absolute; z-index: ' + f[0][4] + '; left: 50%; top: 50%; margin: 0; display: flex; flex-direction: column; align-items: center; transform: translate(-50%, -50%) translate(' + x + 'px, ' + yy + 'px) rotate(' + r + 'deg) scale(' + s + '); will-change: transform',
@@ -645,35 +957,31 @@ class Component extends DCLogic {
           dotStyle: 'display: inline-block; width: ' + (12 / s).toFixed(1) + 'px; height: ' + (12 / s).toFixed(1) + 'px; border-radius: 999px; background: ' + d.color
         };
       }),
-      // Lineup: the first product is the tall feature card, the other two sit beside it.
-      cards: products.map((p, i) => {
-        const feature = i === 0;
-        const href = p.name.charAt(0) + p.name.slice(1).toLowerCase() + '.dc.html';
-        // [back height, front height, overlap] for the three-device fan.
-        const fan = feature ? [300, 380, 60] : (p.name === 'CIRQL' ? [270, 320, 10] : [190, 230, 50]);
+      // Lineup: four equal cards in one row; each fans three flavors with the middle one in front.
+      cards: products.concat([eliquidCard]).map((p, i) => {
+        const href = p.page || (({ CRUSH: 'Crush-v2.dc.html', CIRQL: 'Cirql-v2.dc.html' }[p.name] || (p.name.charAt(0) + p.name.slice(1).toLowerCase() + '.dc.html')));
+        // [back height, front height, overlap] sized so every fan fits the same media box.
+        const fan = p.fan;
         return {
           name: p.name,
           devices: p.devices.map((d, j) => ({
             img: d.img,
             alt: d.alt,
-            style: 'position: relative; z-index: ' + (j === 1 ? 3 : 1) + '; height: ' + (j === 1 ? fan[1] : fan[0]) + 'px; margin: 0 ' + (j === 0 ? -fan[2] : 0) + 'px 0 ' + (j === 2 ? -fan[2] : 0) + 'px; --r: ' + [-12, 0, 12][j] + 'deg; --x: ' + [-10, 0, 10][j] + 'px'
+            style: 'position: relative; z-index: ' + (j === 1 ? 3 : 1) + '; height: ' + (j === 1 ? fan[1] : fan[0]) + 'px; margin: 0 ' + (j === 0 ? -fan[2] : 0) + 'px 0 ' + (j === 2 ? -fan[2] : 0) + 'px; --r: ' + [-10, 0, 10][j] + 'deg; --x: ' + [-8, 0, 8][j] + 'px'
           })),
-          badge: p.badge,
-          tagline: p.tagline,
+          badge: p.kind,
+          tagline: p.lineTag,
           stats: p.stats,
           index: '0' + (i + 1),
           anchor: 'product-' + p.name.toLowerCase(),
           href: href,
           flavorHref: href + '#flavors',
           flavorLabel: p.flavorLabel,
+          cta: 'Explore BERI ' + p.name + ' →',
+          flavorCta: p.flavorLabel + ' →',
           color: p.color,
-          cls: 'lu-card ' + (feature ? 'lu-feature' : 'lu-side'),
-          style: 'scroll-margin-top: 140px; background: ' + p.gradient,
-          wordStyle: 'position: absolute; z-index: -1; font-family: var(--display); line-height: 0.8; white-space: nowrap; color: #FFFFFF; opacity: 0.1; pointer-events: none; ' + (feature ? 'right: -24px; top: 12px; font-size: 340px' : 'left: -12px; bottom: -36px; font-size: 230px'),
-          mediaStyle: feature
-            ? 'position: relative; flex: 1 1 auto; display: flex; align-items: flex-end; justify-content: center; min-height: 400px; padding: 8px 0 28px'
-            : 'position: relative; order: 2; flex: 0 0 46%; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 8px',
-          nameStyle: 'margin: 0; font-family: var(--display); font-weight: 400; line-height: 0.88; font-size: ' + (feature ? 120 : 80) + 'px'
+          // Product logo repeated behind the card as a soft texture.
+          style: 'scroll-margin-top: 140px; background: ' + p.cardBg + '; --logo: url(' + ({ CLIQ: 'assets/blob/e64e8c7902539b056561386143d17f3e.webp', CRUSH: 'assets/blob/b2c88c4fa1062e9f933ffb37bb39c5ff.webp', CIRQL: 'assets/blob/601b3347995ee75c5806b2cd82298933.webp', 'E-LIQUID': 'assets/blob/bbc52b1f7a19e7e64a5e50854eed55ee.webp' })[p.name] + ')'
         };
       }),
       slides: (() => {
@@ -685,24 +993,33 @@ class Component extends DCLogic {
       })(),
       techBanners: techBanners.map((b, i) => ({
         name: b.name,
-        href: b.name.charAt(0) + b.name.slice(1).toLowerCase() + '.dc.html',
+        num: '0' + (i + 1),
+        href: ({ CRUSH: 'Crush-v2.dc.html', CIRQL: 'Cirql-v2.dc.html' }[b.name] || (b.name.charAt(0) + b.name.slice(1).toLowerCase() + '.dc.html')),
         img: b.img,
         alt: b.alt,
-        dotStyle: 'display: inline-block; width: 12px; height: 12px; border-radius: 999px; background: ' + b.color,
+        chips: b.chips,
+        dotStyle: 'display: inline-block; flex: 0 0 auto; width: 12px; height: 12px; border-radius: 999px; background: ' + b.color,
+        chipStyle: 'background: ' + b.tint + '; color: ' + b.soft,
+        goStyle: 'background: ' + b.color,
         // Cards stick one after another under the header so they stack while scrolling.
-        style: 'position: sticky; top: ' + (140 + i * 28) + 'px; display: block; box-sizing: border-box; padding: 16px; border-radius: 34px; background: #17171A; border: 1px solid #2C2C31; box-shadow: 0 -24px 50px rgba(0,0,0,0.45); text-decoration: none'
+        style: 'position: sticky; top: ' + (140 + i * 28) + 'px; display: block; box-sizing: border-box; padding: 14px; border-radius: 32px; background: #17171A; border: 1px solid #2C2C31; box-shadow: 0 -24px 50px rgba(0,0,0,0.45); text-decoration: none; color: #F3F0E9'
       })),
+      // Brand-level reasons to pick BERI (not single-device specs).
       tech: [
-        { big: '50K', title: 'Up to 50,000 puffs', text: 'Crush and Cliq both run up to 50,000 puffs. Cliq Mode gives up to 25,000 at higher output.' },
-        { big: '40W', title: 'Crush Mode', text: 'One switch on Crush kicks power up to 40W for a more intense hit.' },
-        { big: '1.77"', title: 'HD display', text: 'Crush shows battery and e-liquid levels on a 1.77 inch HD screen.' },
-        { big: '360°', title: 'Crystal tank', text: 'Cliq’s transparent tank and refillable pod system let you see every drop.' },
-        { big: 'MESH', title: 'Quad and dual mesh coils', text: 'Quad-coil mesh on Crush, dual mesh on Cliq, for even heating and full flavor.' },
-        { big: 'USB-C', title: 'Fast Type-C charging', text: '1,000 mAh on Crush and 900 mAh on Cliq, both topped up over Type-C.' }
-      ],
+        { big: '2.5×', title: 'Fast Type-C charging', text: 'Cliq and Crush charge 2.5× faster over USB Type-C. Crush goes from empty to full in about 30 minutes.' },
+        { big: 'MESH', title: 'Mesh in every device', text: 'Dual-mesh on Cliq, quad-mesh on Crush and Cirql, for even heat and consistent flavor to the last puff.' },
+        { big: '2', title: 'Power modes on every device', text: 'ECO and CLIQ Mode on Cliq, auto-adaptive power with a 40W Crush Mode, and Regular or Boost on Cirql.' },
+        { big: '150K', title: 'Puffs at the top end', text: 'Cirql runs up to 150,000 puffs, and Cliq and Crush go up to 50,000, so you replace less often.' },
+        { big: '85', title: 'Flavors across 4 formats', text: 'Refillable pod, disposable, e-hookah and bottled e-liquid: 25 on Cliq, 35 on Crush, 13 on Cirql and 12 in e-liquid.' },
+        { big: '0–5%', title: 'Your strength, your call', text: '5% on Cliq and Crush, 0% nicotine in five Crush flavors, and 25 or 50 mg nicotine salt in e-liquid.' },
+        { big: 'USA', title: 'Rooted in the USA', text: 'Crush is designed in the USA, Cirql is made in the USA and our e-liquid is bottled in California.' },
+        { big: '100%', title: 'Verifiable authenticity', text: 'Every genuine box carries a scratch-off security label you can check on our site in seconds.' }
+      ].map((row, i) => Object.assign({}, row, {
+        zoomStyle: 'display: flex; flex-wrap: wrap; align-items: center; gap: 8px 32px; transform-origin: center center; transition: transform .5s cubic-bezier(.2,.7,.2,1); transform: scale(' + (this.state.tf < 0 ? 1 : i === this.state.tf ? (this.state.vw > 899 ? 1.14 : 1.06) : (this.state.vw > 899 ? 0.92 : 0.95)) + ')'
+      })),
       strip: products.map((p) => ({
         label: 'Beri ' + p.name.charAt(0) + p.name.slice(1).toLowerCase(),
-        href: p.name.charAt(0) + p.name.slice(1).toLowerCase() + '.dc.html',
+        href: ({ CRUSH: 'Crush-v2.dc.html', CIRQL: 'Cirql-v2.dc.html' }[p.name] || (p.name.charAt(0) + p.name.slice(1).toLowerCase() + '.dc.html')),
         style: 'flex: 0 0 auto; display: inline-flex; align-items: center; min-height: 56px; padding: 0 34px; border-radius: 999px; font-size: 17px; font-weight: 700; white-space: nowrap; text-decoration: none; color: #FFFFFF'
       })),
     };

@@ -7,7 +7,7 @@
 
   const HOLE = /\{\{\s*([^}]+?)\s*\}\}/g;
   // Page links in the designs point at canvas file names; map them to the published files.
-  const PAGES = { 'beri-premium': 'index.html', cliq: 'cliq.html', crush: 'crush.html', cirql: 'cirql.html', authenticate: 'authenticate.html', wholesale: 'wholesale.html' };
+  const PAGES = { 'home-color-images': 'index.html', 'beri-premium': 'index.html', cliq: 'cliq.html', 'crush-v2': 'crush.html', crush: 'crush.html', 'cirql-v2': 'cirql.html', cirql: 'cirql.html', eliquid: 'eliquid.html', authenticate: 'authenticate.html', wholesale: 'wholesale.html' };
 
   function lookup(scope, path) {
     if (path === 'true') return true;
@@ -34,7 +34,7 @@
   }
 
   function fixHref(v) {
-    return v.replace(/^([A-Za-z-]+)\.dc\.html/, (m, name) => PAGES[name.toLowerCase()] || name.toLowerCase() + '.html');
+    return v.replace(/^([A-Za-z0-9-]+)\.dc\.html/, (m, name) => PAGES[name.toLowerCase()] || name.toLowerCase() + '.html');
   }
 
   // Template -> virtual nodes: { text } or { tag, ns, attrs: [[name, value]], on: {event: fn}, kids }.
